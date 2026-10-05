@@ -126,49 +126,42 @@
                          v
 9. WHAT I WOULD DO WITH MORE TIME
    |
-   ├── Build an SME-reviewed golden dataset
-   |   I would work with subject-matter experts to create vague test
-   |   requests based on the system context. Each scenario would
-   |   include expected concerns, acceptable scope decisions,
-   |   unresolved dependencies, and reasonable stopping conditions.
-   |   This would give us a reference for judging reasoning quality,
-   |   without assuming there is only one correct proposal.
+   ├── Let the Critic think independently first
+   |   Give it the original request before showing the Proposer's
+   |   answer. See whether it catches issues that it misses when
+   |   following the Proposer's interpretation.
    |
-   ├── Use an LLM judge to improve prompts iteratively
-   |   After each evaluation run, an LLM judge would compare the
-   |   dialogue and final report against the reference criteria.
-   |   It would identify failures with supporting message references
-   |   and propose revised prompts for the three agents.
+   ├── Check whether the Proposer follows evidence or confident wording
+   |   Present valid and invalid objections in both polite and
+   |   forceful language. It should accept useful criticism and
+   |   defend sound decisions, regardless of tone.
    |
-   |             Run → Judge → Revise prompts → Run again
+   ├── Ask the Critic to explain what could actually go wrong
+   |   Instead of saying "access control is unclear," ask for a
+   |   concrete failure scenario. This makes the concern easier
+   |   to understand and the proposed fix easier to evaluate.
    |
-   |   I would retain a revision only when it improves measured
-   |   performance without weakening other behaviors. SMEs would
-   |   review the judge's assessments, and separate, untouched
-   |   scenarios would test whether improvements generalize.
+   ├── Check whether stopping was the right decision
+   |   In a separate test, allow one extra round after completion.
+   |   See whether it discovers something important, repeats the
+   |   discussion, or introduces unnecessary requirements.
    |
-   ├── Test behavioral boundaries and temperature
-   |   I would strengthen and compare instructions about when the
-   |   Proposer should defend or revise, when the Critic should
-   |   challenge or accept, and what the Summarizer may claim.
-   |   I would vary each agent's temperature separately and repeat
-   |   runs to measure consistency, premature agreement, unnecessary
-   |   objections, and report accuracy.
+   ├── Change one fact and check whether the decision changes appropriately
+   |   For example, replace an unknown policy with an explicit
+   |   restriction. Also paraphrase the same request to check that
+   |   harmless wording changes do not produce substantially
+   |   different scope.
    |
-   └── Compare models and explore weight fine-tuning
-       I observed the Proposer accepting criticism too readily in
-       some runs. I would compare pretrained models under the same
-       evaluation conditions to separate model effects from prompt
-       effects. These observations do not establish model age,
-       size, or RLHF as the cause.
-
-       If prompt improvements remained insufficient, I would
-       fine-tune an open-weight model using SME-reviewed dialogues
-       derived from the golden dataset. Training examples would
-       demonstrate justified defence, revision, and stopping.
-       Evaluation cases would remain outside the training data.
-       I would compare quality, inference cost, and maintenance
-       against the existing prompt-only approach.
+   ├── Test the LLM judge before letting it improve prompts
+   |   Give it reports with deliberately missing conditions,
+   |   incorrect citations, or false claims of agreement. Check
+   |   whether it catches these mistakes, and whether changing
+   |   the order of reports affects its judgment.
+   |
+   └── Compare the debate against a simpler approach
+       Let a single model draft and review the scope using a similar
+       token budget. This would show where the two-agent discussion
+       improves quality enough to justify the extra calls.
 ```
 
 Research reference: [Anthropic’s study of sycophancy](https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models).
