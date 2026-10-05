@@ -15,6 +15,8 @@ The supplied examples use a Government CRM for Operations and Country Engagement
 - **Understand the design:** [architecture](#architecture), [termination](#termination), and [DECISIONS.md](DECISIONS.md).
 - **Review evidence and limitations:** [sample runs](#sample-runs) and [EVALUATION.md](EVALUATION.md).
 
+> **Note on [DECISIONS.md](DECISIONS.md):** I used AI to help write and arrange my thoughts and assumptions into a vertical flow, like a progress bar showing how my thinking developed.
+
 ## Run screenshots
 
 ### Agent exchanges

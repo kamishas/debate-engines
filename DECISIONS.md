@@ -1,3 +1,5 @@
+> **Writing note:** I used AI to help write and arrange my thoughts and assumptions into a vertical flow, like a progress bar showing how my thinking developed.
+
 ```text
 1. MOTIVATION
    I wanted to turn vague feature requests into a scope someone
