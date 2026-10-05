@@ -1,0 +1,341 @@
+{
+  "original_request": "The CRM should alert us when our relationship with a country goes cold.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "completed",
+  "termination_reason": "All outstanding challenges have been addressed. The Proposer has accepted, defended, or revised the proposal across three rounds in response to Critic feedback. Challenge C9 is now resolved with explicit addition of post-launch governance requirements to conditional scope. No unresolved challenges remain. The scope is coherent: core feature logic (inactivity detection with human review and alerting) is clearly defined; included and excluded behaviors are explicit; success criteria are observable and testable; assumptions are material and visible; and material external dependencies (stakeholder inputs on engagement activity, thresholds, exemptions, routing, access control, and post-launch governance) are honestly represented and assigned to appropriate owners. The five blocking open questions (engagement activity definition, inactivity threshold, exemption criteria, alert routing, access-control workflow) are legitimate external dependencies held by Operations, Regional Leadership, and Security stakeholders, not deficiencies in the proposal. The proposal is ready to be documented and handed to stakeholders for the required decisions. Another exchange is unlikely to improve the proposal without new information from stakeholders.",
+  "completed_rounds": 3,
+  "partial": false,
+  "latest_confidence": {
+    "proposer": {
+      "score": 70,
+      "justification": "The proposal now provides a coherent, defensible interpretation of the request, correctly maps it to an operational feature with explicit human-in-the-loop governance, and honestly acknowledges all material external dependencies. The excluded scope is appropriate (no automatic actions, no predictive forecasting, no direct ranking); the conditional scope identifies six blocking unknowns and now includes a seventh requirement for post-launch governance (ownership, review cadence, recalibration thresholds, approval authority). The revised success criteria include observable, testable post-launch adoption metrics ('at least 70% acknowledged within 7 days', documented action within 14 days, false positives tracked). Assumptions are explicit and material. The proposal demonstrates honest engagement with all prior challenges, accepting revisions where gaps were identified (C6, C7, C8) and now extending this to post-launch governance (C9). The remaining uncertainty is held entirely by external stakeholders (Operations, Regional Leadership, Security, Analytics) and does not reflect weakness in the proposal's logic or scoping. The proposal is now sufficiently detailed and grounded to support informed stakeholder decision-making and documentation.",
+      "main_uncertainty": "The operational definition of 'cold' (engagement activity definition, inactivity threshold, exemption criteria, and access-control workflow for sensitive contacts) and the post-launch governance model (ownership, review cadence, recalibration triggers, approval authority) are held by external stakeholders and must be provided before detailed design can proceed and after launch to ensure metrics are consistently measured and acted upon.",
+      "round": 3,
+      "message_id": "r3-proposer"
+    },
+    "critic": {
+      "score": 72,
+      "justification": "The proposal now provides a coherent, defensible interpretation of the request, correctly maps it to an operational feature with explicit human-in-the-loop governance, and honestly acknowledges all material external dependencies. The excluded scope is appropriate (no automatic actions, no predictive forecasting, no direct prioritization). The conditional scope identifies seven explicit stakeholder requirements covering engagement activity definition, inactivity threshold governance, exemption criteria, alert routing, access-control workflow, post-launch measurement, and post-launch governance model. Success criteria are observable and testable, including post-launch adoption metrics. Assumptions are explicit and material to feasibility. The proposal demonstrates consistent engagement with feedback across three rounds, accepting and substantively addressing all prior challenges (C1–C9). The remaining uncertainty is held entirely by external stakeholders and does not reflect weakness in the proposal's logic, scoping, or governance model. Confidence reflects that the proposal is ready for stakeholder decision-making and documentation.",
+      "main_uncertainty": "The operational definition of 'cold' (which activities count, what thresholds apply, which relationships are exempt, how sensitive contacts are handled) and the post-launch governance model (ownership, review cadence, recalibration triggers, approval authority) are held by Operations, Regional Leadership, Security, and Analytics stakeholders. These decisions must be provided to finalize detailed design and establish post-launch measurement discipline.",
+      "round": 3,
+      "message_id": "r3-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "The deliberation produced a coherent proposal for an automated cold-relationship alert system for the Government CRM. The feature detects meaningful gaps in engagement activity with country relationships and surfaces alerts to regional coordinators and project managers for human review and decision-making. No automatic actions are taken; all downstream relationship modifications are human-initiated. The proposal was refined across three rounds through Proposer-Critic exchange, with the Proposer accepting, defending, or revising the scope in response to identified challenges. All outstanding challenges are now resolved. The proposal is grounded in the system context (diplomatic sensitivities, access control requirements, multi-region operations) and explicitly acknowledges material external dependencies on stakeholder input for detailed design. Five blocking implementation questions and one supporting post-launch governance question remain open and are held by Operations, Regional Leadership, Security, and Analytics stakeholders. The deliberation reached completion without unresolved disagreement; the proposal is ready for stakeholder handoff for required decisions.",
+    "agreed_included_scope": [
+      {
+        "statement": "Detection of relationship inactivity based on a configurable engagement activity definition (to be provided by Operations stakeholders).",
+        "reason": "The proposal grounds inactivity detection in CRM engagement history (contact interactions, meetings, communications, project affiliations, and mission involvement), allowing operational definition of 'cold' without hard-coding a specific activity set. Configurability is necessary because different organizational units and regions have different engagement rhythms. Both Proposer and Critic agreed that engagement activity definition must be provided by stakeholders before detection logic can be implemented.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Alerting mechanism that notifies designated users when inactivity thresholds are met, respecting access control boundaries and confidentiality restrictions.",
+        "reason": "Both Proposer and Critic agreed that alerts must reach assigned users (regional coordinators, project managers) without exposing sensitive contacts to unauthorized staff. This is necessary given the system context noting some contacts carry diplomatic or confidentiality considerations.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Configurable inactivity threshold(s) that can be set or adjusted by Operations staff, with potential for region, country category, or mission-type variation.",
+        "reason": "Both agents agreed that engagement cadences vary across relationships and regions, and a one-size-fits-all threshold would generate false positives or miss genuine drift. Configurability without code changes allows adaptation as organizational engagement patterns are learned.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Exclusion of relationships with active missions or projects from automatic alerts, subject to a clear operational definition of 'active' (to be provided).",
+        "reason": "Both agents agreed that relationships with active missions or recent engagement should not trigger cold-relationship alerts, to avoid false positives and alert fatigue. However, 'active' must be operationally defined by stakeholders before the system can reliably exclude relationships.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Audit trail of alert generation, delivery, user acknowledgment, and actions taken for accountability and compliance.",
+        "reason": "Both agents agreed that auditing alert generation, delivery, and user actions is necessary for accountability and to support governance and compliance reviews. The detailed specification of audit events, retention policy, and access control for audit logs themselves was deferred to Compliance and Security stakeholders as a supporting detail.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Automatic actions taken on cold relationships (e.g., removing contacts, closing relationships, or reclassifying countries) without human approval.",
+        "reason": "Both agents agreed that the system will not automatically modify relationships, contacts, or relationship status. Given the diplomatic and confidentiality sensitivities in the system context, automatic actions could expose sensitive contacts or damage relationships. All downstream decisions must be human-initiated and approved.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Changes to contact record visibility or access controls based on coldness.",
+        "reason": "Both agents agreed that coldness detection will not trigger access control changes. Access control must remain under explicit governance; relationship inactivity is a signal for human review, not a justification for automatic de-authorization.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Integration with external diplomatic or political intelligence systems.",
+        "reason": "Both agents agreed this is out of scope. The feature uses only CRM-internal engagement history. External intelligence integration would require separate authorization and governance.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Predictive forecasting of future relationship health beyond pattern-based inactivity detection.",
+        "reason": "Both agents agreed the feature is reactive (based on observed inactivity patterns), not predictive. Forecasting would require machine learning or external data, which is out of scope.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Ranking or prioritization of countries by coldness for executive dashboards (scope can be added later if demand arises).",
+        "reason": "Both agents agreed this is explicitly deferred to a future phase. The current feature surfaces alerts to assigned stewards; executive-level dashboards or country rankings can be added later if organizational demand arises.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "Definition of 'engagement activity': The system must receive explicit guidance from Operations stakeholders on which CRM events count toward relationship health (e.g., recorded contact calls and meetings only; calls and meetings plus logged emails; interactions plus project milestones; inclusion or exclusion of passive activities like document views). The alert detection logic will be implemented to match the provided definition.",
+        "reason": "The definition of 'engagement activity' directly determines which countries will trigger cold-relationship alerts and the signal quality of the feature. Narrower definitions may miss genuinely dormant relationships; broader definitions may include noise and reduce accuracy. Different organizational units and regions may have different engagement practices, requiring flexibility. This must be provided by Operations stakeholders before detection logic can be implemented.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Inactivity threshold and governance: Operations stakeholders must provide a recommended default threshold (in days or months) and specify whether and how different thresholds apply to different regions, country categories (e.g., active partners vs. exploratory), or mission statuses. A governance model for threshold modification must be documented (per-country override, regional config, global review process).",
+        "reason": "The threshold governs alert frequency and false-positive rate. Without a defined threshold, the system cannot determine when to alert. Multiple thresholds may be needed for different relationship contexts (e.g., active donor countries may have longer acceptable gaps than exploratory relationships). A governance model is necessary to document how thresholds are set, reviewed, and modified without creating inconsistency or drift.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Exemption criteria and operational definitions: Stakeholders must clarify what constitutes an 'active' mission or project for exemption purposes (date ranges, status codes), identify permanent or conditional exemptions (confidential diplomatic channels, strategic dormant categories), and specify who approves exemptions and how frequently they are reviewed.",
+        "reason": "Clear exemption criteria prevent false positives on intentionally low-contact relationships and protect sensitive contacts from exposure through alerts. Without clear definitions (e.g., 'a mission is active if touched in the last 30 days' or 'a project with status=active or status=pending'), the system cannot reliably exclude relationships that should not alert. This must be provided by Regional Leadership and Security stakeholders.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Alert recipient routing rules: Operations and regional leadership must define the routing logic per country (primary regional coordinator only, all active project managers, regional leadership, escalation fallbacks) and specify whether recipients are configurable per country or standardized by role.",
+        "reason": "Alerts must be routed to decision-makers who own the relationship and can act on the signal. Incorrect routing results in alerts being ignored or missed by the responsible party, reducing value and creating audit risk. Routing clarity is necessary for accountability and operational effectiveness. This must be provided by Operations and Regional Leadership.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Access-control workflow for confidential contacts: Security and governance stakeholders must define how confidentiality restrictions are marked in the CRM, what happens when a cold-relationship alert is triggered on a country with restricted contacts (alert withheld, redacted, escalated to cleared reviewer), who can approve inclusion of sensitive contacts in alerts, and how access boundaries are enforced in alert display.",
+        "reason": "The system context notes some contacts carry diplomatic or confidentiality considerations. Alerting must not expose sensitive contacts to unauthorized staff; this creates both a security breach and a governance violation. The workflow for handling restricted contacts in alerts must respect access control boundaries and be designed by Security and Compliance stakeholders. Without clarity, the feature risks either exposing sensitive contacts or silently excluding alerts on sensitive relationships, creating a gap in coverage.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Post-launch monitoring and validation of assumption A2: A measurement plan must be defined to track user adoption and action on alerts (e.g., percentage of alerts acknowledged within 7 days, outcomes logged, ignored alerts escalated after 30 days) and to monitor alert volume and accuracy to detect and correct alert fatigue or detection logic drift.",
+        "reason": "The feature's value depends on users acting on alerts. Post-launch metrics will validate whether assumption A2 (users review and act on alerts) holds in practice. If alerts are ignored, if alert volume creates fatigue, or if detection logic generates false positives, the system will provide little value and must be recalibrated. This measurement plan must be defined before launch to ensure consistent tracking and governance.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Post-launch governance for measurement and recalibration: A clear governance model must be established defining who owns the post-launch measurement and recalibration process, when the measurement plan will be designed, at what cadence metrics will be reviewed, what thresholds trigger recalibration, and whether recalibration is automatic or subject to approval.",
+        "reason": "Post-launch metrics and validation can be deferred indefinitely or performed inconsistently without clear governance ownership and cadence. A defined governance model ensures metrics are consistently measured, reviewed on a schedule, and acted upon if performance falls below acceptable thresholds. This must be specified by Operations and CRM leadership before or immediately after launch.",
+        "supporting_messages": [
+          "r2-critic",
+          "r3-critic"
+        ]
+      }
+    ],
+    "disputed_scope": [],
+    "unresolved_scope": [],
+    "assumptions": [
+      {
+        "statement": "Absence or significant reduction in recorded engagement activity is a reliable and actionable signal of a relationship becoming cold.",
+        "reason": "The CRM tracks engagement history; this assumption allows operational definition of 'cold'. However, a gap in activity does not always reflect true dormancy—it may reflect documentation practices, seasonal patterns, or intentionally low-contact relationships (e.g., strategic diplomatic silence). This assumption is critical to the alert logic and must be validated against actual usage patterns once engagement activity definitions and exemptions are clarified by stakeholders.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Users receiving cold-relationship alerts will review the signal and take action (re-engage, close, or update status) within a reasonable time window.",
+        "reason": "The feature's value depends entirely on users acting on alerts. If alerts are ignored, deleted without reading, or trigger fatigue, the feature provides little benefit. This assumption drives alert design (filtering, prioritization, routing) and success criteria. Post-launch metrics must validate this assumption; if validation fails (e.g., if <70% of alerts are acknowledged within 7 days), the detection logic, routing, or threshold must be adjusted.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The system will not automatically modify relationships, contacts, or access permissions in response to coldness. All downstream actions are initiated and approved by humans.",
+        "reason": "Given diplomatic and confidentiality sensitivities in the system context, automatic actions could expose sensitive contacts or damage relationships. A human-in-the-loop approach is required to respect organizational governance, relationship nuance, and access control requirements.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Alerts will be sent to designated regional coordinators and project managers responsible for each country relationship, not broadcast organization-wide, and alert recipients will respect access control boundaries.",
+        "reason": "Targeted notification to assigned stewards reduces information-security risk for sensitive contacts and prevents alert fatigue from broad distribution. Routing must be clear and tested to ensure alerts reach decision-makers; otherwise, the feature provides no value. The routing logic must be provided by Operations and Regional Leadership.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The threshold defining 'cold' will be configurable by Operations staff, not hard-coded. Thresholds may vary by region, country category, or mission type if stakeholders determine this is necessary.",
+        "reason": "Engagement cadences vary across relationships and regions. A one-size-fits-all threshold would generate false positives or miss genuine drift. Configurability allows adaptation without code changes. The governance model for maintaining multiple thresholds must be provided by Operations.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Relationships with active missions or projects, or marked with confidentiality restrictions, will be excluded from automatic alerts unless explicitly configured otherwise by authorized staff.",
+        "reason": "Exemptions prevent false positives on intentionally low-contact relationships and protect sensitive contacts. However, operational criteria for 'active' and exemption governance must be provided by stakeholders; without clear definitions, the system cannot reliably exclude relationships or expose sensitive contacts safely.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "accepted"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "An alert is generated and delivered to the assigned regional coordinator or project manager when a country relationship meets the configured inactivity threshold, with delivery occurring within 24 hours of the threshold being crossed.",
+        "reason": "This criterion ensures alerts are timely and reach the responsible decision-maker. Delivery within 24 hours allows rapid human review and response. The assigned recipient must be defined by Operations and Regional Leadership (conditional scope).",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "A user receiving an alert can view the reason for it (e.g., 'no contact activity for 180 days'), access the engagement history to verify the signal, and make an informed decision about next steps.",
+        "reason": "For users to act effectively on alerts, they must understand why an alert was triggered and have access to the underlying engagement data. This criterion ensures transparency and supports informed human decision-making.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The alert respects access control boundaries: users receive alerts only for countries and contacts they are authorized to view; sensitive contacts are not exposed through the alert message or engagement history; alerts on restricted contacts are withheld, redacted, or escalated per the approved access-control workflow.",
+        "reason": "Given the system context noting some contacts carry diplomatic or confidentiality considerations, access control must be enforced in alert display and messaging. This criterion prevents security and governance violations while ensuring alerts still reach authorized decision-makers for non-restricted relationships.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "A user can acknowledge, dismiss, or take action on an alert; all interactions are logged in the CRM audit trail with timestamp and user identity.",
+        "reason": "User interaction logging enables tracking of alert acknowledgment rates, user actions, and outcomes, supporting post-launch validation of assumption A2 (users will act on alerts). Audit trails also support governance and compliance reviews.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "No alerts are generated for countries or contacts currently involved in active missions, projects, or explicitly exempted from alerting; false positives are tracked and reported as a post-launch metric.",
+        "reason": "This criterion prevents alert fatigue and false positives on intentionally low-contact relationships or those with recent engagement. Tracking false positives post-launch enables tuning of exemption rules and engagement activity definitions.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Post-launch: At least 70% of cold-relationship alerts are acknowledged by the assigned user within 7 days, and acknowledged alerts result in documented user action (re-engagement, closure, status update, or dismissal with reason) within 14 days.",
+        "reason": "This criterion operationalizes post-launch validation of assumption A2 (users will act on alerts). A 70% acknowledgment rate and documented user action within 14 days establish baseline expectations for feature adoption and user engagement. These metrics enable detection of alert fatigue or routing issues if metrics fall below threshold.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "proposed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "What engagement events or activities should be counted as indicators of relationship health (e.g., recorded contact calls and meetings only, calls and meetings plus logged emails, interactions plus project milestones, including or excluding passive activities like document views)?",
+        "impact": "The definition of 'engagement activity' directly determines which countries will trigger cold-relationship alerts and the signal quality of the feature. Narrower definitions may miss genuinely dormant relationships; broader definitions may include noise and reduce accuracy. This definition governs the detection logic and must be matched to organizational engagement practices.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "question": "What is the appropriate default inactivity threshold for 'cold' (in days or months), and should this threshold differ by region, country category (e.g., active partners vs. exploratory relationships), or mission type? Who decides and how are changes approved?",
+        "impact": "The threshold directly governs alert frequency and false-positive rate. Without a defined threshold, the system cannot determine when to alert. Multiple thresholds may be needed for different relationship contexts. A governance model for setting, maintaining, and escalating threshold changes is necessary.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "question": "What operationally defines an 'active' mission or project for exemption purposes (date ranges, status codes in the CRM)? Are there other permanent or conditional exemption categories (confidential diplomatic channels, strategic dormant countries), and how are exemptions approved and reviewed?",
+        "impact": "Clear exemption criteria prevent false positives on intentionally low-contact relationships and protect sensitive contacts from exposure through alerts. Without operational definitions, the system cannot reliably exclude relationships or safely handle sensitive contacts.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "question": "Who should receive cold-relationship alerts by default for each country, and should alert recipients be configurable per country or standardized by role? Are there escalation or fallback rules if the primary recipient does not acknowledge?",
+        "impact": "Alerts must be routed to decision-makers who own the relationship and can act on the signal. Incorrect routing results in alerts being ignored or missed, reducing value and creating audit risk. Clear routing logic is necessary for accountability and operational effectiveness.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "question": "How are confidentiality restrictions marked on contacts in the CRM (classification tags, access control lists, role-based filtering)? What should happen when a cold-relationship alert is triggered on a country with restricted contacts—should the alert be withheld entirely, shown with sensitive names redacted, or escalated to a cleared reviewer? Who can request or approve the inclusion of sensitive contacts in alerts, and how are access boundaries enforced in the alert display?",
+        "impact": "The system context notes some contacts carry diplomatic or confidentiality considerations. Alerting must not expose sensitive contacts to unauthorized staff, creating a security and governance risk. The workflow for handling restricted contacts in alerts must respect access boundaries and be approved by Security and Compliance stakeholders before implementation.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "question": "Who will own the post-launch measurement and recalibration process for validating post-launch metrics (alert acknowledgment rate, user action rate, alert volume, false-positive rate)? When will the measurement plan be designed, at what cadence will metrics be reviewed, and what alert volume or acknowledgment rate triggers recalibration?",
+        "impact": "Post-launch metrics are necessary to validate assumption A2 (users will act on alerts) and detect alert fatigue. Without a clear governance model, measurement may be deferred or inconsistent. A defined ownership, review cadence, and recalibration triggers are necessary to ensure the feature is maintained and improved over time.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r2-critic",
+          "r3-critic"
+        ]
+      }
+    ],
+    "rejected_options": []
+  }
+}

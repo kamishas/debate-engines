@@ -1,0 +1,23 @@
+{
+  "model": "claude-haiku-4-5-20251001",
+  "settings": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_rounds": 3,
+    "max_tokens": 8192,
+    "max_calls": 9,
+    "max_input_bytes": 250000,
+    "repair_attempts": 1,
+    "provider_retries": 1
+  },
+  "started_at": "2026-10-04T23:18:05.372408+00:00",
+  "updated_at": "2026-10-04T23:19:25.917217+00:00",
+  "completed_rounds": 1,
+  "outcome": "error",
+  "termination_reason": "Output validation exhausted bounded repair: Unresolved challenges must remain listed; resolved ones must be removed.",
+  "report_status": "failed",
+  "provider_calls": 7,
+  "input_tokens": 65555,
+  "output_tokens": 21116,
+  "report_error": "Output validation exhausted bounded repair: Agreement requires cited Proposer and Critic messages.",
+  "finished_at": "2026-10-04T23:22:04.604711+00:00"
+}

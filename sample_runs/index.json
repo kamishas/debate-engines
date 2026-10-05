@@ -1,0 +1,74 @@
+[
+  {
+    "sample": "initial-contact-budget-failure",
+    "outcome": "error",
+    "rounds": 2,
+    "report": "failed",
+    "calls": 7,
+    "input_tokens": 80525,
+    "output_tokens": 23398
+  },
+  {
+    "sample": "contact-protocol-failure",
+    "outcome": "error",
+    "rounds": 2,
+    "report": "succeeded",
+    "calls": 9,
+    "input_tokens": 92714,
+    "output_tokens": 21465
+  },
+  {
+    "sample": "history-protocol-failure",
+    "outcome": "error",
+    "rounds": 1,
+    "report": "failed",
+    "calls": 7,
+    "input_tokens": 65555,
+    "output_tokens": 21116
+  },
+  {
+    "sample": "cold-protocol-failure",
+    "outcome": "error",
+    "rounds": 2,
+    "report": "succeeded",
+    "calls": 8,
+    "input_tokens": 100627,
+    "output_tokens": 30874
+  },
+  {
+    "sample": "right-contact",
+    "outcome": "capped",
+    "rounds": 3,
+    "report": "succeeded",
+    "calls": 9,
+    "input_tokens": 144548,
+    "output_tokens": 34659
+  },
+  {
+    "sample": "engagement-history",
+    "outcome": "completed",
+    "rounds": 3,
+    "report": "succeeded",
+    "calls": 8,
+    "input_tokens": 107484,
+    "output_tokens": 26169
+  },
+  {
+    "sample": "cold-call-budget-failure",
+    "outcome": "capped",
+    "rounds": 3,
+    "report": "failed",
+    "calls": 9,
+    "input_tokens": 123310,
+    "output_tokens": 32303
+  },
+  {
+    "sample": "cold-relationship",
+    "outcome": "completed",
+    "rounds": 3,
+    "report": "succeeded",
+    "calls": 9,
+    "input_tokens": 138785,
+    "output_tokens": 31446
+  }
+]

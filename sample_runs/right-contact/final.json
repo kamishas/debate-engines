@@ -1,0 +1,461 @@
+{
+  "original_request": "We need a better way to track who is the right person to contact in each country.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "capped",
+  "termination_reason": "Round cap reached without valid completion or a justified stall.",
+  "completed_rounds": 3,
+  "partial": true,
+  "latest_confidence": {
+    "proposer": {
+      "score": 72,
+      "justification": "The revised proposal addresses three new blocking challenges raised by the Critic and clarifies critical dependencies. The baseline role taxonomy is now explicitly dependent on stakeholder confirmation of alignment with existing organizational practice. The 80% population criterion has been revised to remove an unmeasurable target, converting it to a stakeholder question about what 'required' secondaries mean and who is responsible for data entry. The multi-primary country distribution is now framed as a blocking prerequisite requiring stakeholder confirmation before the final data model can be selected. The tiered contact model, governance approach, and confidentiality filtering logic remain sound and defensible. However, the proposal is now more honest about its dependencies: five questions block implementation, and one is non-blocking. Until stakeholders answer whether an existing role taxonomy exists, how multi-primary countries should be handled, who is responsible for secondary contact population, and what confidentiality policy requires, the feature cannot move to detailed design. The proposal is intellectually sound and proportionately scoped, but is contingent on these external inputs.",
+      "main_uncertainty": "Whether the organization has an existing contact role taxonomy that the baseline should align to, and confirmation that the four proposed roles are sufficient or must be adjusted. Additionally, the distribution of single vs. multi-primary countries remains the largest design uncertainty: if multi-primary is common, the data model and UI must be significantly more complex; if rare or absent, the feature can adopt a simpler tiered model. Finally, clarification of which organizational unit is responsible for populating secondary contacts and what communication plan will drive adoption is essential for the role-based search feature to be useful.",
+      "round": 3,
+      "message_id": "r3-proposer"
+    },
+    "critic": {
+      "score": 72,
+      "justification": "The Proposer has demonstrated clear thinking and intellectual honesty in revising the proposal to explicitly escalate dependencies to stakeholders. The three Round 2 challenges are resolved with transparent rationale. The tiered contact model, governance approach, and confidentiality filtering logic remain sound and defensible. The success criteria have been refined to focus on measurable feature capability and adoption, removing unmeasurable external targets. However, the proposal still depends on at least five blocking stakeholder inputs: role taxonomy alignment, multi-primary country distribution, secondary contact scoping (mandatory vs. optional), confidentiality policy scope, and designation authority alignment. A sixth input (adoption baseline and communication plan) supports but does not block implementation. One additional question about conflict resolution should be addressed to strengthen operational readiness. Until these are resolved, the feature scope is not fully specified. The current state demonstrates sound reasoning, proportionate scoping, and honest acknowledgment of unknowns, but material policy and organizational dependencies remain unresolved. Confidence is moderate because the proposal is well-reasoned and grounded in the system context, but significant stakeholder decisions about data governance, role taxonomy, and mandatory vs. optional patterns must be confirmed before detailed design can proceed.",
+      "main_uncertainty": "Whether secondary contact designations are mandatory for all countries and roles or optional and context-dependent, and who is responsible for population. This affects feature utility and adoption significantly. Additionally, confirmation of the multi-primary country distribution pattern and alignment with any existing organizational contact role taxonomy are critical unknowns that will shape the final data model and UI design. The adoption metric baseline (definition of 'active users' and launch communication plan) requires clarification to ensure realistic measurement.",
+      "round": 3,
+      "message_id": "r3-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "The deliberation addresses the organization's need for a better mechanism to identify and route inquiries to the appropriate contact person across ~100 member countries in a Government CRM system. The dialogue spans three rounds and terminates at a round cap without full resolution. The Proposer and Critic have substantially refined the proposal through iterative challenge-response cycles, resolving ambiguities about the contact designation model, role taxonomy, governance, and confidentiality filtering. However, critical stakeholder inputs remain outstanding, particularly the mandatory vs. optional scope of secondary contact designations and organizational responsibility for population. The run is incomplete and explicitly partial; the feature cannot move to detailed design or implementation until these dependencies are confirmed.",
+    "agreed_included_scope": [
+      {
+        "statement": "Define and display a primary contact designator per country, with a single person designated as the first point of contact for general country engagement.",
+        "reason": "This is the core feature addressing the stated problem of identifying the right person to contact. Both Proposer and Critic agree that a primary contact designation improves discoverability and provides a clear entry point for most inquiries.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Support secondary contact assignments tagged by role (e.g., Project Lead, Technical Advisor, Ministry Liaison, Mission Delegate) to enable users to route to specialists when engagement type is known.",
+        "reason": "Accepted by both parties as a practical accommodation for countries with multiple engagement contexts. Avoids loss of discoverability by supporting hierarchical role-based assignment rather than treating all contacts equally.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Provide a search or filter interface so users can locate the appropriate contact by country, role, and project affiliation.",
+        "reason": "Both parties agree this is essential functionality that enables the discoverability goal without overreach into recommendation algorithms. Filtering leverages existing system metadata.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Record the rationale, date, and user who made each primary contact designation to improve transparency and auditability.",
+        "reason": "Accepted by both parties as a proportionate transparency measure that does not require full historical audit logging. Reduces confusion about stale information and provides accountability.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Respect confidentiality flags and existing access controls on contact records; no contact visibility changes to users without read access to the underlying record.",
+        "reason": "Both parties agree this is a fundamental constraint aligned with system context and organizational policy. Proportionate approach that respects existing controls without designing new permission models.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Display a clear indicator (tooltip or status badge) showing which contacts are primary vs. role-specific, and whether a role-specific contact exists for a given engagement type.",
+        "reason": "Accepted as a UI feature that clarifies contact status and improves usability. Supports the discoverability goal by making role distinctions visible without additional clicks.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "The feature is advisory (shows the right contact) and does not block or restrict routing to other contacts.",
+        "reason": "Both parties agree that enforcement of organizational policies for who may contact specific government officials is outside scope. The feature guides user behavior through visibility, not through access control.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Automated contact recommendation algorithms or machine learning for contact matching.",
+        "reason": "Both parties agree this is outside scope. Users have sufficient context (country, project, engagement type) to filter without recommendation logic. Recommendation algorithms would require clearer definition of user intent.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Changes to the underlying database schema or major system architecture.",
+        "reason": "Both parties agree the feature should work within existing system constraints. Schema changes would increase implementation risk and are not necessary for core functionality.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Integration with external government directories or third-party contact sources.",
+        "reason": "Both parties agree this is outside scope. The feature operates on contact records already in the system.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Enforcement of organizational policies for who may contact specific government officials; the feature is advisory and does not block or restrict routing.",
+        "reason": "Both parties explicitly agree that permission enforcement and escalation controls are separate from visibility. The feature advises users but does not enforce routing decisions.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Full historical audit logging of all contact relationship changes; only the current primary designation and last-changed timestamp are recorded.",
+        "reason": "Both parties agree a simple timestamp is proportionate for the scoping phase. Full change history can be revisited if compliance requirements demand it.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Fine-grained permission models or approval workflows beyond current role-based edit access; designation authority aligns with existing access controls.",
+        "reason": "Both parties agree that new governance or approval workflows are not proposed. Designation authority is delegated to users with existing edit permissions.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "If the organization confirms that all countries follow a single primary + role-specific secondary model, the feature will adopt this structure. If some countries require simultaneous multiple primaries with no hierarchy, the feature will allow multiple contacts flagged as equally primary for different engagement streams.",
+        "reason": "The Critic identified ambiguity about whether a single primary is sufficient. The Proposer revised to explicitly defer the data model selection to stakeholder confirmation. This resolves the design trade-off between simpler single-primary and more complex multi-primary support. Condition: stakeholder must confirm the distribution of single vs. multi-primary countries.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "If organizational confidentiality policy restricts visibility of contact records to certain user roles, the feature will display 'Contact restricted' without revealing the name. If all contacts are universally visible and flags apply only to sensitive fields, no visibility filtering is needed.",
+        "reason": "The Critic identified entanglement between confidentiality filtering and access controls. The Proposer clarified two scenarios with distinct implementations. Condition: compliance or legal team must confirm confidentiality policy scope.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "If the organization has documented change frequency expectations (e.g., quarterly rotations), the proposal will include full historical tracking of past primary contacts; if changes are rare, a simple timestamp will suffice.",
+        "reason": "Both parties recognize this as proportionate conditionality. Depth of change history depends on organizational policy and compliance requirements.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "Support for multi-language contact context (name transliteration, title translation) is deferred unless language support requirements are specified.",
+        "reason": "Recognized as a future enhancement, not blocking initial implementation. Deferred pending explicit requirements.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "A baseline set of role categories (Ministry Representative, Project Lead, Technical Advisor, Mission Delegate) is applicable across countries, with optional extensibility for country-specific or project-specific roles if stakeholder input confirms the need.",
+        "reason": "The Critic identified that this baseline assumes sufficiency without evidence. The Proposer revised to explicitly require stakeholder confirmation of alignment with any existing organizational taxonomy. Use the baseline if no existing taxonomy exists and stakeholders confirm sufficiency; otherwise, align to existing taxonomy.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      }
+    ],
+    "disputed_scope": [
+      {
+        "statement": "Whether secondary contact designations (e.g., Project Lead, Technical Advisor) are mandatory for all countries and all roles, optional and context-dependent, or mandatory only for countries with active projects or missions.",
+        "reason": "The Critic (C10, r3-critic) raised this as a blocking ambiguity. The Proposer's removal of the 80% population success criterion did not resolve the underlying scope question. This affects data entry responsibility, user training, role-based filtering utility, and whether secondaries will be sparse or comprehensive. Mandatory secondaries create data entry burden but improve feature utility; optional secondaries minimize burden but limit search usefulness. The Critic explicitly marked this as blocks_agreement:true, making it a disputed scope item until stakeholder input clarifies the intended scope.",
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      }
+    ],
+    "unresolved_scope": [
+      {
+        "statement": "Organizational responsibility for populating and maintaining secondary contact designations after rollout, communication plan, and realistic timeline for population coverage.",
+        "reason": "The Critic (C10) identified that population success depends on assigned responsibility, but the proposal defers this to a stakeholder question without resolution. Until responsibility is assigned (regional coordinators, country desk staff, project managers, or other), secondary contact population remains ad-hoc and unmeasurable. This is a prerequisite open question that blocks implementation readiness.",
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "How concurrent updates to the primary contact designation should be handled if multiple authorized users attempt to assign different contacts for the same country simultaneously.",
+        "reason": "The Critic (C11) raised this as an operational risk that the proposal does not address. The system must have a clear update rule (last-write-wins, conflict detection, locking, escalation to single authorized role) to prevent confusion. If the underlying system has optimistic locking or conflict detection, this is non-blocking; otherwise, it should be addressed during implementation planning. Marked blocks_implementation:false but remains unresolved pending system architecture confirmation.",
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "The realistic definition of 'active users' for the adoption metric baseline and confirmation of launch communication and training plan to support the 60% adoption target within 30 days.",
+        "reason": "The Critic (C12) identified that the adoption metric is ungrounded without clarity on the denominator and assumes launch communication not explicitly in scope. The 30-day window depends on timely communication and UX discoverability. Until these are clarified, the metric is aspirational. Marked blocks_implementation:false but should be resolved before rollout planning.",
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "statement": "The core problem is visibility and discoverability of the right contact, not contact quality, availability, or accuracy of stored data.",
+        "reason": "The original request emphasizes 'the right person' and tracking/finding them, not validating contact information. The Critic accepted this interpretation in Round 1; both parties have treated it as foundational throughout.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "A tiered model (single primary contact per country, plus role-specific secondaries) accommodates both simple and complex engagement patterns without losing the discoverability value of a primary designation.",
+        "reason": "This assumption underlies the core data model. The Critic initially challenged whether a single primary was sufficient, leading the Proposer to revise to support both single and multi-primary patterns based on stakeholder confirmation. The Critic accepted the revised model.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Users have sufficient context (country, project, engagement type) when searching for a contact, so the feature does not require contextual recommendations or disambiguation beyond role and project tagging.",
+        "reason": "Both parties agree this is defensible given the system already tracks projects, missions, and engagement history. The Critic accepted this in Round 1; the Proposer has maintained it throughout.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Contact designation authority is delegated to regional coordinators and/or executive staff, aligned with their existing edit permissions on country records, with no new approval workflows proposed.",
+        "reason": "This assumption underpins governance. The Critic accepted it in Round 2, but the exact alignment with current edit permissions must be confirmed by stakeholders. Currently accepted but contingent on verification.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "Confidentiality considerations are handled via existing record-level access controls; if a contact record is marked restricted, users without read access see 'Contact restricted' in the primary contact view.",
+        "reason": "Challenged by Critic in Round 1 (C4), leading to clarification of visibility logic. The refined assumption was accepted by both parties, but exact confidentiality policy scope must be confirmed by compliance/legal.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "Success depends on adoption by users; the feature must be intuitive and discoverable so users can find the primary contact faster than current workarounds.",
+        "reason": "Both parties accept this as implicit in 'better way' requirement. Critic challenged whether usability and communication plans were in scope (C5); Proposer revised to commit to 'one or two clicks' UX standard and telemetry-based adoption measurement. Accepted but contingent on implementation meeting UX standard.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "A baseline set of role categories (Ministry Representative, Project Lead, Technical Advisor, Mission Delegate) is sufficient to tag contacts across the majority of countries and engagement types.",
+        "reason": "Challenged by Critic in Round 2 (C2) for lack of evidence of sufficiency. Proposer moved baseline into included scope but revised assumption to acknowledge that sufficiency must be confirmed by stakeholders. If existing organizational taxonomy exists, it should take precedence. Accepted with condition.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "Users can identify the primary contact for a country within one or two clicks from the country record.",
+        "reason": "This is a concrete, observable UX standard that validates the discoverability assumption. Both parties accept this as measurable and proportionate. Sets clear requirement for UI placement and efficiency.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Role-based filtering allows users to find secondary contacts by engagement type (e.g., 'find the project lead for climate initiative in Kenya').",
+        "reason": "Both parties accept this as a core feature capability. Critic and Proposer agree role-based filtering is essential for secondary contact feature utility. Directly testable: system must support role-based search and return appropriate results.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Contact designation records show when and by whom the primary contact was last changed, reducing confusion about stale information.",
+        "reason": "Both parties accept as proportionate transparency measure. Directly testable: system must record and display designation date and user attribution.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "No reduction in data accuracy or compliance with confidentiality flags; all contact visibility remains aligned with existing access controls.",
+        "reason": "Both parties accept as a fundamental constraint. Feature must not degrade existing compliance or data integrity. Testable through audit of access control integration and confidentiality flag handling.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Adoption metric: within 30 days of rollout, at least 60% of active users have used the primary contact feature (either viewing the designation or filtering by role) at least once, measured by feature usage telemetry.",
+        "reason": "This criterion is proposed and remains conditional. Proposer and Critic recognize it as aspirational and dependent on launch communication and UX discoverability. However, the definition of 'active users' and launch communication plan remain unresolved (C12). Metric is testable via telemetry but may require adjustment based on organizational baselines.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "proposed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "Does the organization have an existing, documented contact role taxonomy in use in the system or organizational policy? If yes, what roles or categories are already defined? If no, are the four proposed baseline roles (Ministry Representative, Project Lead, Technical Advisor, Mission Delegate) sufficient for ~100 countries?",
+        "impact": "Determines whether the feature should align to an existing organizational taxonomy (avoiding duplication) or adopt the proposed baseline. If baseline is insufficient, role taxonomy definition becomes a blocking prerequisite. Affects consistency, setup friction, and implementation readiness.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Are there countries or engagement contexts where multiple contacts are equally primary and must always be contacted together (e.g., joint project leadership, co-chaired bilateral bodies)? If yes, what is the frequency or distribution (e.g., 5 countries, 20% of countries)?",
+        "impact": "Determines whether the final data model supports only single primary + role-specific secondaries (simpler) or must also support multi-primary contacts with equal priority (more complex). Affects UI design, search behavior, and technical implementation. Critical for finalizing the core data model.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Which user roles (regional coordinator, project manager, executive, or other) are currently authorized to edit country records in the system? Can these roles also be delegated authority to assign or update the primary contact designation?",
+        "impact": "Clarifies whether designation authority aligns with existing access control roles or requires new permission configuration. Confirms whether no new governance workflow is needed, or identifies gaps for implementation.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "What is the organization's confidentiality or sensitivity policy for contact visibility? (a) Are there contact records marked as restricted/confidential that are intentionally not visible to all users? (b) If yes, should users without read access see 'Contact restricted' or be unable to search that country's contacts?",
+        "impact": "Determines whether visibility filtering logic is needed and how the feature integrates with existing access control. Affects implementation approach, compliance alignment, and user experience for restricted contacts.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Are secondary contact designations (e.g., Project Lead, Technical Advisor) mandatory for all countries and all roles, mandatory only for specific roles/countries, or entirely optional? Which policy or workflow determines when secondaries should be populated?",
+        "impact": "Determines the secondary contact workflow, data entry responsibility, user training, and realistic expectations for role-based search utility. If secondaries are sparse, role-based filtering has limited value. If mandatory, data entry burden and responsible party must be clearly defined. Critical for feature scope.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "What organizational unit or user role is responsible for populating and maintaining secondary contact designations after rollout? What communication, training, or incentive plan will drive secondary contact data entry, and what is a realistic timeline for achieving consistent coverage?",
+        "impact": "Clarifies data entry responsibility and helps define achievable secondary contact population targets. If no responsible party is assigned, secondaries may remain sparse, limiting role-based filtering utility. Essential for the role-based search feature to be useful.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "How should the system handle potential conflicts if multiple authorized users attempt to update the primary contact designation for the same country concurrently? Should the system use last-write-wins, conflict detection, locking, or escalation to a single authorized user?",
+        "impact": "Prevents trust issues and confusion if concurrent updates result in conflicting assignments. Determines whether the underlying system's conflict resolution mechanisms are sufficient, or if the feature must add safeguards. Non-critical if conflicts are rare and change history is tracked.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "How is 'active users' defined for the 60% adoption metric (e.g., users with at least one login in past 30 days, users assigned to a country team, etc.)? Is the 60% target based on comparable feature rollouts, or is it aspirational? What launch communication and training will be provided?",
+        "impact": "Determines whether the 30-day adoption metric is realistic and measurable. If target is aspirational without supporting communication plan, it should be revised or the measurement period extended. Clarifies expectations and validates the 'one or two clicks' UX commitment.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      }
+    ],
+    "rejected_options": [
+      {
+        "statement": "Full historical audit logging of all contact relationship changes.",
+        "reason": "Both parties agree that a simple 'last changed' timestamp is proportionate for initial implementation. Full change history can be revisited if compliance requirements demand it. This reduces implementation complexity.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      }
+    ]
+  }
+}

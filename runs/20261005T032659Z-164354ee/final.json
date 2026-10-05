@@ -1,0 +1,393 @@
+{
+  "original_request": "Project managers should be able to see the full history of engagement with a country before starting a new mission.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "completed",
+  "termination_reason": "This is round 5. The proposal scope is sound, well-grounded, coherent, and defensible. Included, excluded, and conditional scope are clearly stated and address the user's intended outcome. Material assumptions are explicit and appropriately flagged as dependent on organizational decisions (C1, C2) or grounded in system context (A4) or sound technical practice (A5, A6). Success criteria are observable and testable. The treatment of confidentiality and access control concerns is appropriate through conditional_scope, included_scope row-level filtering specification, and success criteria enforcement requirements. C1 and C2 are not proposal flaws; they are blocking organizational prerequisites that the Proposer appropriately refuses to invent. In Round 5, the Proposer operationalized both prerequisites by specifying that the organization must provide named stakeholder ownership, expected timelines, parallel work feasibility, and gate conditions. This operationalization enables the organization to move from scoping to implementation planning and design work, without requiring the Proposer to make organizational decisions. The two challenges (C1 and C2) remain unresolved, but they are now operationalized as organizational decisions with a clear framework for when and how they must be resolved. This is the correct treatment: the proposal is ready for human executive review and decision-making; the organization must now provide stakeholder ownership and timeline clarity for the two blocking prerequisites to enable implementation and design planning to proceed in parallel work streams. The proposal does not contain material contradictions, unresolved scope ambiguity, or missing design choices that would prevent human review and authorization. All remaining unknowns are explicitly identified and their consequences are stated. The scope can proceed to implementation planning once the organization provides the stakeholder decisions specified in the conditional_scope and open_questions.",
+  "completed_rounds": 5,
+  "partial": false,
+  "latest_confidence": {
+    "proposer": {
+      "score": 72,
+      "justification": "Grounding (3): The request and system context are supplied and clearly understood. Proposed scope is grounded in the request and distinguished from organizational decisions. No invented facts or policies appear. Scope clarity (3): Included, excluded, and conditional scope are coherent and address the user's intent. The conditional scope has been operationalized in Round 5 by specifying that blocking prerequisites (C1 and C2) require named stakeholder ownership, timeline clarity, gate conditions, and definition of which work streams can proceed in parallel. This operationalization improves clarity without inventing organizational decisions. Assumptions (3): Six material assumptions listed and justified. A1 and A3 are appropriately flagged as dependent on organizational decisions. A2, A4, A5, A6 are grounded in system context or sound technical practice. Dependencies are explicit and tied to the conditional scope. Testability (3): Six success criteria are observable and measurable. Verification depends on C1 and C2 being resolved, which is explicit. Criteria remain testable once prerequisites are resolved. Treatment of material concerns (3): Confidentiality and access control are addressed through conditional_scope (C1 and C2 as operationalized prerequisites with stakeholder ownership and timeline), included_scope (row-level filtering, user feedback), and success_criteria (enforcement and no metadata leakage). The proposal appropriately refuses to invent organizational decisions but now provides the operational framework (stakeholder ownership, timeline, gate conditions, parallel work feasibility) needed for the organization to move from scoping to implementation planning. C1 and C2 remain unresolved organizational decisions, but the operationalization makes them actionable. No score increase from Round 4 (70) because the change is refinement of condition operationalization rather than new grounding or evidence. Score remains 72 reflecting that the proposal is well-structured, sound, and now operationalized for human executive decision-making. The proposal is ready for review with explicit prerequisites and a framework for moving forward.",
+      "main_uncertainty": "The organization's decisions on authorization policy (C1) and mission creation workflow (C2), together with stakeholder ownership, expected timelines, and feasibility of parallel work. These are organizational decisions that the Proposer appropriately cannot make. The operationalization in conditional_scope clarifies what information is needed and what work can proceed in parallel. What remains is for the organization to provide the stakeholder decisions and timeline clarity specified in the open_questions and conditional_scope.",
+      "round": 5,
+      "message_id": "r5-proposer"
+    },
+    "critic": {
+      "score": 76,
+      "justification": "Grounding (3): Request and system context are supplied and clearly understood. Scope is grounded in the request; proposed choices are distinguished from organizational decisions and from assumptions. No invented facts or policies appear. Scope clarity (4): Included, excluded, and conditional scope are now coherent and operationalized. The conditional_scope explicitly specifies what organizational clarity is needed (stakeholder ownership, timeline, parallel work feasibility, gate conditions) for each blocking prerequisite without inventing those decisions. The distinction between blocking (C1, C2) and non-blocking (retention policy, regional scope) clarifications is clear. Assumptions (3): Six assumptions listed and justified. A1 and A3 are appropriately dependent on organizational decisions (C1, C2). A2 grounds access control in system context. A4 is reasonable given system context. A5 and A6 are sound principles and practice. All dependencies are explicit. Testability (4): Six success criteria are observable, measurable, and behavioral. Criteria 1–4 describe user-facing behavior; criterion 5 specifies performance target; criterion 6 addresses security. Verification is testable once organizational prerequisites (C1, C2) are resolved and non-blocking clarifications are available. The operationalization of prerequisites makes testability clear and achievable. Treatment of material concerns (3): Confidentiality and access control are addressed through conditional_scope (C1 and C2 as operationalized prerequisites), included_scope (row-level filtering, user feedback), and success_criteria (enforcement and no metadata leakage). C1 and C2 remain unresolved organizational decisions, but they are now operationalized with clear framework for resolution. The proposal appropriately refuses to invent organizational decisions but now provides the operational structure (stakeholder ownership, timeline, gate conditions, parallel work definition) needed for the organization to move forward responsibly. Score increased from 72 to 76 because the operationalization in Round 5 substantially improves implementation readiness and clarity on how to move from scoping to implementation planning without requiring further proposal revision. The scope is now ready for human executive review with all prerequisites and implementation path operationalized. No cap is applied because there are no unresolved material contradictions or unsafe assumptions; C1 and C2 are appropriately treated as organizational decisions.",
+      "main_uncertainty": "The organization's decisions and timelines for authorizing the authorization policy (C1) and clarifying the mission creation workflow (C2), including named stakeholder ownership for each. These are prerequisites for implementation planning and design work to proceed. The proposal is sound conditional on these organizational decisions being made. The operationalization in conditional_scope and open_questions provides the framework for how the organization should provide these decisions. No further proposal revision is needed; the organization must now decide and communicate stakeholder ownership and timeline for C1 and C2 to enable implementation and design planning to proceed in parallel work streams.",
+      "round": 5,
+      "message_id": "r5-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "Project managers should have access to a chronological record of all documented engagement with a specific country—including past contacts, interactions, projects, and missions—before initiating a new mission. The feature integrates into the mission creation workflow, respects existing authorization boundaries, and applies row-level access control to enforce confidentiality and clearance restrictions. The proposal is well-grounded in the system context and user roles. Two blocking organizational prerequisites remain unresolved: the organization's authorization policy for project manager access to sensitive engagement records, and the mission creation workflow where the history view should integrate. Both have been operationalized with requirements for stakeholder ownership, timeline clarity, parallel work feasibility, and gate conditions. Additional non-blocking clarifications include data retention policy and whether to include sub-national engagement records. The scope is sound and ready for human executive decision-making under these stated conditions.",
+    "agreed_included_scope": [
+      {
+        "statement": "Project managers can query and view the full engagement history for a country before creating or launching a new mission, subject to their authorization level and the organization's defined access control policy.",
+        "reason": "The request explicitly asks for project managers to have access to full engagement history before starting a new mission. The system context identifies project managers as users, and the proposed read-only access to engagement history is a defensible and lower-risk scope boundary. Both the Proposer and Critic agreed this is a legitimate and coherent goal supported by the system context and user roles.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Engagement history includes past contacts, interaction records, project affiliations, completed missions, and relevant notes, presented in chronological order.",
+        "reason": "The system context states the system tracks contact details, engagement history, project affiliations, and active missions. Chronological ordering supports the request's goal of informed decision-making and avoids duplication. The distinction between viewing history and creating or modifying records is sound and reduces risk.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Access returns chronologically ordered records; the system enforces row-level access control by filtering records before display based on the viewing user's role, clearance, and authorization profile.",
+        "reason": "Row-level filtering is the standard secure approach in modern systems and minimizes metadata leakage risk. Both agents agreed this is a defensible and technically sound enforcement mechanism. The Proposer specified this as the access control approach in response to Critic challenge C4, and the Critic accepted this specification as resolving the security concern.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Users receive transparent feedback when they attempt to access engagement history for a country where their authorization profile restricts access; this feedback indicates that access is restricted without exposing the content or metadata of restricted records.",
+        "reason": "Success criterion 4 specifies that users should receive transparent feedback clarifying access boundaries without exposing restricted content. The Proposer specified this design choice to balance security with user experience, and the Critic accepted this as a defensible and practical approach.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      },
+      {
+        "statement": "The history view is accessible from the mission planning or creation workflow at a point identified by the organization's product or operations leadership, in a location appropriate to the workflow (inline, modal, or side panel).",
+        "reason": "The request implies access should occur 'before starting a new mission,' which requires integration into the mission creation workflow. Both agents agreed this integration is necessary, though the exact workflow and integration point are organizational decisions, not technical assumptions. The proposal appropriately defers these to the organization's product or operations leadership.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-critic",
+          "r3-proposer"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Creation or modification of engagement records; the feature is read-only.",
+        "reason": "The request asks for visibility into history, not the ability to change records. Read-only access is a defensible and lower-risk scope boundary. Both agents agreed this exclusion is sound and protects against unintended modifications to sensitive engagement data.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Real-time collaboration or task assignment within the history view.",
+        "reason": "The request focuses on viewing history before mission start, not on concurrent collaboration during the view. This exclusion is appropriate and keeps scope focused on the stated need.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Automated recommendations, prioritization, or AI-driven insights based on history.",
+        "reason": "The request asks for visibility, not automated decision-making. This exclusion is defensible and reduces risk of conflicts of interest or diplomatic missteps arising from system-driven contact prioritization without human judgment. Both agents agreed this exclusion protects against misuse of the feature.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Changes to contact record confidentiality classifications or authorization policies.",
+        "reason": "These are organizational governance decisions, not features of the engagement history view. The proposal appropriately excludes this scope and identifies it as an organizational responsibility separate from the history view feature.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Definition or authorship of the authorization policy; this is an organizational responsibility owned by Security, Operations, or Executive leadership.",
+        "reason": "The proposal appropriately excludes the authorship of authorization policy from its scope, recognizing that this is a strategic organizational decision that must come from the appropriate stakeholders, not from the technical proposal.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "Authorization policy for project manager access to country engagement records: If the organization has not yet defined an authorization policy, implementation cannot proceed to deployment. The organization must specify which project manager roles or clearance levels can access which countries and record types, which records are flagged as diplomatic or confidential and restricted to specific roles, and how temporary staff, sub-contractors, or regional managers differ in access rights. The named stakeholder owner (Security, Operations, or Executive leadership), expected completion timeline, clarity on whether technical architecture and access control schema design can proceed in parallel with policy drafting, and gate condition for deployment must be provided. Once the policy is defined and approved, the system will enforce it through row-level filtering.",
+        "reason": "The system context notes that some contact records carry diplomatic or confidentiality considerations, indicating that authorization policy either exists or is being developed. The proposal appropriately refuses to invent a policy and instead treats it as a blocking organizational prerequisite. Both the Proposer and Critic agreed this is the correct approach. The Proposer operationalized this prerequisite in Round 5 by specifying what organizational clarity (stakeholder ownership, timeline, parallel work feasibility, gate conditions) is needed to move from scoping to implementation planning.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic",
+          "r5-proposer",
+          "r5-critic"
+        ]
+      },
+      {
+        "statement": "Mission creation workflow integration point: If the organization has not yet clarified the mission creation workflow, detailed integration point design cannot proceed. The organization's product or operations leadership must map the workflow, including the screens where project managers initiate missions, the step where country details are provided, whether creation is single-step or multi-step, and where the history view should appear. The named stakeholder owner, expected completion timeline, clarity on whether high-level UX exploration and prototyping can proceed in parallel with detailed workflow mapping, and gate condition for design sign-off must be provided. Once clarified, the implementation team can design the integration point and UX.",
+        "reason": "The request implies access should occur 'before starting a new mission,' requiring integration into a mission creation workflow. The exact workflow is not supplied in the request or system context. Both agents agreed that poor integration point selection would harm discoverability and usability, and that the organization must clarify the workflow before integration design can safely proceed. The Proposer operationalized this prerequisite in Round 5 by specifying that high-level design exploration can proceed in parallel with detailed workflow mapping, enabling practical advancement while awaiting the workflow clarification.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic",
+          "r5-proposer",
+          "r5-critic"
+        ]
+      },
+      {
+        "statement": "Data retention and archival policy: If the organization has defined a data retention or archival policy for engagement records, the scope of 'full history' is constrained by that policy. Records outside the retention window (e.g., older than 5 years) are not displayed. Success criteria for 'complete history' are then qualified by the retention boundary. If no retention policy exists, the system displays all available engagement records for the country with no time constraint.",
+        "reason": "The system cannot display records that have been archived or deleted. 'Full' is only meaningful relative to organizational policy on data retention. Both agents agreed this is a valid non-blocking clarification that affects the testability of success criteria and must be decided before detailed implementation design begins. The Proposer appropriately conditioned the scope on this organizational decision.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Regional and sub-national engagement scope: If the organization decides that the history view should include sub-national, regional, or provincial engagement records, these are included in the chronological display. If the decision is to limit scope to national-level contacts only, the view is filtered accordingly. This decision affects data volume, usability, and result set size; the organization must decide scope before implementation design begins.",
+        "reason": "Large countries may have hundreds of regional engagement records, which could create unwieldy result sets. Both agents agreed this is a valid non-blocking clarification that must be decided before design begins to ensure the feature remains performant and usable. The Proposer appropriately placed this in conditional scope as an organizational decision with stated consequences.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      }
+    ],
+    "disputed_scope": [],
+    "unresolved_scope": [],
+    "assumptions": [
+      {
+        "statement": "Project managers are authorized stakeholders who have a legitimate operational need to view country engagement history before starting a mission.",
+        "reason": "The original request assumes managers are appropriate users and the system context identifies them as users. However, confirmation that project managers should access sensitive engagement records is an organizational authorization decision, not a technical assumption. This will be validated when the authorization policy is defined.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r3-proposer",
+          "r5-proposer"
+        ],
+        "disposition": "unresolved"
+      },
+      {
+        "statement": "'Full history' means all engagement records for a country that the viewing user is authorized to access under the organization's access control policy and data retention boundaries.",
+        "reason": "The system context notes that some records carry confidentiality considerations. 'Full' cannot mean unrestricted access without authorization. This assumption preserves the request's intent—maximum visibility within authorized scope—while respecting security and confidentiality constraints that already exist in the system. The Critic accepted this as grounded in the system context.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "A mission creation workflow exists where project managers initiate or plan new missions, and a natural integration point exists where displaying prior engagement history would be useful and discoverable.",
+        "reason": "The request implies a specific moment ('before starting a new mission') where history access would be valuable. The exact workflow is not supplied. Implementation requires the organization to clarify where this integration point should be. Both agents agreed this is a sound assumption given the request, contingent on organizational workflow clarification.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r3-proposer",
+          "r5-proposer"
+        ],
+        "disposition": "unresolved"
+      },
+      {
+        "statement": "Engagement history records are already maintained in the system with timestamps, country-level indexing, user/role information, and metadata identifying confidentiality or diplomatic flags, and are queryable by country and filterable by user authorization level.",
+        "reason": "The system context states it 'tracks engagement history,' implying records exist and are structured with dates and country references. Access control requires user role or clearance to be queryable with records. If records lack these attributes, data retrieval and access control enforcement would be infeasible. The Critic accepted this as reasonable given the system context and explicitly flagged rather than claimed as verified.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Project managers should not automatically rank or prioritize which past contacts to re-engage; the history view is informational only.",
+        "reason": "The request asks for visibility, not automated decision-making. This protects against conflicts of interest or diplomatic missteps arising from system-driven contact prioritization without human judgment. Both agents agreed this is a sound principle for the feature design.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Row-level access control can be applied at the database or application layer to filter records before they are returned to the requesting user, preventing unauthorized access to restricted records.",
+        "reason": "Enforcement of confidentiality and authorization boundaries requires that restricted records not be exposed to unauthorized users. Row-level filtering is the standard secure approach in modern systems. Implementation details depend on the organization's technical stack and the finalized authorization policy. The Critic accepted this specification as resolving security concerns raised in challenge C4.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "accepted"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "A project manager can retrieve and display the full engagement history for a chosen country within the mission planning workflow without requiring additional approval or special request.",
+        "reason": "The request specifies that managers should be able to access history 'before starting a new mission,' implying frictionless access during the workflow. This criterion is observable and testable: either the feature is accessible without additional approval or it is not. Both agents agreed this captures the intended ease of access.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The displayed history is chronologically ordered and includes identifiable information (contact name or identifier, interaction type, project affiliation, date, and brief summary) sufficient for the manager to understand the relationship history.",
+        "reason": "Chronological ordering supports informed decision-making and avoids duplication, as stated in the request. The specified fields provide sufficient context for managers to understand past engagement. Both agents agreed this criterion is observable and testable.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "A project manager cannot view engagement records for a country if their authorization profile—defined by role, clearance level, regional assignment, or other criteria in the organization's policy—excludes that country or record type; restricted records are filtered before display.",
+        "reason": "The system context notes that some contact records carry diplomatic or confidentiality considerations. Row-level filtering ensures restricted records are not exposed to unauthorized users. This criterion is observable and testable once the authorization policy is defined. Both agents agreed this is the correct access control approach.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "When a project manager attempts to view engagement history for a country where their authorization restricts access, the system indicates that access is restricted and explains the reason, rather than returning no results or an error; this feedback clarifies the access boundary and reduces user confusion.",
+        "reason": "This criterion balances security with user experience by providing transparent feedback without exposing restricted content. The Proposer specified this in response to Critic challenge C4, and the Critic accepted it as a defensible and practical design choice that improves usability.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The history view loads and displays typical country engagement records (fewer than 500 records) within 2 seconds, supporting responsive user interaction during mission planning.",
+        "reason": "Performance is a practical requirement for user adoption during mission planning. The 2-second target is a reasonable threshold for typical use cases. This criterion is measurable and observable.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Restricted records flagged with confidentiality or diplomatic markers are not displayed to the viewing user unless their authorization profile explicitly grants access to those record types; no metadata leakage occurs.",
+        "reason": "The system context explicitly notes that some contact records carry diplomatic or confidentiality considerations. This criterion ensures these sensitive records are protected even in their metadata form. Both agents agreed that row-level filtering and no metadata exposure is the correct security posture.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "agreed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "Who is the named stakeholder owner (specific role, person, or committee) responsible for defining the authorization policy for project manager access to country engagement records? What is the expected timeline for this decision? Can technical architecture, data modeling, and access control schema design proceed in parallel with policy drafting, or must the policy be finalized first before these design activities begin? What is the gate condition that must be met before implementation deployment (e.g., signed policy document, legal review, CISO approval)?",
+        "impact": "This is a blocking prerequisite for implementation readiness and project planning. The organization must provide stakeholder ownership and timeline clarity to enable implementation planning, establish project milestones, and define what design work can proceed in parallel with policy definition. Without this information, the implementation team cannot establish milestones, sequence work, or commit to deployment timelines.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic",
+          "r5-proposer",
+          "r5-critic"
+        ]
+      },
+      {
+        "question": "Who is the named stakeholder owner (specific role, person, or committee) responsible for clarifying the mission creation workflow? What is the expected timeline for this workflow clarification? Can high-level UX exploration, prototypes, and user flows proceed in parallel with detailed workflow mapping, or must the workflow be finalized before design work begins? What is the gate condition that must be met before detailed integration design proceeds (e.g., workflow document approval, design sign-off)?",
+        "impact": "This is a blocking prerequisite for design implementation readiness. The organization must provide stakeholder ownership and timeline clarity to enable design planning, establish which UX work can begin immediately, and define the path to design sign-off. Without this information, the design team cannot establish parallel work streams or commit to design completion timelines.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic",
+          "r5-proposer",
+          "r5-critic"
+        ]
+      },
+      {
+        "question": "Does the organization have a defined data retention or archival policy for engagement records? If so, what is the retention window (e.g., 5 years, 10 years, indefinite, or records retained for as long as relationships are active)?",
+        "impact": "Non-blocking clarification that affects the testable scope of 'full history' and the success criteria for completeness. If records are archived or deleted beyond a certain age, the system cannot display them, and this boundary must be reflected in implementation scope and success criteria. This should be clarified before detailed implementation design begins to ensure success criteria are realistic and testable.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Should the engagement history view include records at all government levels (national, regional, provincial, local), or only national-level contacts? If a decision has not been made, who owns this decision and what is the expected timeline?",
+        "impact": "Non-blocking clarification that affects data volume, usability, performance, and result set management. Large countries may have hundreds of regional engagement records. The organization must decide whether to include sub-national records or limit scope to national-level contacts to keep the view manageable, discoverable, and performant. This should be decided before detailed implementation design begins.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Does the organization have an existing authorization model, role-based access control (RBAC) framework, or clearance/classification system that the row-level filtering and access control enforcement should align with? If not, will the authorization policy defined for the first question establish this model, or is there a separate technical infrastructure decision needed?",
+        "impact": "Design dependency that clarifies technical feasibility and architecture direction. Understanding existing authorization infrastructure or confirming that the authorization policy will establish it will enable the implementation team to finalize technical design choices for row-level filtering and access control logic before detailed work begins.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r5-proposer",
+          "r5-critic"
+        ]
+      }
+    ],
+    "rejected_options": []
+  }
+}

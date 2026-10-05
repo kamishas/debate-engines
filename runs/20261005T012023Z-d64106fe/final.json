@@ -1,0 +1,522 @@
+{
+  "original_request": "We need a better way to track who is the right person to contact in each country.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "completed",
+  "termination_reason": "The Proposer has successfully addressed all blocking concerns raised across three rounds of deliberation. The three material challenges identified in round 3 (C6, C7, C8) are now resolved through explicit specification of governance timelines, decision-maker designation, responsibility assignment, and interim communication protocols. The scope is now coherent and implementable subject to three blocking organizational decisions (role taxonomy validation, approval authority assignment, confidentiality policy decision) that are clearly identified and bounded in conditional_scope. Material concerns about stale contact management, indefinite deferral of confidentiality policy, and post-launch governance accountability are now explicitly addressed through assumption A6, conditional requirements, and success criterion contingencies. The proposal does not assume outcomes of these organizational decisions; it specifies what must be decided, by whom, and by what timeline. Success criteria are observable and testable (task time, query resolution rate, user feedback, contact coverage, and 180-day refresh contingent on governance setup). Remaining human decisions are explicitly bounded and honestly represented: three blocking organizational decisions and two immediate post-launch governance assignments must be made, but these are no longer ambiguous or open-ended. No material concerns about usefulness, feasibility, access to sensitive information, or scope decision-making remain unaddressed. The scope is ready for documentation and stakeholder review, with clear implementation prerequisites and conditional pathways. Another round is unlikely to improve the decision with the information currently available; further deliberation should proceed with organizational stakeholders to finalize role taxonomy, approval authority, confidentiality policy, and post-launch governance responsibilities.",
+  "completed_rounds": 4,
+  "partial": false,
+  "latest_confidence": {
+    "proposer": {
+      "score": 78,
+      "justification": "Dimension ratings: Grounding (4/4) – the interpretation is strongly grounded in the supplied request and system context; proposed baselines are clearly distinguished from established facts; the Proposer has incorporated feedback and now explicitly addresses pre-launch and post-launch governance with clear timelines and responsibility assignment. Scope clarity (4/4) – included and excluded scope are concrete and implementable subject to stakeholder approval; conditional scope now explicitly specifies: role taxonomy approval, approval authority assignment, confidentiality policy decision with a 60-day/one-quarter target timeline, contact flagging for policy review, user communication on interim status, and post-launch governance responsibility assignment for designation refresh with defined operational process. All material scope dimensions are now bounded. Assumptions and dependencies (4/4) – six assumptions are explicit, defensible, and grounded; all are transparently stated and none are contradicted by supplied information. Testability (4/4) – success criteria are observable, concrete, and measurable; criterion 5 is now explicitly contingent on post-launch governance setup, clarifying the dependency; the 80%, 5%, and 180-day targets are appropriate for launch and post-launch validation. Treatment of material concerns (4/4) – all three blocking concerns from the Critic (C6, C7, C8) are now addressed through explicit conditional scope revisions specifying decision-makers, timelines, responsibility assignments, and interim communication protocols. The proposal no longer defers governance decisions indefinitely; it bounds them with clear exit criteria and responsibility assignments. No cap applied; the proposal is sound, implementable, and appropriately conditional with clear governance expectations. Strongest support: the proposal is now complete in scope definition, explicitly addresses governance dependencies with concrete timelines and responsibilities, and makes transparent what must be decided at what stage. Main weakness: three blocking organizational decisions (role taxonomy, approval authority, confidentiality policy) and one immediate post-launch governance assignment (designation refresh responsibility) must still be resolved, but these are now clearly scoped and time-bounded rather than open-ended.",
+      "main_uncertainty": "Organizational willingness and capacity to make the three blocking decisions (role taxonomy, approval authority, confidentiality policy) and immediately assign post-launch governance responsibility for designation refresh within the proposed timelines. The proposal now provides concrete baselines, clear dependencies, and bounded interim paths, but the organization must commit to decision-making within realistic timelines. The primary variable is whether organizational stakeholders (security/legal for confidentiality policy, operations/CRM for approval authority and refresh governance) can align on these decisions before or immediately after launch. Evidence or decision needed: (1) stakeholder review and approval of proposed role taxonomy and approval authority model; (2) organizational commitment to confidentiality policy decision-making with a designated decision-maker and target timeline (60 days/one quarter post-launch if deferred); (3) immediate assignment of post-launch governance responsibility for designation refresh with a defined operational process; (4) confirmation that users will be informed if the interim permissive default is in effect and that visibility filtering rules are provisional.",
+      "round": 4,
+      "message_id": "r4-proposer"
+    },
+    "critic": {
+      "score": 82,
+      "justification": "Dimension ratings: Grounding (4/4) – the interpretation is strongly and consistently grounded in the supplied request and system context; proposed baselines are clearly distinguished from established facts; the Proposer has incorporated all feedback and avoided inventing organizational policies or permissions. Scope clarity (4/4) – included, excluded, and conditional scope are now concrete, comprehensive, and implementable; role categories, authorization logic, visibility filtering, lifecycle management, governance timelines, and interim communication protocols are all explicitly specified. The scope is not ambiguous; it identifies clearly what must be decided and when. Assumptions and dependencies (4/4) – six assumptions are explicit, defensible, grounded, and transparently stated; three are essential and all are reasonable given the request and context; none are contradicted by supplied information. Testability (4/4) – success criteria are observable, concrete, and measurable; criterion 5 explicitly acknowledges contingency on post-launch governance; the 80%, 5%, and 180-day targets are appropriate and testable; usability and currency are validated through user feedback and operational monitoring. Treatment of material concerns (4/4) – all concerns raised across three rounds (authorization, role definitions, stale contact management, confidentiality policy alignment, indefinite deferral, post-launch accountability) are now explicitly addressed through scope revisions, assumptions, conditional requirements, and success criterion contingencies. Governance timelines and decision-maker responsibilities are bounded, not deferred indefinitely. No material gaps remain. No cap applied; the proposal is sound, appropriately conditional, does not assume undecided organizational matters, and is ready for stakeholder validation. Strongest support: the proposal is complete in scope definition, explicitly addresses all material concerns, makes governance dependencies transparent with concrete timelines, and provides bounded interim pathways for deferred organizational decisions. Main remaining uncertainty: whether organizational stakeholders will commit to the proposed timelines and responsibility assignments, but this is an organizational capacity question, not a scope design weakness.",
+      "main_uncertainty": "Organizational willingness and capacity to make the three blocking decisions (role taxonomy validation, approval authority assignment, confidentiality policy alignment) and immediately assign post-launch governance responsibility for designation refresh within the proposed timelines. The proposal now provides sound baselines, clear dependencies, explicit timelines, and bounded interim paths, but the organization must commit to decision-making and governance setup. Evidence needed: stakeholder review and approval of role taxonomy and approval authority model; organizational assignment of confidentiality policy decision-maker with target timeline (60 days/one quarter post-launch if deferred); immediate assignment of designation refresh governance responsibility with defined operational process; and confirmation that users will be informed if interim permissive default is in effect. These are organizational decisions, not scope design issues; the proposal does not assume their outcomes.",
+      "round": 4,
+      "message_id": "r4-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "After four rounds of deliberation, the proposal for a Government CRM contact routing feature has reached implementation readiness with clear scope, conditional prerequisites, and bounded governance pathways. The Proposer and Critic have resolved all blocking concerns identified across three rounds through explicit scope revisions, governance timeline specification, and responsibility assignment. The feature aims to enable users to efficiently identify the most appropriate contact for engagement in each country by establishing a designation mechanism with role-based categorization, authorization rules, visibility filtering, and lifecycle management. Three blocking organizational decisions remain unresolved (role taxonomy validation, approval authority assignment, confidentiality policy alignment) but are transparently documented in conditional scope with explicit prerequisites and interim pathways. The scope is ready for stakeholder review and does not assume organizational decisions that have not yet been made.",
+    "agreed_included_scope": [
+      {
+        "statement": "Establish a mechanism to designate or identify the primary contact (or contacts) for each country by role or engagement type",
+        "reason": "Both Proposer and Critic agree this directly addresses the core request for a better way to track who is the right person to contact in each country. The mechanism provides clarity and reduces ambiguity about contact selection.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Display or surface the designated contact(s) in a way that makes them visible and accessible in relevant workflows",
+        "reason": "Both parties agree that visibility is essential to realize the benefit of designation; contacts must be discoverable and surfaced in user workflows to reduce search friction and improve routing decisions.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Support multiple role-based contacts per country where appropriate (e.g., project lead vs. ministry liaison)",
+        "reason": "Both parties agree that government engagement involves multiple types of contacts and relationships; the feature should accommodate role-specific designations without forcing a single global contact per country.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Respect existing confidentiality and diplomatic constraints when surfacing contact information",
+        "reason": "Both parties agree that the system context explicitly notes diplomatic sensitivities; the feature must incorporate visibility filtering to avoid over-exposing sensitive contacts while ensuring legitimate access for operational work.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Implement a baseline set of role categories for contact designation: Project Lead, Ministry Liaison, Regional Coordinator, Mission Delegate, and Other",
+        "reason": "Both parties accept this taxonomy as a concrete, implementable starting point grounded in the system context. The taxonomy is defensible and subject to stakeholder validation as specified in conditional scope.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Define authorization such that regional coordinators and project managers can propose contact designations for countries within their scope, with centralized admin or country owner review and approval",
+        "reason": "Both parties agree this model leverages existing user roles and accountability structures, avoids requiring new permissions architecture, and balances distributed authority with centralized governance to prevent conflicts and ensure consistency.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Implement visibility filtering such that contacts marked as 'Restricted' or assigned a confidentiality flag are surfaced only to users with explicit access to those countries or roles; all other contacts are visible to system users with country access",
+        "reason": "Both parties agree this filtering approach is implementable and defensible; it respects the system's existing access model and adds a contact-level confidentiality overlay without replacing existing authorization controls.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Establish post-launch governance and operational processes to manage designation refresh and prevent stale contact assignments",
+        "reason": "Both parties agree that excluding time-bound assignments creates a risk of stale designations; post-launch governance with refresh processes is necessary to ensure contacts remain current and relevant.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Automatic contact ranking or selection algorithms based on undisclosed criteria",
+        "reason": "Both parties agree this is appropriately excluded because it would introduce complexity and opacity; the feature focuses on explicit human designation, not algorithmic selection.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Changes to existing contact data entry, validation, or permissions frameworks",
+        "reason": "Both parties agree the feature should not modify underlying data entry or permission structures; it operates as an overlay on existing contacts and access controls.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Integration with external communication tools or contact systems",
+        "reason": "Both parties agree this is appropriately excluded to maintain focus on the CRM system and avoid external dependencies.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Modification of who can edit or approve contact assignments beyond the scope of contact designation role",
+        "reason": "Both parties agree the feature does not extend or change general CRM permissions; authorization applies only to contact designation activities.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Time-bound or expiring contact assignments; assignments are permanent unless explicitly changed",
+        "reason": "Both parties agree to exclude time-bound support to simplify the data model and avoid automated lifecycle management complexity. This is a deliberate design choice with the understanding that permanent designations require explicit refresh governance to prevent staleness.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Pre-launch definition of confidentiality policy; confidentiality flag definitions and visibility rules must be approved by stakeholders before implementation",
+        "reason": "Both parties agree that confidentiality policy is an organizational decision outside the feature's scope; the feature will implement filtering logic once policy is decided, but does not assume or define policy pre-launch.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "If the proposed baseline role categories do not align with organizational practice, the categories must be reviewed and approved by stakeholders before implementation; the feature can proceed with revised categories once approved",
+        "reason": "Both parties agree that role taxonomy must be validated against organizational practice and terminology to ensure consistent application and user adoption. This is identified as a blocking prerequisite but allows implementation to proceed with approved revisions.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "If the centralized approval authority for contact designation cannot be assigned to an existing admin function, a new approval workflow or governance body must be established before implementation",
+        "reason": "Both parties agree that authorization must be clearly assigned before design can proceed. The proposal recommends assignment to existing roles but acknowledges that new governance structures may be required if existing roles cannot accommodate this responsibility.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "If organizational policy defines confidentiality rules or flags beyond those identified in the proposal, those rules must be documented and incorporated into the filtering logic before launch",
+        "reason": "Both parties agree that the feature will implement whatever confidentiality rules the organization defines, but does not invent new policy. If organizational policy is more granular than the proposed Restricted/Confidential approach, those rules must be documented and incorporated.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "If organizational confidentiality policy is not yet formalized, a permissive default may proceed at launch with post-launch refinement; the interim state must include: (1) designation of a policy decision-maker, (2) a target timeline for policy finalization (within 60 days of launch or one quarter), (3) flagging of contact records pending confidentiality review, (4) communication to users that visibility filtering rules are provisional and subject to refinement",
+        "reason": "Both parties agree that confidentiality policy is a blocking prerequisite, but the Critic's concerns about indefinite deferral are addressed through explicit timeline specification, decision-maker assignment, contact flagging protocol, and user communication. This bounded interim path allows implementation to proceed without assuming policy decisions.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Post-launch governance responsibility for designation refresh and stale contact management must be assigned to a specific role or team with a defined operational process before launch or immediately thereafter",
+        "reason": "Both parties agree that excluding time-bound assignments creates a post-launch governance requirement; this responsibility must be explicitly assigned and operationalized to ensure success criterion 5 (180-day refresh) is achievable. The Critic's concerns about accountability are addressed through pre-launch or immediate post-launch assignment.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      }
+    ],
+    "disputed_scope": [],
+    "unresolved_scope": [],
+    "assumptions": [
+      {
+        "statement": "The primary pain point is ambiguity about which contact to use for a given purpose, not lack of contact data itself.",
+        "reason": "The request mentions 'better way to track' rather than 'collect' or 'store', and the system context confirms that contacts are already recorded. This interpretation focuses scope on discoverability, role clarity, and designation rather than data collection. Both parties accept this interpretation as reasonable and grounded in the supplied information.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "A single designated primary contact per country per role is the default approach, with provisions for multiple contacts where needed.",
+        "reason": "Most government engagement involves a clear chain of responsibility. Defaulting to one contact per role keeps the model simple and usable while allowing exceptions. Both parties agree this is a defensible design choice and simplifies implementation without sacrificing flexibility.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Users have legitimate access to contact information for countries they work on; existing authorization controls are sufficient to support the feature without introducing new permission classes.",
+        "reason": "The system is already the central record and users already retrieve contacts. This assumption states that existing access controls are the basis for contact visibility; confidentiality filtering is an overlay on that access, not a replacement. Both parties agree this is reasonable and supported by the system context.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The organization can define contact role categories and assign designation authority internally without external dependency.",
+        "reason": "The request does not indicate that role definitions or authority structures are governed by external bodies. Internal alignment is necessary and feasible. Both parties agree this is a reasonable assumption given the supplied information.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Contact designation authority can be delegated to regional coordinators and project managers for countries and projects within their scope, with centralized review to prevent conflicts.",
+        "reason": "These user classes are already known to the system and have legitimate interest in designating contacts for their work areas. Centralized review ensures consistency without creating a bottleneck. Both parties agree this model is defensible and implementable, though the specific approval authority must be validated organizationally.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Contacts designated for completed or concluded missions may become stale without an explicit refresh mechanism; operational governance is required post-launch to manage designation lifecycle.",
+        "reason": "Excluding time-bound assignments means that permanent designations will remain in the system unless explicitly changed. Without lifecycle management processes, users risk receiving outdated contact information. This assumption captures the operational consequence of the design choice and identifies the post-launch responsibility. The Critic identified this as a material concern which the Proposer incorporated as an explicit assumption and scope item.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "accepted"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "Users can identify the correct contact for a given country and engagement type in fewer steps and with greater confidence than the current approach, measured by task completion time and post-task confidence survey scores",
+        "reason": "This criterion directly measures the core value proposition: reducing ambiguity and search friction in contact selection. Both parties agree this is observable, testable, and central to the feature's purpose. Measurement relies on user task testing and post-launch survey data.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "At least 80% of project and regional coordinator queries for a specific contact role result in a clear, unambiguous primary contact without manual escalation or search",
+        "reason": "This criterion measures consistency and effectiveness of the designation mechanism. Both parties agree an 80% success rate is a concrete and observable target. The threshold is proposed without baseline data, but is appropriate as a launch target for further refinement post-launch.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The system distinguishes between primary, secondary, and role-specific contacts for each country in a way users find actionable, validated by user feedback or usability testing",
+        "reason": "This criterion measures UI/UX effectiveness and whether the designation system is intuitive and usable. Both parties agree this is observable through user feedback and usability testing. Success depends on design iteration post-scope approval.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Designated contacts are consistently applied across the system; no more than 5% of countries lack a designated primary contact for their most active engagement role within 90 days of launch",
+        "reason": "This criterion measures coverage and consistency of the designation mechanism. Both parties agree a 5% gap rate within 90 days is a concrete target. The 90-day window allows time for regional coordinators and project managers to propose designations and for central approval to complete rollout.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Contact designations remain current and relevant; outdated designations are identified and refreshed within 180 days of role or mission conclusion, contingent on post-launch governance responsibility assignment and process definition",
+        "reason": "This criterion directly addresses the stale contact risk identified by the Critic. Both parties agree this is necessary to ensure the feature continues to provide value post-launch. The criterion explicitly acknowledges contingency on post-launch governance setup, making clear that success depends on pre-launch or immediate post-launch responsibility assignment and operational process definition.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "proposed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "Are the proposed baseline role categories (Project Lead, Ministry Liaison, Regional Coordinator, Mission Delegate, Other) aligned with how the organization actually structures engagement in practice, or do they require revision to match organizational terminology and workflow?",
+        "impact": "Role categories determine the data model, UI, and how users reason about contact assignments. Misalignment with organizational practice will lead to inconsistent designations, confusion about which role to assign, and reduced adoption. This directly affects the 'greater confidence' success criterion and the 80% query resolution rate.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "question": "Can the centralized approval authority for contact designation be assigned to an existing admin function or role (e.g., a CRM administrator or regional operations manager), or must a new approval workflow or governance body be established before implementation?",
+        "impact": "Determines feasibility and timeline for implementation. Assignment to an existing role reduces setup complexity and risk; a new workflow requires staffing, governance design, and approval authority clarity. Blocks implementation until resolved organizationally.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "question": "What is the organization's current confidentiality policy for contact records? Are 'Restricted' and 'Confidential' flags (or equivalent confidentiality attributes) already defined and in use, or must they be introduced as part of this feature? If they must be introduced, what confidentiality rules should govern which contacts are visible to which user classes?",
+        "impact": "Confidentiality policy alignment is required before visibility filtering can be implemented correctly. If flags do not exist, the feature must define them; if no policy exists, the organization must establish one pre-launch or proceed with the bounded interim default pending post-launch refinement. Blocks implementation of visibility filtering logic.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "question": "Who will be designated as responsible for post-launch governance of contact designation refresh and stale contact management, and what operational process will be used to identify and refresh outdated designations (periodic review cadence, mission-end notification, user flag mechanism, or combination)?",
+        "impact": "Directly affects the operational soundness of the feature and user confidence in designation accuracy. Clear pre-launch or immediate post-launch assignment of this responsibility is necessary to ensure success criterion 5 (180-day refresh) is achievable and measured. Without clarity, the system risks surfacing outdated contacts and undermining user confidence in the feature's accuracy.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "question": "Will the organization commit to a target timeline for confidentiality policy finalization if deferred to post-launch, and who will own this decision-making process (security, legal, operations leadership)?",
+        "impact": "Defines the interim state boundary and prevents indefinite deferral of confidentiality rules. A clear timeline and decision-maker ensure that visibility filtering rules are finalized within a bounded window (recommended: 60 days/one quarter per conditional scope), and that users are informed of the interim status and expected refinement timeline. Without this commitment, the permissive interim default may persist indefinitely.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      }
+    ],
+    "rejected_options": [
+      {
+        "statement": "Automatic contact ranking or selection algorithms based on undisclosed criteria",
+        "reason": "Rejected because it would introduce opacity and complexity; the feature prioritizes explicit human designation for clarity and auditability. Both parties agree algorithmic selection is inappropriate for sensitive government relationships.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Time-bound or expiring contact assignments with automated lifecycle management",
+        "reason": "Rejected in favor of permanent designations that require explicit refresh governance to avoid implementation complexity. The Proposer and Critic agree that excluding time-bound support simplifies the data model, though this creates a post-launch governance responsibility for managing designation staleness.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "Pre-launch definition of confidentiality policy as part of feature scope",
+        "reason": "Rejected because confidentiality policy is an organizational decision outside the feature's scope. The feature will implement filtering logic once policy is decided, but does not assume or define policy. A bounded interim path (permissive default pending post-launch finalization) is provided to unblock implementation if organizational policy is not yet formalized.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      }
+    ]
+  }
+}

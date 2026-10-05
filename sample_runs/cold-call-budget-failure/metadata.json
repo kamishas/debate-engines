@@ -1,0 +1,23 @@
+{
+  "model": "claude-haiku-4-5-20251001",
+  "settings": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_rounds": 3,
+    "max_tokens": 8192,
+    "max_calls": 9,
+    "max_input_bytes": 250000,
+    "repair_attempts": 1,
+    "provider_retries": 1
+  },
+  "started_at": "2026-10-04T23:40:32.958103+00:00",
+  "updated_at": "2026-10-04T23:45:59.821564+00:00",
+  "completed_rounds": 3,
+  "outcome": "capped",
+  "termination_reason": "Round cap reached without valid completion or a justified stall.",
+  "report_status": "failed",
+  "provider_calls": 9,
+  "input_tokens": 123310,
+  "output_tokens": 32303,
+  "report_error": "Model-call budget exhausted (including retries and repairs).",
+  "finished_at": "2026-10-04T23:47:03.852057+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "evaluation_type": "summarizer_only_on_frozen_dialogue",
+  "case": "error",
+  "source_run": "C:\\Users\\kamin\\Documents\\DE\\runs\\termination-prompt-review\\20261005T020448Z-359b8080",
+  "source_report_status": "succeeded",
+  "source_file_hashes": {
+    "exchanges.jsonl": "31f2204747987bfaba0b444ed427917a0f18166dc672178083f87f416b701bb1",
+    "final.json": "0cd7d2afe49c6af402dad01043f7a66349973c47784e589421b703bad01e95f3",
+    "input.json": "8c7ca391a5727a3c59896b7abd82e5c325dc6b167c9fa74d4274bebbc1c92292",
+    "metadata.json": "eb7900b8036de78e12ffd0492e042989471510e5115b53ee3a94d4c27acad873",
+    "transcript.md": "bcaa955916a78ffb9041c441d1fb2fd9bcb344048b1b19178dc7558b3b7fb7f8"
+  },
+  "model": "claude-haiku-4-5-20251001",
+  "settings": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_rounds": 4,
+    "max_tokens": 8192,
+    "max_calls": 3,
+    "max_input_bytes": 500000,
+    "repair_attempts": 2,
+    "provider_retries": 0
+  },
+  "started_at": "2026-10-05T03:06:47.674392+00:00",
+  "outcome": "error",
+  "termination_reason": "Output validation exhausted bounded repair: C2 is resolved: remove it from challenges; use a fresh ID if there is a new issue. C3 is resolved: remove it from challenges; use a fresh ID if there is a new issue.",
+  "completed_rounds": 1,
+  "report_status": "succeeded",
+  "provider_calls": 2,
+  "input_tokens": 32841,
+  "output_tokens": 9316,
+  "source_files_unchanged": true,
+  "finished_at": "2026-10-05T03:08:39.443230+00:00"
+}

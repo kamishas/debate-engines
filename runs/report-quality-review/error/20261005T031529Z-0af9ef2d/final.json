@@ -1,0 +1,361 @@
+{
+  "original_request": "We need a better way to track who is the right person to contact in each country.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "error",
+  "termination_reason": "Output validation exhausted bounded repair: C2 is resolved: remove it from challenges; use a fresh ID if there is a new issue. C3 is resolved: remove it from challenges; use a fresh ID if there is a new issue.",
+  "completed_rounds": 1,
+  "partial": true,
+  "latest_confidence": {
+    "proposer": {
+      "score": 72,
+      "justification": "Grounding: 3/4 — The proposal remains grounded in the stated problem (users report difficulty finding contacts) and the CRM's established role. The interpretation is reasonable but not explicitly confirmed as the root cause; the original request uses the vaguer phrase 'better way to track,' which could also be addressed by roster/list improvements or automated routing. Scope clarity and relevance: 3/4 — Included and excluded scope are well-defined and coherent. The revisions to conditional scope (neutral ranking until criteria are established, access enforcement conditional on documented rules) clarify material dependencies. One gap remains: role-specific selection priorities are flagged as requiring stakeholder validation but are not yet validated. Assumptions and dependencies: 3/4 — Five material assumptions are explicit, including the revised A4 acknowledging that unified interface feasibility depends on role-priority overlap (which requires validation). Conditional scope now explicitly addresses ranking deferral and access control enforcement conditions, making dependencies clear. Testability: 3/4 — Success criteria are observable. Criteria 2 and 3 are revised: adoption is measured by system telemetry (concrete); appropriateness match is lowered to 70% (more realistic than 80% and avoids unsupported targets) and is measured by audit log or validation by regional coordinators (more robust than survey alone). Criteria 1 (30-second search) and 4 (context retention) remain sound. Criteria 5 (access control verification) is added and is auditable. Treatment of material concerns: 3/4 — Confidentiality and access control are now moved from assumption to conditional scope and are addressed with an explicit mechanism (filtering, messaging, audit) contingent on documented access control rules. Ranking criteria are acknowledged as a dependency that will be deferred until stakeholder input is obtained or pilot feedback is available. This is more transparent than defending an undefined mechanism. The proposal no longer claims to solve ranking without input; instead, it provides search and filtering (core value) and treats ranking as a later enhancement. No cap is applied. The three blocking challenges are now addressed: C1 is revised (ranking deferred to neutral order pending criteria); C2 is revised (access control conditional on documented rules); C3 is revised (unified interface proposed with role-awareness, but flagged for stakeholder validation). The feature can proceed with stakeholder decisions on access control rules and role priorities. Score: 5 × (3+3+3+3+3) = 75; adjusted to 72 to reflect that two key dependencies (access control rules, role-priority validation) remain external to the proposal but are now explicit and actionable.",
+      "main_uncertainty": "The most material unresolved issue is whether documented access control rules exist and can be provided to inform the discovery UI's enforcement mechanism (C2). If access rules are not documented or are inconsistently applied, the feature cannot safely enforce them without creating security or usability gaps. This is an organizational policy/governance question, not an information gap, and requires a named stakeholder (likely the CRM administration or security team) to clarify within the next 1–2 weeks before detailed design begins. A secondary uncertainty is whether role-specific contact selection priorities are sufficiently similar that a single unified interface will serve all user roles adequately (C3). This requires validation through interviews or workshops with regional coordinators, project managers, and 1–2 executives. If these conversations reveal incompatible priorities, the scope would need to include role-specific filtering defaults or separate entry points. These two decisions are prerequisites for design; they do not block the current proposal, which is now conditionally sound pending their resolution.",
+      "round": 2,
+      "message_id": "r2-proposer"
+    },
+    "critic": {
+      "score": 68,
+      "justification": "Grounding: 3/4 — The proposal is grounded in the stated problem (users report difficulty finding contacts) and the CRM's established role. The interpretation of the problem as a discovery/filtering gap is reasonable but not explicitly confirmed in the original request, which uses the vaguer phrase 'better way to track.' Scope clarity and relevance: 3/4 — Included and excluded scope are well-defined and coherent. However, two material gaps prevent full clarity: (a) ranking criteria for contact appropriateness are undefined, and (b) access control enforcement mechanism is not detailed. Both affect the feature's design and feasibility. Assumptions and dependencies: 3/4 — Five material assumptions are explicit and stated with rationales. They are reasonable but not yet validated; failure of any would require revision. Testability: 3/4 — Success criteria are observable and mostly evidence-based, with the exception that the 80% appropriateness threshold and the 30-second time target are proposed without external evidence. Treatment of material concerns: 2/4 — Confidentiality and access control are identified as concerns and are addressed at a high level (respect existing rules, show context, include audit trail). However, the proposal does not yet specify how these will be enforced in the discovery UI or what the access rules actually are. This leaves a material gap that could affect both security and usability. No cap is applied: the three blocking open questions (C1, C2, C3) prevent implementation approval, but the scope is clear enough for human review and a second deliberation round can resolve them. Score calculated as 5 × (3+3+3+3+2) = 70; no cap.",
+      "main_uncertainty": "The most material unresolved issue is the definition of contact appropriateness and ranking criteria (C1). The request assumes 'the right person' is a coherent concept, but the proposal does not articulate what makes one contact 'righter' than another for a given user and task. This requires either explicit business rules (which may exist but are not documented), a user research or stakeholder input process to derive them, or a decision to defer ranking and surface undifferentiated search results (a lower-value feature). The second close uncertainty is how access-restricted contacts will be treated in discovery (C2)—whether hidden, shown with redacted fields, or shown with access-request workflows. Both are organizational policy/design decisions, not information gaps, and can be resolved by the Proposer in the next round through stakeholder consultation or clarification of existing practices.",
+      "round": 1,
+      "message_id": "r1-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "A proposal to enhance Government CRM contact discovery and filtering was presented to help users identify the correct contact person across ~100 member countries. The Proposer introduced improved search, filtering by role/project/recency, context display, access control enforcement, and audit trails. The Critic challenged three material dependencies: (1) ranking criteria for determining contact appropriateness are undefined, (2) access control rules for restricted contacts are not documented, and (3) whether a single unified interface serves overlapping or distinct user role priorities is unvalidated. The Proposer revised the proposal in Round 2 to address these challenges by moving ranking to conditional scope (neutral ordering until explicit criteria are established), making access enforcement conditional on documented rules, and flagging role-priority validation as a prerequisite. The deliberation was interrupted by a validation error before a full Critic review of Round 2 revisions. The proposal is functionally sound for search and filtering but depends on organizational decisions about access control documentation and stakeholder input on role-specific contact priorities before detailed design can proceed.",
+    "agreed_included_scope": [
+      {
+        "statement": "Enhanced contact discovery and search within the CRM for a given country by country name, region, or code.",
+        "reason": "Both agents recognize this as a core capability addressing the stated user difficulty. Search by country identifier is a foundational capability that does not depend on ranking criteria, access rule clarification, or role validation.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Filtering and ranking contacts by role type (country representative, ministry contact, project lead, mission delegate), project affiliation, engagement recency, or active mission status.",
+        "reason": "Both agents accept filtering as a primary mechanism to surface relevant contacts. Filtering is operationally distinct from ranking (which is conditional) and provides value even without explicit ranking rules. The Critic accepted filtering as part of the coherent scope in r1-critic; the Proposer retained it as a core included feature in r2-proposer.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Display of contact context (history summary, current projects, last engagement date, organizational role) to help users assess appropriateness.",
+        "reason": "Both agents support context display to aid user judgment in contact selection. This reduces reliance on automated ranking and empowers users to make informed choices. The Critic accepted this in r1-critic as part of the coherent scope.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Updated contact record UI to surface metadata that aids selection (e.g., primary vs. backup designations, language, expertise area).",
+        "reason": "Both agents recognize that metadata surfacing helps users assess contact appropriateness. The Critic did not challenge this element in r1-critic; the Proposer retained it in r2-proposer.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Exclusion of automated contact recommendation via AI or machine learning.",
+        "reason": "Both agents explicitly support this exclusion to keep scope bounded and preserve human judgment in contact selection. The Critic accepted this exclusion in r1-critic as defensible.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Exclusion of changes to the underlying contact data model or organizational hierarchy structure.",
+        "reason": "Both agents agree that the feature should work within the existing CRM data structure without requiring structural changes. This keeps the proposal feasible and focused on UI/discovery improvements.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Exclusion of integration with external contact databases or third-party identity systems.",
+        "reason": "Both agents support this boundary to maintain focus and avoid external dependencies.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Exclusion of workflow automation that removes human judgment from contact selection.",
+        "reason": "Both agents agree that users remain responsible for final contact choice and that the feature should not automate this decision. The Critic accepted this exclusion in r1-critic as appropriate for preserving human responsibility.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [],
+    "conditional_scope": [
+      {
+        "statement": "If explicit ranking criteria by engagement type are established (e.g., 'for policy negotiation prefer ministry contacts; for project delivery prefer project leads'), the UI will implement role and task-type-aware ranking that orders contacts accordingly.",
+        "reason": "The Proposer revised the proposal in r2-proposer to acknowledge that ranking criteria are undefined and moved intelligent ranking to conditional scope. Until the organization articulates task-type-specific contact preferences, the feature will surface filtered results in neutral order (alphabetical or by recency) and users will apply judgment to select the appropriate contact. This defers ranking as a future enhancement pending stakeholder input.",
+        "supporting_messages": [
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "If project-to-contact associations are sparse or outdated, filtering by project will have limited utility until data quality is addressed through a separate data governance initiative.",
+        "reason": "Both agents acknowledge this dependency. The Proposer identified it in r1-proposer as a conditional scope item; the Critic did not dispute it in r1-critic. The Proposer retained it in r2-proposer. The feature remains functional but may show fewer results if project data quality is poor.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "If regional coordinator preferences for escalation paths are known, the contact ranking can reflect preferred escalation order (e.g., prioritize regional lead over project lead).",
+        "reason": "Both agents acknowledge this as a conditional enhancement. Escalation policy is not specified in the current context, so this is flagged as a future input to improve ranking.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "If access-restricted or diplomatically sensitive contacts are governed by documented access control rules, the discovery UI will enforce these rules by filtering restricted contacts from view for unauthorized users, displaying a 'contact support for access' message for users who encounter a restriction, and maintaining an audit record of access attempts.",
+        "reason": "The Proposer revised the proposal in r2-proposer to move access control enforcement to conditional scope, contingent on the organization providing documented access control rules. The Critic challenged the lack of detail on access enforcement in r1-critic (C2), stating that the mechanism was undefined and left a security and usability gap. The Proposer's revision addresses this by specifying the enforcement approach (filtering, messaging, audit) but making it conditional on documented rules being provided. This prevents implementation without clarity on what contacts are actually restricted.",
+        "supporting_messages": [
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "If role-specific contact selection priorities are validated by stakeholders, the unified discovery interface can include role-aware filtering and defaults (e.g., regional coordinators see region and escalation path filters; project managers see project affiliation and delivery stage filters).",
+        "reason": "The Proposer revised assumption A4 in r2-proposer to acknowledge that different user roles may have materially different contact selection criteria. The Critic challenged the assumption that a single unified interface serves all roles (C3) in r1-critic. The Proposer's revision proposes role-aware filtering as a solution but makes the feasibility of a unified interface conditional on stakeholder validation. If validation shows roles have incompatible needs, separate entry points may be required.",
+        "supporting_messages": [
+          "r2-proposer"
+        ]
+      }
+    ],
+    "disputed_scope": [],
+    "unresolved_scope": [
+      {
+        "statement": "Whether the feature should provide intelligent ranking of contacts by appropriateness for different engagement types, or surface filtered results in neutral order (alphabetical or by recency) pending explicit ranking criteria from stakeholders.",
+        "reason": "The Proposer and Critic acknowledged that ranking criteria are undefined. The Critic identified this as a blocking challenge (C1) in r1-critic: 'Without explicit ranking rules, the UI may surface contacts in an order that does not match user intent, reducing perceived usefulness and trust in the feature.' The Proposer revised in r2-proposer to defer ranking and provide neutral ordering initially, treating intelligent ranking as a conditional enhancement. This is a design decision—whether to launch with search/filtering but no ranking, or wait for ranking criteria to be articulated. The deliberation was interrupted before the Critic could accept or challenge this revised approach.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Whether documented access control rules governing contact visibility exist and can be provided to the implementation team to inform the discovery UI's access enforcement mechanism.",
+        "reason": "The Critic identified lack of access control documentation as a blocking challenge (C2) in r1-critic: 'The proposal acknowledges that some contacts carry diplomatic or confidentiality restrictions...but does not specify the mechanism.' The Proposer revised in r2-proposer to make access enforcement conditional on documented rules being provided, but the underlying organizational question remains: are these rules documented and available? The deliberation was interrupted before the Critic could validate whether the conditional approach resolves the concern.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Whether a single unified discovery interface with role-aware filtering will serve regional coordinators, project managers, and executive-level staff adequately, or whether different roles require materially distinct selection criteria and separate entry points.",
+        "reason": "The Critic challenged the assumption that a unified interface serves all roles (C3) in r1-critic. The Proposer revised assumption A4 in r2-proposer to propose role-aware filtering and flagged this for stakeholder validation, but the underlying question remains unresolved: do different roles have sufficiently overlapping contact selection priorities? This requires interviews or workshops with representatives from each user role. The deliberation was interrupted before the Critic could assess whether the revised assumption is defensible.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "statement": "Users can tolerate one additional step (a search or filter action) to find the right contact, compared to today's method.",
+        "reason": "The request implies dissatisfaction with current discovery speed or ease. Adding a better search interface assumes it will not introduce unacceptable friction; if users need instant pre-selected contacts, a different approach (e.g., dashboard widgets, role-based defaults) might be needed instead.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "Contact roles (country representative, ministry contact, project lead, mission delegate) are sufficiently distinct and consistently recorded in the CRM to enable reliable filtering.",
+        "reason": "Filtering by role assumes role data is complete and accurate. If role assignment is inconsistent or missing, filters will fail to surface the intended contact and erode user trust in the feature. This assumption requires validation before feature launch.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "The organization has defined rules for which users may access which contacts, and these rules are enforced at the system level today.",
+        "reason": "The proposal assumes role-based visibility is already in place as a control measure given data sensitivity. The proposal does not change access rules but must respect them in the improved discovery UI. These rules must be documented and provided to inform the access control enforcement mechanism.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "Users in different roles (e.g., regional coordinator, project manager, executive) can be served by a unified discovery interface with role-aware filtering and context, rather than requiring entirely separate tools or workflows.",
+        "reason": "The request uses 'the right person' (singular concept across user types), implying a common problem. However, different roles may weight selection criteria differently. The Proposer revised this assumption in r2-proposer to acknowledge that feasibility depends on stakeholder input about role-specific contact priorities. A single unified interface can serve all roles if it allows role-based filtering or defaults; if roles have fundamentally incompatible needs, separate entry points may be required. This assumption is now conditional on stakeholder validation.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "revised"
+      },
+      {
+        "statement": "Recording which contact was selected and when is valuable for governance, relationship continuity, and dispute resolution; users will accept the addition of this audit log.",
+        "reason": "Auditing contact selection supports accountability and helps future users understand why a contact relationship started. If audit overhead is seen as a bureaucratic burden, this feature may need to be optional or deferred. Audit scope and retention must be specified in governance policy.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "A user can search for contacts in a named country and receive a filtered list (by role, project, mission status, or engagement recency) in under 30 seconds, without contacting support.",
+        "reason": "Both agents accept this as a testable and concrete measure of discovery speed. This does not depend on ranking criteria and is achievable with improved search and filtering UI. The 30-second target is based on typical UX expectations for system responsiveness.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The contact discovery feature is actively used by at least 60% of regional coordinators and project managers within the first quarter of launch, as measured by system telemetry.",
+        "reason": "The Proposer introduced this criterion in r2-proposer as a revised measure of feature adoption, replacing the earlier vague criterion about 'perceived usefulness.' This is testable via system telemetry and provides concrete evidence of whether the feature addresses user needs. The 60% adoption target is realistic for a new feature and is measurable.",
+        "supporting_messages": [
+          "r2-proposer"
+        ],
+        "disposition": "proposed"
+      },
+      {
+        "statement": "At least 70% of contact selections made via the improved interface correspond to the user's stated task, project affiliation, or stated engagement purpose, as measured by audit log review of outcomes or follow-up validation conducted by regional coordinators.",
+        "reason": "The Proposer revised this criterion in r2-proposer from 80% to 70% and changed the measurement method from survey (which is subject to response bias) to audit log review or validation by regional coordinators (more objective). The criterion is testable but depends on contact selections actually being appropriate to the task, which requires either neutral search results (users judge appropriateness) or explicit ranking criteria (not yet available). The Critic did not resolve whether 70% is the right threshold, so this remains proposed pending measurement clarity.",
+        "supporting_messages": [
+          "r2-proposer"
+        ],
+        "disposition": "proposed"
+      },
+      {
+        "statement": "When a user returns to engage the same contact six months later, the CRM shows relevant history and context from prior interactions (to support continuity and avoid redundant introductions).",
+        "reason": "Both agents accept this as a testable criterion for context retention. The feature includes display of history summary, current projects, and last engagement date, which supports this outcome. This does not depend on ranking criteria or access rule clarification.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "No unauthorized user sees a contact marked as confidential or access-restricted in search results or filter suggestions; access control enforcement is validated quarterly through audit log review.",
+        "reason": "The Proposer introduced this criterion in r2-proposer as a testable measure of access control compliance. This is observable through audit log review and validates that the access enforcement mechanism prevents security loopholes. This criterion depends on documented access control rules being provided.",
+        "supporting_messages": [
+          "r2-proposer"
+        ],
+        "disposition": "proposed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "What explicit ranking or prioritization criteria should govern contact appropriateness for different engagement types (e.g., policy negotiation, project delivery, crisis escalation, routine liaison)? Should these be expressed as role-aware preferences, task-type matrices, or escalation hierarchies?",
+        "impact": "Ranking criteria determine whether the feature surfaces contacts in the order users actually need. Without criteria, the feature provides search and filtering (useful) but not intelligent ranking (more useful and differentiating). The Proposer deferred ranking in r2-proposer, planning to surface filtered results in neutral order and treat ranking as a later iteration based on pilot feedback or stakeholder input. This affects the feature's perceived value and adoption. If criteria cannot be articulated, the feature will be a search/filter tool; if criteria are established, it can be upgraded to intelligent ranking.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "question": "What is the current, documented set of access control rules governing contact visibility in the CRM (i.e., which user roles or groups can view which categories of contacts, and under what circumstances)? How are these rules currently enforced at the system level?",
+        "impact": "The feature must respect existing access policy to avoid security or diplomatic risk. The implementation team requires documentation of these rules to design the access enforcement mechanism in the discovery UI. The Proposer made access control enforcement conditional on these rules being documented and provided (r2-proposer), but the underlying organizational question remains unresolved: are these rules documented and accessible to the implementation team? Without this documentation, the feature cannot proceed to detailed design with confidence.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "question": "Do regional coordinators, project managers, and executive-level staff have sufficiently overlapping contact selection priorities that a single unified discovery interface (with role-aware filtering and defaults) will serve all adequately? Or do different roles require materially distinct selection criteria that would benefit from separate entry points or workflows?",
+        "impact": "If roles have overlapping priorities, a unified interface with role-aware filtering is efficient and keeps the feature scope bounded. If roles have incompatible priorities, separate workflows may be needed, affecting scope and implementation complexity. The Proposer flagged this for stakeholder validation in r2-proposer but did not complete the validation; the question remains open pending interviews or workshops with representatives from each user role.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "question": "What is the current state of data quality for contact role assignments in the CRM (e.g., what percentage of contacts have a role designation, how consistent is the role taxonomy across countries and regions)? If data quality is below a baseline threshold, should the feature proceed with a data remediation requirement, proceed with degraded filtering capability and a warning banner, or be deferred?",
+        "impact": "Poor role data quality will undermine filtering reliability and erode user trust. This affects feasibility of success criteria around contact appropriateness and discovery speed. The Proposer flagged this in r2-proposer as requiring validation before feature launch, but the assessment has not been completed. A baseline data quality audit is needed to confirm that filtering by role will surface meaningful results.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "question": "Should the improved contact discovery be surfaced in the main CRM interface, a dedicated dashboard widget, a mobile app, or another surface? Does user context (e.g., in-country mission vs. in-office planning) affect the preferred interface?",
+        "impact": "Feature discoverability affects adoption. If the discovery interface is not salient in users' typical workflows, they may not use it and will revert to existing (less efficient) contact-finding methods. The Proposer flagged this as a lower-priority decision in r2-proposer but did not resolve it; the question remains open pending user research or internal guidance on preferred access patterns.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "question": "What audit data should be recorded for contact selections (e.g., user identity, timestamp, contact selected, alternative contacts shown, task context)? How long should audit records be retained, and who should have access to them for governance purposes?",
+        "impact": "An audit trail supports governance, relationship continuity, and dispute resolution. However, overrecording creates privacy friction and compliance burden; underrecording limits usefulness for accountability. Clarity on schema, retention, and access prevents disputes and ensures compliance with the organization's data governance policy. The Proposer flagged this in r2-proposer but did not fully specify the schema; the question remains open pending governance policy clarification.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      }
+    ],
+    "rejected_options": [
+      {
+        "statement": "Automated contact recommendation via AI or machine learning.",
+        "reason": "Both agents explicitly exclude this to preserve human judgment in contact selection and to keep the feature scope bounded. The Proposer stated in r1-proposer that AI/ML recommendation is 'not proposed in this round pending user preference,' signaling it as a future-consideration option rather than a current requirement. The Critic accepted this exclusion in r1-critic as defensible.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Changes to the underlying contact data model or organizational hierarchy structure.",
+        "reason": "Both agents agree the feature should work within the existing CRM structure without requiring data model changes. This keeps the proposal feasible and avoids larger infrastructure investments.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Integration with external contact databases or third-party identity systems.",
+        "reason": "Both agents explicitly exclude external integrations to maintain focus and avoid third-party dependencies that could complicate governance, security, or maintenance.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Changes to confidentiality rules or access policy; the implementation respects existing policy enforcement.",
+        "reason": "Both agents agree that the feature should respect existing access control and confidentiality rules, not change them. This clarifies that the feature is a UI/discovery improvement, not a policy reform.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      }
+    ]
+  }
+}

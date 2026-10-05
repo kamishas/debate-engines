@@ -1,0 +1,34 @@
+{
+  "evaluation_type": "summarizer_only_on_frozen_dialogue",
+  "case": "placeholder",
+  "source_run": "C:\\Users\\kamin\\Documents\\DE\\runs\\20261005T023613Z-9ac1e50b",
+  "source_report_status": "succeeded",
+  "source_file_hashes": {
+    "exchanges.jsonl": "d486c8c3b08a2bcc0f180cb598e4f82cf5749ef6be1fc37882d94604462094c3",
+    "final.json": "3e85a0fb00e677821219e5c25ef4aa1d1ea0b4f85ca2188390744c6ab0ba30cf",
+    "input.json": "8c7ca391a5727a3c59896b7abd82e5c325dc6b167c9fa74d4274bebbc1c92292",
+    "metadata.json": "e5d08c2d335d36bb11b1aa0840f56752380cd4d026bdeaf63d041c106479fa04",
+    "transcript.md": "2794122d7d96362033cac76330c886d379681caf00454daafcc2e0c5218d5b87"
+  },
+  "model": "claude-haiku-4-5-20251001",
+  "settings": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_rounds": 8,
+    "max_tokens": 8192,
+    "max_calls": 1,
+    "max_input_bytes": 500000,
+    "repair_attempts": 0,
+    "provider_retries": 0
+  },
+  "started_at": "2026-10-05T03:15:28.409854+00:00",
+  "outcome": "completed",
+  "termination_reason": "The three material scope-shaping blockers from Round 1 (C1, C2, C3) have been resolved or appropriately defended. C1 (contact multiplicity) is resolved through explicit decision: single primary per country. C2 (designation authority) is resolved through concrete governance: regional coordinator role, self-service, audit trail for accountability. C3 (schema readiness) is defended with appropriate conditional framing: technical verification is deferred to implementation planning and correctly assigned to conditional_scope with clear branching if unavailable. C4 (confidentiality integration) and C5 (measurability of success criteria) are resolved through explicit inclusion in scope and revised criteria. Scope is now coherent: included, excluded, and conditional scope are clear; material assumptions are explicit and justified; governance and accountability are defined; success criteria are measurable and time-bound; and remaining unknowns (maintenance governance C6, bulk assignment C7, access control fallback C8) are identified as design questions or technical gates, not scope ambiguities. These remaining items are important but do not block agreement on conditional scope. They should be addressed during design and implementation planning. The proposal is ready for documentation and handoff to the design phase. The Proposer has made explicit choices on all scope-shaping decisions and has properly deferred technical verification and governance implementation to appropriate later stages.",
+  "completed_rounds": 2,
+  "report_status": "failed",
+  "provider_calls": 1,
+  "input_tokens": 17240,
+  "output_tokens": 4798,
+  "report_error": "Output validation exhausted bounded repair: agreed_included_scope[0].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_included_scope[1].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_included_scope[3].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_included_scope[5].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_excluded_scope[1].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r1-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_excluded_scope[2].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_excluded_scope[3].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_excluded_scope[4].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r1-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_excluded_scope[5].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. agreed_excluded_scope[6].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r1-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. assumptions[0].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. assumptions[2].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. assumptions[5].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. success_criteria[0].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r1-proposer', 'r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. success_criteria[2].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r1-proposer', 'r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. success_criteria[3].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r1-proposer', 'r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category.",
+  "source_files_unchanged": true,
+  "finished_at": "2026-10-05T03:16:29.383747+00:00"
+}

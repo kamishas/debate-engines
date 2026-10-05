@@ -1,0 +1,428 @@
+{
+  "original_request": "Project managers should be able to see the full history of engagement with a country before starting a new mission.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "completed",
+  "termination_reason": "The proposal now addresses all material challenges from the deliberation: (1) access control is integrated as a feature requirement with explicit filtering/denial handling (C1, C2 resolved in round 2); (2) contact-level information is excluded from scope with clear boundaries (C3 resolved in round 2); (3) data retention policy bounds success criteria (C4 resolved in round 3); (4) read-only scope is explicitly stated (C6 resolved in round 3); (5) human decision point for access policy is clearly identified (C7 resolved in round 3). The proposal correctly frames three categories of required external input (access policy, retention policy, technical feasibility) as prerequisites for implementation, not as assumptions. The interpretation remains grounded in the original request. Success criteria are testable and bounded by stated constraints. Remaining unresolved challenges (C5, C8, C9) are refinements to the proposal's handoff clarity, not material scope gaps. Challenge C5 can be addressed by revising assumption a4 to require technical verification (a refinement, not a fundamental change). Challenges C8 and C9 request sequencing clarity (useful for implementation planning, not scope-blocking). The proposal is governance-aware, acknowledges dependencies honestly, and is ready to be documented. Implementation cannot proceed until access control policy is confirmed (blocks_implementation: true), but the scope definition itself is coherent and defensible. The proposal does not claim certainty where none exists; it appropriately defers to human decision-makers and technical teams for clarifications that are external to the proposer role.",
+  "completed_rounds": 3,
+  "partial": false,
+  "latest_confidence": {
+    "proposer": {
+      "score": 77,
+      "justification": "The proposal now integrates access control and contact-level information boundaries, explicitly states read-only scope, and bounds success criteria by data retention policy. The interpretation remains grounded in the original request, and revised assumptions (a2_revised, a3_revised, a6) are realistic and governance-aware. The feature is now structured to work under plausible governance constraints, with explicit identification of three categories of required external input: (1) access control and retention policy from governance stakeholders, (2) data model verification from technical team, and (3) per-country authorization workflow clarification. The scope is well-framed and testable under stated assumptions. Confidence is moderate-to-high because the proposal has addressed primary concerns and clearly articulated dependencies. Confidence is not higher because implementation is blocked on external inputs (access policy, retention policy, technical feasibility, responsible stakeholder confirmation) that must be resolved before handoff. The feature cannot proceed beyond proposal without these inputs, but the proposal itself is defensible and ready for the next phase: stakeholder clarification and technical validation.",
+      "main_uncertainty": "Whether the required external inputs (access control policy, retention policy, responsible stakeholder identity, and technical feasibility confirmation) can be obtained in the next exchange or whether additional deliberation rounds are needed. The proposal is complete as a scope artifact, but implementation readiness depends entirely on these external clarifications being provided by human decision-makers and technical teams outside the proposer role.",
+      "round": 3,
+      "message_id": "r3-proposer"
+    },
+    "critic": {
+      "score": 78,
+      "justification": "The proposal now comprehensively integrates access control as a feature requirement, explicitly states boundaries on contact-level information and read-only access, and bounds success criteria by retention policy. The interpretation is grounded in the original request and is governance-aware. Critical dependencies (access policy, retention policy, technical feasibility) are identified and marked as required external inputs, not unstated assumptions. The feature is scoped to work under plausible governance constraints. Success criteria are testable. Unresolved concerns (C5, C8, C9) are refinements to clarity and handoff sequencing, not fundamental scope gaps. Confidence is moderate-to-high because the proposal is ready for documentation and the next phase (stakeholder clarification and technical validation) is clearly delineated. Confidence is not higher because the proposal cannot be implemented without external inputs that are not yet confirmed; however, this is appropriate and honest representation, not a weakness in the proposal itself. The main uncertainty is no longer about scope definition but about the timeline and feasibility of obtaining required organizational and technical clarifications.",
+      "main_uncertainty": "The timeline for obtaining access control policy clarification from responsible stakeholders and technical feasibility verification from the CRM team. The proposal is complete and ready for documentation, but implementation readiness depends on these external inputs being provided and confirmed by the organization.",
+      "round": 3,
+      "message_id": "r3-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "Project managers initiating a new mission to a country should have access to a comprehensive, chronological record of all prior organizational engagement with that country's government—including past contacts, meetings, projects, and outcomes—while respecting access control policies for sensitive records. The feature enables informed mission planning, avoids duplication, and leverages established relationships. Deliberation completed over 3 rounds with material refinement of scope boundaries. The proposal is governance-aware and identifies external dependencies required for implementation readiness: confirmation of access control policy framework, data retention policy threshold, and technical feasibility of country-level history retrieval. Three categories of required input have been clearly articulated and marked as prerequisites. The scope definition is coherent and defensible. Implementation cannot proceed without access policy clarification (blocks_implementation: true), but the proposal is ready for documentation and handoff to stakeholder clarification phase.",
+    "agreed_included_scope": [
+      {
+        "statement": "Retrieve and display engagement history for a selected country when a project manager views that country's record, respecting configured access control policies.",
+        "reason": "Both agents agreed this is the core feature scope. The country-level view is concrete, actionable, and tied to the original request for comprehensive history before mission initiation. Access control integration is now explicit.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r3-proposer",
+          "r1-critic",
+          "r2-critic",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Engagement history includes past missions, projects, contact interactions, meeting records, and outcomes.",
+        "reason": "Both agents accepted that engagement history encompasses multiple record types tied to a country. This is foundational to the 'full history' claim and supports the mission planning use case.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r3-proposer",
+          "r1-critic",
+          "r2-critic",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "History is presented in a human-readable, organized format (e.g., timeline or grouped by project/mission).",
+        "reason": "Both agents agreed that format matters for utility. A readable, organized presentation enables rapid comprehension and supports the stated goal of informing mission planning without navigating multiple screens.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r3-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "The engagement history view is read-only; project managers cannot add, modify, delete records, or add annotations from this view.",
+        "reason": "Critic accepted the read-only boundary in r3-critic. Proposer explicitly added this to included_scope in r3-proposer. Read-only aligns with the stated goal (viewing history before mission initiation) and avoids unintended modification of historical records.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Contact-level information is limited to official organizational titles and ministry affiliations; personal phone numbers, personal email addresses, and confidential notes are excluded from this view and available only on individual contact records accessed separately.",
+        "reason": "Both agents agreed that exposing personal contact details and confidential notes in the country-level history view creates unnecessary security and privacy risk. This boundary is explicit and reduces risk without impairing the core use case. Sensitive details remain accessible via individual contact records.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Records restricted by access policy (due to sensitivity, classification, or role) are either filtered from display or presented with access-denied indicators, depending on policy implementation.",
+        "reason": "Both agents agreed that access control policy must be integrated into the feature. This ensures the feature respects governance constraints while providing visibility into what records are restricted.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Real-time collaboration or mission planning tools.",
+        "reason": "Both agents agreed that real-time collaboration and mission planning tools are outside scope. The feature is read-only history review, not active mission planning or collaborative design.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Automated recommendations or suggestions for next steps.",
+        "reason": "Both agents agreed that automated suggestions are excluded. The feature informs decision-making but does not automate recommendations; project managers make their own decisions after reviewing history.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Modification of historical records from this view.",
+        "reason": "Both agents agreed that the view does not permit modification. Historical record integrity is preserved; changes must be made via separate record update workflows.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Export or bulk download of engagement history.",
+        "reason": "Both agents agreed that bulk export is excluded. The feature is for review and comprehension in the CRM interface, not for extracting data for external use.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Cross-country comparative analysis or aggregated reporting.",
+        "reason": "Both agents agreed that the feature is country-specific history, not cross-country analysis or reporting. Comparative analysis is outside scope.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Personal contact information (phone numbers, personal email addresses, home addresses) in the engagement history view.",
+        "reason": "Both agents agreed that personal contact information should not be exposed in the history view. This reduces information security and privacy risk.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Confidential or classified notes created for restricted audiences in the engagement history view.",
+        "reason": "Both agents agreed that confidential or classified notes should not appear in the summary history view. Sensitive notes remain accessible on individual records under separate access controls.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Write access, annotations, or flags added from the engagement history view.",
+        "reason": "Both agents agreed that the history view is read-only. Project managers cannot annotate or flag records from this view; annotations belong on individual contact or project records.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "Access filtering based on role and country sensitivity: if the organization enforces per-country authorization (e.g., certain countries require director-level approval for project manager access), the feature must integrate with that access check. The history view displays only records the user is authorized to access; unauthorized records are filtered or shown as restricted.",
+        "reason": "Both agents acknowledged that access restrictions may vary by country and role. The specific access control policy framework must be defined by the organization before implementation. This is a conditional requirement that depends on external policy clarification.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Scope of 'full history': if organizational policy limits history retention (e.g., records older than 5 years are archived or deleted), the feature will reflect the retained subset. Success criteria and user expectations will be aligned with the organization's actual retention policy.",
+        "reason": "Both agents acknowledged that data retention policy is external to feature design. If records are archived or deleted, the 'full history' claim is bounded by what is retained and queryable. The organization must confirm its actual retention threshold before implementation.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Per-country authorization workflow: if per-country access requires approval beyond role (e.g., project manager requests director approval to view sensitive country history), a separate access request or escalation workflow may be needed. The engagement history view itself assumes access has been granted or authorized beforehand.",
+        "reason": "Both agents acknowledged that if per-country authorization requires a separate approval process, that workflow is a prerequisite or parallel feature. The history view does not include the approval mechanism itself; it assumes access has been authorized externally.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Technical feasibility of country-level history retrieval: the feature assumes the current CRM data model and database support efficient retrieval of all engagement records for a country. A database or data model review should be conducted to verify this assumption. If the current structure does not support efficient country-level retrieval, technical work such as a new index, API redesign, or data model optimization may be required before the feature can be implemented feasibly.",
+        "reason": "Both agents acknowledged that technical feasibility of country-level retrieval must be verified. The assumption that data is queryable is reasonable given the system context but requires investigation. If the current data model does not support efficient country-level retrieval, implementation readiness depends on technical remediation.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      }
+    ],
+    "disputed_scope": [],
+    "unresolved_scope": [],
+    "assumptions": [
+      {
+        "statement": "Project managers have a legitimate need to review prior engagement with a country to make informed decisions, and access to this information is necessary for effective mission planning.",
+        "reason": "The original request explicitly states 'before starting a new mission,' implying this context is mission-critical. Preventing duplication and leveraging past relationships are standard practices in government engagement. Both agents accepted this assumption.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "'Full history' means all engagement records for which the project manager has authorization under the organization's access control policy, presented together without additional filtering beyond policy-enforced restrictions, and limited to records retained according to the organization's retention policy.",
+        "reason": "The request asks for 'full history,' but the system context warns that some records carry 'diplomatic or confidentiality considerations,' implying restrictions exist. Revised from initial assumption to acknowledge that full history is scoped to authorized and retained records, not all records regardless of policy. This resolves the conflict with governance constraints. Both agents accepted the revision.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "revised"
+      },
+      {
+        "statement": "Access to the country history view is determined by a combination of the user's role and any configured per-country or per-record authorization policies. The feature enforces policy-defined restrictions; users without authorization either see filtered history or receive an access-denied message. The specific access control framework must be clarified by the organization before implementation.",
+        "reason": "Role-based access is foundational, but per-country or per-record restrictions may exist for sensitive countries. Revised from initial assumption to acknowledge that authorization may include both role and country-specific checks. The feature must integrate with whatever authorization framework the organization defines. This is a required external input.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "revised"
+      },
+      {
+        "statement": "The system currently stores and indexes engagement history data in a queryable form. The feature requires retrieval and presentation, not new data collection infrastructure.",
+        "reason": "The system context states it 'tracks engagement history' and is the 'central record.' This assumption is reasonable given the system context but requires technical verification that the data model supports efficient country-level retrieval. Unverified technical assumption that poses implementation risk.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "Contact-level sensitive information (personal phone numbers, personal email, confidential notes) is already controlled via separate access restrictions on individual contact records and need not be included in the engagement history summary view.",
+        "reason": "The history view's purpose is country-level engagement continuity, not detailed contact management. Excluding personal information reduces security and privacy risk without impairing the core use case. Contact-level detail remains accessible via individual contact records. Both agents accepted this assumption.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The organization's access control policy framework (role-based, per-country, or per-record restrictions) can be clarified before implementation begins, and the responsible stakeholder for providing this policy is identifiable.",
+        "reason": "The feature depends on understanding what access restrictions apply. This is a required external input, not an assumption the feature can be built under. A human decision-maker must confirm the access control policy, retention policy, and per-country authorization requirements.",
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "unreviewed"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "A project manager can view the engagement history for a selected country within the CRM, including all retained and queryable prior missions, projects, contacts, and outcomes for which they have authorization, without navigating multiple screens or records.",
+        "reason": "This criterion is testable and grounded in the original request. Both agents accepted this. It is now qualified by 'retained and queryable,' acknowledging that data retention policy bounds the scope. The qualification resolves the tension between 'full history' and archived records.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The history is presented in a format that allows rapid comprehension (e.g., timeline, grouped by mission/project, or table with sortable columns).",
+        "reason": "Both agents accepted that format and usability matter for the feature's effectiveness. A readable, organized presentation supports the goal of informed mission planning. This is testable and operationally meaningful.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The feature is accessible from the country record view or a mission-initiation workflow, requiring no additional permissions beyond authorization for that country under configured access policies.",
+        "reason": "Both agents accepted that the feature is accessible from natural user workflows (country record view or mission setup). Access determination respects configured policies, not arbitrary additional authorization. This is testable and operationally clear.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The retrieved history includes dates, types of engagement (mission, project, contact), ministry affiliations and official titles of counterparties, and documented outcomes or decisions from prior engagements.",
+        "reason": "Both agents accepted that the history must include dates, engagement types, and counterparty details (at official level, not personal). Outcomes and decisions provide context for mission planning. This is testable and supports the core use case.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Records or information restricted by organizational access policy are either filtered from display or marked as restricted, so the user understands the completeness of the visible history.",
+        "reason": "Both agents accepted that policy-restricted records must be handled transparently. Users see either a filtered view (restricted records hidden) or a marked view (restricted records labeled as unavailable). This prevents misunderstanding of whether the visible history is complete. This is testable and critical for policy compliance.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ],
+        "disposition": "agreed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "Who is responsible for providing and confirming the organization's access control policy (CRM owner, operations lead, security/compliance team), and in what format should this be documented (policy specification, configuration reference, stakeholder decision record)? What is the expected timeline for this input?",
+        "impact": "The feature cannot proceed to implementation without this policy clarification. Identifying the responsible stakeholder, input format, and timeline ensures the proposal can be handed off with a clear dependency and acceptance criterion. This is a prerequisite for moving from proposal to implementation readiness.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Does the organization enforce per-country or per-record authorization checks beyond role (e.g., project managers require director approval or delegation to view sensitive country histories), and if such authorization is required, is a separate access request/approval workflow needed as a prerequisite feature or an external HR/delegation process?",
+        "impact": "If per-country authorization is required and an access request workflow does not exist, the engagement history feature implementation may be blocked or sequenced after that workflow is built. Clarification determines whether the two features are co-dependent or can be built independently.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "What is the system's data retention policy for engagement records? Are records older than a specific threshold (e.g., 5 years, 7 years, 10 years) archived, deleted, or retained indefinitely? Please provide the actual organizational retention threshold.",
+        "impact": "User expectations and success criterion 1 depend on this clarification. The criterion currently states 'all retained and queryable,' which must be replaced with the actual organizational threshold (e.g., 'all engagement records retained for 7 years after project close'). This can be resolved post-proposal but should be documented before implementation begins.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Can the organization provide evidence that the current CRM data model supports efficient country-level history retrieval (e.g., country-level index, country foreign key on engagement records, existing country-level queries, or architect confirmation), or should the proposal assume that technical verification is required as a prerequisite investigation?",
+        "impact": "Assumption about data queryability is currently asserted but unverified and poses an implementation risk. Either provide evidence that country-level retrieval is supported, or technical verification is required as a prerequisite before implementation. This determines whether the feature's feasibility is already established or must be validated.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "What is the sequencing of required inputs for implementation readiness? Specifically: (1) which inputs are absolute blockers before design/development can begin (e.g., access policy must be confirmed), (2) which can be resolved in parallel or as part of implementation setup (e.g., retention policy documentation, technical feasibility verification)?",
+        "impact": "The proposal identifies three categories of required input but does not clearly state the handoff criterion or implementation readiness threshold. Clarifying the sequencing determines when the proposal can be handed to implementation and what prerequisites must be met by that point.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "If the current CRM data model does not support efficient country-level retrieval, what technical work is required (new index, API redesign, data model optimization), and should that work be scheduled before or in parallel with the engagement history feature implementation?",
+        "impact": "Technical feasibility is a non-trivial dependency. If remediation is required, it should be identified early to avoid implementation delays. This determines the technical readiness of the platform for the feature.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r3-critic"
+        ]
+      }
+    ],
+    "rejected_options": []
+  }
+}

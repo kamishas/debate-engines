@@ -1,0 +1,23 @@
+{
+  "model": "claude-haiku-4-5-20251001",
+  "settings": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_rounds": 3,
+    "max_tokens": 4096,
+    "max_calls": 12,
+    "max_input_bytes": 100000,
+    "repair_attempts": 1,
+    "provider_retries": 1
+  },
+  "started_at": "2026-10-04T23:11:54.577577+00:00",
+  "updated_at": "2026-10-04T23:15:20.144705+00:00",
+  "completed_rounds": 2,
+  "outcome": "error",
+  "termination_reason": "Configured input/context budget exceeded; full dialogue was not truncated.",
+  "report_status": "failed",
+  "provider_calls": 7,
+  "input_tokens": 80525,
+  "output_tokens": 23398,
+  "report_error": "Configured input/context budget exceeded; full dialogue was not truncated.",
+  "finished_at": "2026-10-04T23:17:11.868250+00:00"
+}

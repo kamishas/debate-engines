@@ -1,0 +1,365 @@
+{
+  "original_request": "We need a better way to track who is the right person to contact in each country.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "completed",
+  "termination_reason": "The three material scope-shaping blockers from Round 1 (C1, C2, C3) have been resolved or appropriately defended. C1 (contact multiplicity) is resolved through explicit decision: single primary per country. C2 (designation authority) is resolved through concrete governance: regional coordinator role, self-service, audit trail for accountability. C3 (schema readiness) is defended with appropriate conditional framing: technical verification is deferred to implementation planning and correctly assigned to conditional_scope with clear branching if unavailable. C4 (confidentiality integration) and C5 (measurability of success criteria) are resolved through explicit inclusion in scope and revised criteria. Scope is now coherent: included, excluded, and conditional scope are clear; material assumptions are explicit and justified; governance and accountability are defined; success criteria are measurable and time-bound; and remaining unknowns (maintenance governance C6, bulk assignment C7, access control fallback C8) are identified as design questions or technical gates, not scope ambiguities. These remaining items are important but do not block agreement on conditional scope. They should be addressed during design and implementation planning. The proposal is ready for documentation and handoff to the design phase. The Proposer has made explicit choices on all scope-shaping decisions and has properly deferred technical verification and governance implementation to appropriate later stages.",
+  "completed_rounds": 2,
+  "partial": false,
+  "latest_confidence": {
+    "proposer": {
+      "score": 78,
+      "justification": "Grounding: 4/4. The interpretation and material claims are now anchored in supplied information. Proposed choices (single primary per country, regional coordinator authority, audit trail, access control integration) are explicitly stated. Assumptions are clearly articulated and justified. Technical readiness (A5) is contingent and properly scoped. Scope clarity and relevance: 4/4. Included scope, excluded scope, and conditional scope are now coherent and complete. The singular primary per country is defined, eliminating the prior ambiguity. The proposal directly addresses the user's request to 'track who is the right person' by designating one canonical contact per country. Scope has been refined to integrate access control without overreaching into policy redesign. Assumptions and dependencies: 4/4. Six assumptions are explicit, all grounded in the supplied context or necessary for proposal coherence. Material dependencies (schema field availability, access control system capability, user maintenance responsibility) are identified and properly assigned to conditional_scope or implementation gates. Missing information is clearly labeled and explained. Testability: 4/4. Success criteria are now measurable: lookup speed, audit trail presence, change history, interface location, adoption/satisfaction survey within 30 days with 80% threshold, support ticket reduction of 30% within 60 days, and access control enforcement via redaction. Criteria are proportional and observable without external policy approval. Treatment of material concerns: 4/4. Designation authority is explicitly assigned to regional coordinators, eliminating accountability ambiguity. Confidentiality integration is now included in scope with a concrete rule (users see designation only if they have access to the contact). Schema readiness is flagged as a technical gate with clear conditional branching if unavailable. All five challenges have been addressed with substantive revisions (C1, C2, C4, C5) or well-justified defense (C3). Score is raised from 72 to 78 because the three blocking issues (C1, C2, C3) have been resolved through explicit scope decisions, governance definition, and proper conditional framing. Remaining uncertainty is implementation-level (bulk assignment, maintenance notification) and does not reshape the core scope.",
+      "main_uncertainty": "Whether the CRM's existing schema provides an available field (relationship type, role attribute, or metadata marker) to tag a contact as primary without schema modification. This is a technical gate, not a scope ambiguity. The proposal has deferred this to conditional_scope and implementation planning. If no such field exists, the user organization must either authorize a minimal schema extension or accept a separate lookup table implementation. The proposal does not claim to have verified this; it is flagged as a prerequisite for design handoff. Once technical review confirms field availability (or authorizes conditional branching if unavailable), confidence can reach 85+. Additionally, the user organization must confirm it will own the maintenance responsibility (updating designations when contacts change roles or leave); this is noted in A6 and conditional_scope but is a governance commitment, not a technical unknow. Clarification from the user on willingness to establish a maintenance process would raise confidence further.",
+      "round": 2,
+      "message_id": "r2-proposer"
+    },
+    "critic": {
+      "score": 82,
+      "justification": "Grounding: 4/4. The proposal now grounds all material claims in supplied information and explicit choices. Assumptions are clearly stated and justified; technical assumptions (A5 schema, A4 access control) are properly flagged as conditional. Scope clarity and relevance: 4/4. Included, excluded, and conditional scope are coherent and complete. The proposal directly addresses the original request to 'track who is the right person' by designating one canonical primary contact per country. Assumptions and dependencies: 4/4. Six assumptions are explicit and justified. Material dependencies (schema field availability, access control capability, maintenance governance) are identified in conditional_scope with clear branching. Missing information is represented honestly. Testability: 4/4. Success criteria are measurable and time-bound: sub-two-click lookup, audit trail presence, change history, interface location, 80% adoption within 30 days, 30% reduction in support tickets within 60 days, and access control enforcement via redaction. Assessable post-launch without external policy approval. Treatment of material concerns: 4/4. All five R1 challenges addressed: C1 and C2 resolved via explicit scope and governance choices; C3 defended with appropriate conditional framing; C4 and C5 resolved via scope inclusion and measurable criteria. Three new challenges (C6, C7, C8) are important design and implementation questions but do not block agreement on conditional scope. Score of 82 reflects strong support across all dimensions with only bounded, explicitly documented remaining uncertainty at the technical-gate and design-phase levels. Proposal is ready for design and implementation planning.",
+      "main_uncertainty": "Whether the CRM system's existing fields support primary contact tagging without schema modification (A5, C3) and whether the access control system can enforce role-based contact filtering (A4 conditional, C8). Both are technical verifications, not scope ambiguities. The proposal has correctly deferred these as conditional and implementation gates. Once technical review confirms field availability (or authorizes minimal schema extension per conditional_scope) and access control capability, or provides fallback options if unavailable, confidence would reach 85+. Additionally, clarification from the user organization on willingness to establish maintenance governance (periodic review of designations) and preferred approach to initial bulk assignment (C6, C7) would refine implementation planning but would not change scope agreement. These items are design and technical questions, not scope uncertainties.",
+      "round": 2,
+      "message_id": "r2-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "The organization seeks to improve contact identification within a Government CRM serving ~100 member countries by establishing a mechanism to designate, maintain, and surface the 'right person' contact for each country. After two deliberation rounds, scope has been refined from ambiguous (contact multiplicity, governance authority, schema readiness) to a coherent, conditional proposal. A single primary contact per country will be designated by regional coordinators or operations leads via self-service, with audit trail recording accountability. Access control integration respects existing confidentiality policies. Three technical gates (schema field availability, access control system capability, maintenance governance) remain unresolved but are properly conditioned; remaining design questions (bulk assignment, stale-contact detection) do not block scope agreement. The proposal is ready for design and implementation planning.",
+    "agreed_included_scope": [
+      {
+        "statement": "A single primary contact designation per country, identified as the canonical point of contact for routine government engagement within that country.",
+        "reason": "Singular primary contact directly addresses the request to 'track who is the right person' and reduces user ambiguity and lookup complexity. Multi-context routing is explicitly deferred as a separate feature request. Proposer introduced and refined this choice; Critic confirmed it resolves the contact-multiplicity blocker.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "A primary contact flag or relationship marker applied to existing contact records using available CRM fields (relationship type or role attribute), without schema modification.",
+        "reason": "Keeps the feature scoped to product design rather than foundational architecture. Excluded scope prohibits schema modification; this mechanism uses existing fields, contingent on technical verification. Proposer stated this explicitly; Critic confirmed the defense of A5 as appropriate conditional framing.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Designation authority vested in the regional coordinator or country operations lead role; self-service designation without requiring approval workflows.",
+        "reason": "Aligns with the system's user base (regional coordinators, project managers) described in context. These roles maintain country engagement data and have knowledge to make informed designations. Self-service avoids approval overhead while audit trail provides accountability. Proposer explicitly defined governance; Critic confirmed resolution of C2.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "An interface or report view showing the primary contact and their designation metadata (designator name, designation timestamp) for each country, accessible by authorized users.",
+        "reason": "Enables staff to identify the primary contact quickly and locate responsibility for the designation. Supports accountability and audit review. Proposer included; Critic accepted as supporting success criteria.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "An audit trail or change history recording each primary contact change, including the previous designation, designator, and timestamp, enabling accountability and rollback review.",
+        "reason": "Audit trail creates accountability; recorded designator name and timestamp enable human review and correction if a designation is incorrect or unauthorized. Change history retention avoids data loss. Both proposer and critic identified this as essential for governance.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Filtering and search capabilities to locate countries by primary contact assignment status (e.g., show all countries with a designated primary contact, or all countries with primary contacts assigned by a specific user).",
+        "reason": "Enables operational oversight and auditing; staff can identify gaps in coverage or track who made designations. Proposer included in R2; operationally aligned with audit trail and accountability.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Access control integration: users see a primary contact designation only if they have access to that contact's full record; confidential contacts designated as primary are not displayed to users without the appropriate clearance.",
+        "reason": "Respects existing confidentiality and diplomatic policies without hiding the fact that a primary contact exists. If a contact is restricted to senior staff, users without access should not see the designation naming that person. Proposer added explicitly in R2 in response to Critic challenge C4; Critic confirmed resolution.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Multiple primary contacts per country (by engagement domain, ministry, or role); the feature designates one canonical primary per country to reduce complexity and simplify user lookup.",
+        "reason": "Explicitly chosen in R2 to eliminate the scope-shaping ambiguity from R1. Multi-context routing is deferred as a separate feature request. Single primary is proportionate to the original request. Proposer decided and justified; Critic confirmed resolution of C1.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Automatic assignment of primary contacts based on algorithmic ranking or machine learning.",
+        "reason": "The original request implies a human judgment problem (identifying who is suitable), not a ranking problem. Preserves organizational decision-making and keeps the feature scalable without data science infrastructure. Both proposer and critic agreed on this boundary.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Modification of existing contact record fields or core data model schema.",
+        "reason": "Scopes the feature to product design and configuration, not foundational architecture. Available CRM fields (relationship type, role attribute) are presumed sufficient; minimal schema extension is conditional, not excluded. Consistent boundary between proposer and critic.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Changes to user access controls or confidentiality policies; the feature respects existing access boundaries.",
+        "reason": "Access control governance is outside the scope of this feature. The feature integrates with existing policy but does not redesign it. Both proposer and critic agreed on this separation.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Integration with external systems, email forwarding, or automated communication routing.",
+        "reason": "Original request focuses on lookup and identification, not automated communication. Integration scope would materially expand the feature and introduce dependency on external systems. Proposer and critic both maintained this boundary.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Change notification workflows, alerts, or cascading tasks triggered by primary contact changes; the change log is passive and consulted by users.",
+        "reason": "Users access the primary contact via lookup in the CRM interface. Passive change logging meets this need. Notification integration would expand scope significantly and require workflow integration, not mentioned in the original request. Proposer clarified in A3; Critic accepted.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "statement": "Enforcement of contact hierarchy or organizational structure redesign.",
+        "reason": "Feature designates a primary contact for operational clarity, not to enforce organizational hierarchy. Hierarchy is a user organization responsibility. Proposer and critic both excluded this.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "Confidentiality flagging and restricted visibility of primary designations is contingent on the CRM's existing access control system supporting role-based or clearance-based filtering. If the system does not currently enforce access restrictions per contact, integration is conditional on a separate access control enhancement (out of scope for this proposal but noted as a prerequisite for handling diplomatic sensitivity).",
+        "reason": "The system context notes some contact records carry diplomatic or confidentiality considerations. If a contact is restricted to senior staff, users without access should not see the primary designation naming that person. This requires the CRM's access control system to support role-based contact filtering. If unavailable, either confidential contacts must be excluded from primary designation (simplest fallback), the feature must be blocked until access control is enhanced (deferred), or visibility must be restricted to a senior-only role (workaround).",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "If the CRM schema lacks an available relationship type or role attribute field to store primary contact status, the feature is conditional on either (a) a minimal schema extension (new relationship type or metadata flag), or (b) implementation via a separate lookup table (country ID linked to primary contact ID), pending technical review and product decision.",
+        "reason": "The excluded scope prohibits schema modification, but this is a technical gate. Standard CRM systems support relationship types and role designations, so an available field is likely. If unavailable, the user organization must authorize minimal extension or accept lookup table implementation. Technical review must verify field availability before design handoff. Proposer defended A5 with proper conditioning; Critic confirmed this is a non-scope-blocking technical gate.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Support for updating primary contact designations on a schedule (e.g., annual review or project closure triggers) is conditional on confirmation that the user organization will define and own a maintenance governance process. This proposal establishes the mechanism; ongoing curation is the user's responsibility.",
+        "reason": "Designations become stale when contacts leave, change roles, or projects complete. Maintenance is outside the feature scope and is owned by regional coordinators and operations leads per Assumption A6. The user organization must establish when and how often designations are reviewed.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      }
+    ],
+    "disputed_scope": [],
+    "unresolved_scope": [],
+    "assumptions": [
+      {
+        "statement": "The 'right person' for a country is primarily determined by organizational role assignment (e.g., country representative, project lead, or operations delegate) and current engagement authority, not by seniority, tenure, or algorithmic scoring.",
+        "reason": "The system context describes roles and engagement history. The original request implies a human judgment problem—identifying who is suitable—rather than a ranking problem. Role-based designation preserves organizational decision-making and keeps the feature scalable without algorithmic complexity.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "A regional coordinator or country operations lead holds designation authority for their assigned country and can self-service the primary contact selection without approval workflows.",
+        "reason": "The system context indicates regional coordinators and project managers use the system and maintain country engagement data. Vesting authority in a named role (rather than requiring organizational approval) is scalable and aligns responsibility with users who have relevant knowledge. The audit trail records who designated the contact, enabling accountability without requiring pre-approval.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Users need to locate the primary contact quickly (within the CRM interface) but do not require external notification when a primary contact changes.",
+        "reason": "The request focuses on 'tracking who is the right person'—a lookup problem. Passive change logging meets this need. Notification and workflow integration are not mentioned in the original request and would expand scope significantly.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Access control for confidential contacts is enforced by the CRM's existing access policy; the primary contact designation itself is not treated as secret, but visibility of the designation respects the underlying contact's access restrictions.",
+        "reason": "The system context states some contact records carry confidentiality concerns, referring to the details themselves. If a contact is restricted to senior staff, users without access to that contact should not see the primary designation naming that person. This keeps the feature aligned with existing policy without adding a separate confidentiality layer.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The current CRM system has available fields (e.g., relationship type, role attribute, or metadata marker) to tag a contact as primary without modifying the core contact or relationship schema.",
+        "reason": "Standard CRM systems support relationship types and role designations. This assumption ensures the proposal is scoped to product design, not foundational architecture. If no such field exists, the proposal's conditional_scope and excluded_scope are triggered; technical review must confirm field availability or authorize minimal schema extension before implementation planning.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "unresolved"
+      },
+      {
+        "statement": "Maintaining the accuracy and currency of primary contact designations is the responsibility of regional coordinators and country operations leads; no automated refresh or lifecycle rule is built into the feature.",
+        "reason": "Staff turnover, project changes, and organizational restructuring are outside the feature's scope. If a primary contact becomes unavailable, the designating authority is responsible for updating the record. The proposal provides the mechanism; governance of when and how often to review designations is owned by the user organization.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "accepted"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "Staff can identify the primary contact for a given country in fewer than two clicks from the country record view.",
+        "reason": "The feature's value depends on accessibility. Sub-two-click lookup reduces friction and enables quick identification, addressing the original request for 'a better way to track who is the right person.' This is observable and testable. Both proposer and critic included this criterion.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Primary contact designations are recorded with the designator's name and timestamp, enabling accountability and audit review.",
+        "reason": "Audit trail creates transparency; recorded designator enables human review if a designation is incorrect or unauthorized. This is a core feature requirement for accountability. Both proposer and critic identified this as essential.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "When a primary contact is changed, the previous designation and designator information is retained and visible in a change history view (not overwritten).",
+        "reason": "History retention enables rollback review and accountability. Without change history, users cannot see who made prior designations or when they were made, undermining audit capability. Proposer and critic both emphasized history retention.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Primary contact information displays alongside or linked from country-level views, avoiding redirect through unrelated contact search flows.",
+        "reason": "Interface integration reduces friction for staff looking up a country's primary contact. Avoiding unrelated search flows improves user experience and supports the sub-two-click lookup criterion. Both proposer and critic identified this as part of interface design.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Within 30 days of feature launch, at least 80% of regional coordinators and country operations leads report they can assign a primary contact for their country without ambiguity or confusion about the process. Post-launch, support tickets related to 'which contact should I use for this country' decrease by at least 30% within 60 days (baseline to be established from current support log).",
+        "reason": "This is a measurable, time-bound outcome. The 80% adoption threshold among responsible staff roles indicates feature usability and clarity. The 30% reduction in support tickets provides a quantitative proxy for whether the feature reduces user confusion about contact selection. Both criteria are observable and tied to documented baseline data. Proposer added in response to Critic challenge C5; Critic confirmed resolution.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Users without access to a contact record designated as primary for a country do not see that contact's name or details in the primary contact view; instead, they see a placeholder indicating a primary contact exists but is not accessible to them (e.g., 'Primary contact restricted').",
+        "reason": "This criterion operationalizes access control integration. Confidential contacts must not be visible to unauthorized users, but the fact that a primary contact exists should be transparent. A placeholder balances confidentiality respect with clarity about designation status. Proposer added in response to Critic C4; Critic confirmed resolution.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "agreed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "Will the user organization establish a governance process to periodically review or refresh primary contact designations (e.g., annually, when staff turnover occurs, or when a contact becomes inactive), or is the feature expected to detect and flag stale designations automatically?",
+        "impact": "Affects long-term accuracy and usefulness of the feature. Without active curation or automated detection, designations become stale as staff change roles or leave, undermining the success criterion (users finding the right contact). Clarification determines whether the user owns ongoing maintenance or whether the feature must include stale-contact warnings.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r2-critic"
+        ]
+      },
+      {
+        "question": "Should the feature support bulk assignment of primary contacts (e.g., uploading a spreadsheet of country-to-contact mappings for initial setup across multiple countries) or is designating one primary contact at a time sufficient?",
+        "impact": "Affects initial rollout speed and user adoption timeline. Bulk upload would accelerate setup for ~100 countries and support the success criterion (80% of regional coordinators reporting clarity within 30 days), assuming designations are made quickly. One-at-a-time designation is simpler to implement and audit but may slow onboarding. This determines realistic timeline to meet success criteria.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "question": "If the CRM's access control system does not currently support role-based contact filtering, should confidential contacts be excluded from primary designation, should the feature be blocked until access control is enhanced, or should a workaround (e.g., restricting visibility to senior staff only) be accepted?",
+        "impact": "Determines whether the feature can safely handle countries with diplomatic or confidentiality restrictions. This is a technical gate; the proposal conditionally depends on access control capability. Clarification determines the fallback if the assumption is not met and enables handoff to design phase.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r2-critic"
+        ]
+      },
+      {
+        "question": "For countries where a primary contact is restricted by confidentiality policy (e.g., visible only to senior staff), should users without access see a redacted placeholder (e.g., 'Primary contact restricted') or should the system refuse to indicate that any primary contact exists for that country?",
+        "impact": "If the system refuses to indicate a primary contact exists, some users may be confused about whether a country has been assigned a primary. If a redacted placeholder is shown, users know a primary exists but cannot see the name, which respects confidentiality while reducing ambiguity. The choice affects interface design and user experience for restricted countries.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r2-proposer"
+        ]
+      }
+    ],
+    "rejected_options": [
+      {
+        "statement": "Multiple primary contacts per country, organized by engagement domain (e.g., project lead, diplomatic liaison, operational contact).",
+        "reason": "This option was explicitly rejected in R2 after being identified as a scope-shaping decision in R1. Multi-context contacts increase complexity, require users to select the appropriate context, and add maintenance burden. The single primary per country addresses the original request ('a better way to track who is the right person') without this complexity. If multi-context routing is needed in future, it is a separate feature request.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Automatic assignment of primary contacts based on algorithmic ranking or machine learning.",
+        "reason": "The original request implies a human judgment problem, not a scoring problem. Algorithmic assignment would require a training dataset and model maintenance, introducing technical complexity and removing organizational control over who is designated primary. Role-based human designation is more proportionate to the request.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Requiring approval workflows or organizational sign-off for primary contact designations.",
+        "reason": "Approval workflows add overhead and slow designation updates. The audit trail (designator name, timestamp) provides accountability without pre-approval; if a designation is incorrect, the audit trail shows who made the choice, enabling human review and correction.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Automatic notification or escalation workflow when a primary contact changes.",
+        "reason": "The original request focuses on lookup and identification, not workflow integration. Passive change logging (accessible via the audit trail) meets the need. Notification integration would expand scope and introduce dependency on workflow systems not mentioned in the request.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ]
+  }
+}

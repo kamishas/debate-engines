@@ -1,0 +1,23 @@
+{
+  "model": "claude-haiku-4-5-20251001",
+  "settings": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_rounds": 4,
+    "max_tokens": 8192,
+    "max_calls": 24,
+    "max_input_bytes": 250000,
+    "repair_attempts": 1,
+    "provider_retries": 1
+  },
+  "started_at": "2026-10-05T02:14:32.379901+00:00",
+  "updated_at": "2026-10-05T02:20:07.660976+00:00",
+  "completed_rounds": 4,
+  "outcome": "capped",
+  "termination_reason": "Round cap reached without valid completion or a justified stall.",
+  "report_status": "failed",
+  "provider_calls": 10,
+  "input_tokens": 192819,
+  "output_tokens": 38373,
+  "report_error": "Output validation exhausted bounded repair: success_criteria[5].supporting_messages: Agreement requires cited Proposer and Critic messages; got ['r1-proposer', 'r2-proposer']. Cite actual support from both, or move the item to an unresolved/proposed category. An outstanding agreement blocker requires explicit disputed_scope.",
+  "finished_at": "2026-10-05T02:22:06.457226+00:00"
+}

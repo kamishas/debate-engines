@@ -1,0 +1,343 @@
+{
+  "original_request": "We need a better way to track who is the right person to contact in each country.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "stalled",
+  "termination_reason": "This is round 4. Challenges C1 and C2 remain unresolved and block agreement. The Proposer has now conceded both challenges three consecutive times (rounds 2, 3, and 4) without taking concrete action to resolve them: no documented policy has been obtained, no recommended policies have been drafted for leadership approval, and no written confirmation of stakeholder engagement or timeline has been provided. The proposal correctly identifies these as external organizational governance decisions, but it has not advanced the work beyond acknowledgment. Restating that the dependency exists and that leadership must resolve it is not progress. The protocol requires that either (a) the Proposer obtain concrete policy documentation, (b) the Proposer draft recommendations for leadership review, or (c) the Proposer provide evidence of active stakeholder engagement with timeline. Without one of these three outcomes, further exchanges are unlikely to resolve C1 and C2. The feature concept is sound, but advancement is blocked by organizational decisions outside the Proposer's unilateral authority. Continuing to exchange without progress on these concrete actions would be redundant.",
+  "completed_rounds": 4,
+  "partial": true,
+  "latest_confidence": {
+    "proposer": {
+      "score": 58,
+      "justification": "The interpretation is grounded in supplied system context and the original request. The included scope is concrete and testable. The proposal has appropriately conceded that assignment authority (C1) and selection criteria (C2) are organizational governance decisions requiring explicit policy documentation from operations and country engagement leadership before implementation design can proceed. Challenges C3, C4, and C5 have been resolved through prior exchanges. The feature concept is sound and defensible once the two blocking policies are documented and approved. However, no such policies have yet been obtained, drafted as recommendations for approval, or confirmed with written stakeholder engagement timeline.",
+      "main_uncertainty": "Two organizational governance decisions remain unresolved and block advancement to design phase: (1) assignment authority—who can assign or modify primary contacts per country, whether authority is centralized or regional, and whether sensitive records require approval workflows; (2) selection criteria—what qualifications or role status makes someone the appropriate primary contact, or explicit delegation to regional coordinators with enforcement guidance. The Proposer has appropriately conceded both challenges and identified them as explicit blocking dependencies (assumption A6). To advance, one of three outcomes must occur for each blocking dependency: (a) operations/country engagement leadership provides written policy, (b) Proposer drafts a recommended policy for leadership review and approval, or (c) Proposer provides written confirmation of which leadership stakeholders have been engaged, what feedback was given, and when documented policy is expected. Until one of these is delivered, the feature cannot move to implementation design with confidence.",
+      "round": 4,
+      "message_id": "r4-proposer"
+    },
+    "critic": {
+      "score": 42,
+      "justification": "The interpretation is grounded in supplied system context, and the included scope is concrete and testable. Challenges C3, C4, and C5 have been resolved through prior exchanges. However, C1 and C2 remain unresolved after three consecutive Proposer turns. The Proposer has correctly identified both as blocking dependencies requiring external organizational policy decisions, but has not taken concrete action to obtain, draft, or confirm progress on those decisions. The feature concept is sound once C1 and C2 are resolved, but the proposal cannot advance to implementation design without documented policy. The repeated acknowledgment without progress indicates either that the Proposer lacks stakeholder access or authority to drive these decisions, or that the necessary organizational decisions have not been prioritized. Confidence is now reduced from 58 to 42 because the deliberation has stalled on actionable external dependencies that should have been escalated or confirmed with timeline.",
+      "main_uncertainty": "The Proposer has conceded that assignment authority and selection criteria are blocking dependencies but has not obtained documented policy, drafted recommendations for approval, or provided written confirmation of stakeholder engagement and timeline. After three turns acknowledging these gaps, the lack of concrete progress suggests either: (a) the Proposer does not have access or authority to engage operations and country engagement leadership directly, or (b) those leadership stakeholders have not made these decisions or provided feedback. The deliberation cannot advance without clarity on which is the case and what the path to resolution is.",
+      "round": 4,
+      "message_id": "r4-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "A deliberation on introducing a primary contact designator mechanism for the Government CRM system to help users quickly identify the most appropriate contact person per country. The feature includes per-country designation, prominent display, authorized assignment/update capability, filtering/sorting support, and audit logging. The proposal interpretation and included scope are concrete and testable. However, after four rounds of deliberation, two critical blocking dependencies remain unresolved: (1) assignment authority policy (who can assign primary contacts per country, whether centralized or regional, whether sensitive records require approval workflows), and (2) selection criteria guidance (what qualifications or role status makes someone the appropriate primary contact, or explicit delegation to regional coordinators). The Proposer has conceded both challenges as external organizational governance decisions in rounds 2, 3, and 4 but has not obtained documented policy, drafted recommendations for leadership approval, or provided written confirmation of stakeholder engagement and timeline. Challenges C3 (sensitivity/access control inheritance), C4 (staleness management), and C5 (filtering respects authorization scope) have been resolved through revision and defense. The deliberation is stalled; the feature concept is sound but cannot advance to implementation design without explicit governance decisions from operations and country engagement leadership.",
+    "agreed_included_scope": [
+      {
+        "statement": "Add a per-country designator or marker that identifies a primary contact (e.g., a 'primary contact' flag).",
+        "reason": "Both Proposer and Critic accepted that a designator mechanism is concrete and implementable. This is the core feature request to surface clarity on 'the right person' to contact for each country.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Display the designated contact prominently in country summary views and search results.",
+        "reason": "Both Proposer and Critic accepted that prominent display is a testable success criterion and necessary for the feature's usability. Without visible designation, users will not benefit from the mechanism.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Allow authorized users to assign or update the primary contact designation based on current role and engagement status.",
+        "reason": "Both Proposer and Critic accepted that authorized users must be able to assign and update designations. The Critic noted that authorization policy itself (who holds authority) is a separate blocking dependency, but the capability to assign is in-scope.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Support filtering and sorting by contact designation in country lists and project views.",
+        "reason": "Both Proposer and Critic accepted that filtering and sorting are testable, useful capabilities that support user workflows. The Critic noted that list filtering must respect existing authorization scope, which the Proposer conceded.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Audit or log changes to primary contact assignments for transparency and dispute resolution.",
+        "reason": "Both Proposer and Critic accepted that audit logging is necessary for transparency and accountability. The Critic noted this as a success criterion; the Proposer included it in included_scope.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Automatic routing of emails or messages to designated contacts (communication platform integration is out of scope).",
+        "reason": "Both Proposer and Critic agreed that email or message routing to designated contacts is a communication platform concern, not a CRM designator feature. This exclusion is appropriate and did not generate disagreement.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Role-based access control (RBAC) changes; users see contacts they are already authorized to view.",
+        "reason": "Both Proposer and Critic agreed that the feature does not expand RBAC; it applies the same authorization rules that already govern contact viewing to the primary contact assignment and display. This is scope inheritance, not RBAC redesign.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Redesign of contact record structure, data model, or the broader relationship taxonomy.",
+        "reason": "Both Proposer and Critic agreed that the feature does not require changes to the underlying CRM data model. The designator is a new field or flag on existing contact records, not a structural redesign.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Multi-level contact hierarchies or escalation rules (single designated contact per country).",
+        "reason": "Both Proposer and Critic agreed that the feature targets a single primary contact per country, not multi-level hierarchies or escalation paths. This keeps scope focused and reduces user burden.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "If diplomatic or confidentiality flags exist in the current system, apply them to restrict display or modification of primary contact designation for flagged records.",
+        "reason": "Both Proposer and Critic agreed that if the system already tracks sensitivity flags on contact records (confirmed by system context), the primary contact assignment UI must inherit the same access-control rules. This is a design-time implementation detail (RBAC inheritance) confirmed by the Proposer in assumption A5 and defended in r2-proposer response to C3. Condition: system must document which records carry such restrictions and confirm existing approval workflows for viewing/modifying flagged records (secondary priority, resolvable during design phase).",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "If assignment authority is not centralized, define a policy for who can designate primary contacts per country (blocking dependency).",
+        "reason": "The Critic identified that assignment authority is not specified in the original request or system context, and the Proposer conceded this as a blocking dependency requiring external governance policy from operations leadership. Condition: operations leadership must clarify delegation rules before design phase entry. This remains unresolved after 4 rounds.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "If selection criteria are not documented, provide recommended guidance for curators (blocking dependency).",
+        "reason": "The Critic identified that selection criteria are not specified in the original request or system context, and the Proposer conceded this as a blocking dependency requiring external governance policy from operations and country engagement leadership. Condition: operations and country engagement leadership must approve criteria or make an explicit decision to delegate criteria-setting to regional coordinators before design phase entry. This remains unresolved after 4 rounds.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      }
+    ],
+    "disputed_scope": [
+      {
+        "statement": "Who is authorized to assign or change the primary contact designation for a country, and what delegation rules apply by region or contact sensitivity level?",
+        "reason": "Critic challenge C1 identifies that assignment authority is a governance decision not supplied by the original request or system context. The Proposer concedes this as a blocking external dependency (r2-proposer, r3-proposer, r4-proposer) but has not obtained documented policy, drafted recommendations for leadership approval, or provided written confirmation of stakeholder engagement with timeline. Without explicit policy, implementation teams cannot build permission logic. Critic position (r4-critic): C1 remains unresolved and blocks agreement; the Proposer must obtain documented policy, draft recommendations for approval, or confirm stakeholder engagement with delivery date.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "statement": "What criteria should guide selection of a primary contact, and should criteria be centrally defined or delegated to regional coordinators with documented guidance?",
+        "reason": "Critic challenge C2 identifies that selection criteria are not supplied by the original request or system context. The Proposer concedes this as a blocking external dependency (r2-proposer, r3-proposer, r4-proposer) but has not obtained documented criteria, drafted recommendations for leadership approval, or provided written confirmation of stakeholder engagement with timeline. Without explicit guidance, assignments will be arbitrary or left empty. Critic position (r4-critic): C2 remains unresolved and blocks agreement; the Proposer must obtain documented criteria, draft recommendations for approval, or confirm stakeholder engagement with delivery date.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      }
+    ],
+    "unresolved_scope": [],
+    "assumptions": [
+      {
+        "statement": "The current system allows users to view and query contact records for countries they have authorization to access, but does not provide a clear signal for which single contact is most appropriate to initiate outreach.",
+        "reason": "This is the minimal gap implied by the original request. The Critic accepted this as well-grounded in the request and system context. The request does not suggest contact data is missing, only that navigation and clarity are poor.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "A primary contact designation will be maintained and updated as project roles, engagement focus, and active missions change. Staleness is a risk; the system should support detection and human-driven review via 'last verified' dates, alerts when designated contacts no longer hold active roles, and periodic review cadence.",
+        "reason": "Both Proposer and Critic recognized staleness as a long-term utility risk. The Proposer revised assumption A2 to include a concrete maintenance model: optional 'last verified' date field, alerts for inactive designated contacts, and periodic coordinator review. The Critic assessed challenge C4 as 'resolved' in r2-critic based on this revision.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "revised"
+      },
+      {
+        "statement": "At most one primary contact per country is the target; ties or multi-role scenarios are resolved by assignment policy, not by the system showing multiple options.",
+        "reason": "Both Proposer and Critic accepted that the request's language ('the right person,' singular) implies a single source of truth. The Critic noted this aligns with the request's language.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The organization does not yet have a policy defining who can assign primary contacts or what criteria they should use. Such a policy must be codified outside this feature.",
+        "reason": "The Proposer noted that the request is for a tracking mechanism, not policy. However, the Critic identified this gap as a blocking dependency for implementation. The Proposer conceded in r2-proposer, r3-proposer, and r4-proposer. Assignment authority and selection criteria remain unresolved external dependencies after four rounds.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "unresolved"
+      },
+      {
+        "statement": "Sensitivity or confidentiality flagging already exists or will be managed separately; this feature does not need to invent new access controls. Primary contact assignment UI must inherit and respect the same access-control rules that govern contact viewing.",
+        "reason": "The Proposer correctly noted that the system is already sensitive. The Critic raised challenge C3 about whether sensitivity flagging affects primary contact assignment. The Proposer defended this assumption in r2-proposer response to C3, clarifying that RBAC inheritance is the appropriate design approach. The Critic assessed C3 as 'resolved' in r2-critic.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "Assignment authority and selection criteria are blocking dependencies that must be resolved by operations and country engagement leadership before the feature enters design phase. Absence of these policies will prevent implementation teams from building permission logic and user guidance.",
+        "reason": "The Proposer added this assumption in r2-proposer to explicitly frame challenges C1 and C2 as external governance decisions. The Critic accepted this framing but noted that the challenges remain unresolved because no documented policy, recommended policy for approval, or written confirmation of stakeholder engagement has been provided after four rounds.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ],
+        "disposition": "unresolved"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "A user searching for a country or viewing a country summary can identify the designated primary contact within one click or without scrolling past other controls.",
+        "reason": "Both Proposer and Critic accepted this as a testable, observable criterion for clear visibility and usability. This directly addresses the original request for a 'better way to track' who is the right person.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "A regional coordinator can assign or update the primary contact for a country in a single action, with confirmation of the change recorded.",
+        "reason": "Both Proposer and Critic accepted this as a testable, observable criterion for ease of curation and maintenance.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "A country list or project view can be filtered or sorted by primary contact designation (e.g., show all countries with no primary contact, or all assigned to a given person).",
+        "reason": "Both Proposer and Critic accepted this as a testable, observable criterion. The Critic raised challenge C5 about whether filtering respects authorization scope; the Proposer defended and clarified that list filtering applies only to countries the user is already authorized to view. The Critic assessed C5 as 'resolved' in r2-critic.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "An audit log records who assigned each primary contact, when, and what the previous assignment was (if any).",
+        "reason": "Both Proposer and Critic accepted this as a testable, observable criterion for transparency and dispute resolution. Audit logging supports accountability and enables review of assignment changes.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Assignment UI respects existing user authorization scope (users can only view and assign primary contacts for countries they have permission to access).",
+        "reason": "The Proposer added this success criterion in r2-proposer in response to Critic challenge C5. This clarifies that the feature inherits existing RBAC and does not expand user access. The Critic assessed C5 as 'resolved' with this addition.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "agreed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "Who is authorized to assign or change the primary contact designation for a country, and does that authority vary by region or contact sensitivity level?",
+        "impact": "Without clear delegation policy, implementation teams will lack clarity on UI permission logic, and users may create conflicts or inconsistent assignments across regions and sensitivity levels. Different stakeholders may disagree about whether regional coordinators, country leads, project managers, or only senior staff should hold this authority. This is a critical blocking dependency for design phase; permission logic cannot be built without documented policy. After 4 rounds, no policy documentation, recommended policy draft, or written stakeholder engagement confirmation has been provided.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "question": "What criteria should guide the selection of a primary contact (e.g., active project role, diplomatic rank, regional team assignment, or explicit request from country engagement lead)? Should selection criteria be centrally defined or delegated to regional coordinators with documented guidance?",
+        "impact": "Without stated criteria, the primary contact field may be assigned arbitrarily or left empty, undermining user trust in the designator and reducing feature adoption. Users need clear guidance when multiple candidates exist. This is a critical blocking dependency for user guidance and validation logic. Operations and country engagement leadership must define criteria or explicitly delegate criteria-setting with documented enforcement guidance. After 4 rounds, no criteria documentation, recommended criteria draft, or written stakeholder engagement confirmation has been provided.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic",
+          "r4-proposer",
+          "r4-critic"
+        ]
+      },
+      {
+        "question": "Does the current system already track which records are flagged for sensitivity, and if so, are there existing approval workflows for viewing or modifying flagged contact details?",
+        "impact": "Confirm which contact records in the CRM carry diplomatic or confidentiality flags and what access-control rules currently govern viewing and editing of those records. Primary contact assignment UI must inherit and respect these same rules. This is a secondary priority detail; it can be confirmed during design phase once the blocking dependencies (assignment authority and selection criteria) are resolved.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "question": "Should the primary contact designation be editable by project managers, or only by regional coordinators and senior staff?",
+        "impact": "Scope of user permissions, training, and support. Affects usability and risk of incorrect assignments. This is a component of the assignment authority policy (first blocking question). Once operations leadership documents the assignment authority policy, this question will be answered.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer"
+        ]
+      },
+      {
+        "question": "How should the system handle staleness of primary contact assignments—e.g., if a designated contact's role or country assignment changes? Should the system flag assignments for review if the designated contact no longer holds an active role or mission?",
+        "impact": "If staleness is not managed, users will lose trust in the designator and revert to manual searching, undermining long-term feature utility. Recommended maintenance model (reflected in revised assumption A2): include an optional 'last verified' date field to record when primary contact assignments were last confirmed, provide alerts when a designated contact no longer holds active roles/missions in the country, and establish periodic review cadence (e.g., quarterly) for regional coordinators. The Critic assessed challenge C4 as 'resolved' based on this revision. Confirm this maintenance approach with country engagement leadership during design phase.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      }
+    ],
+    "rejected_options": []
+  }
+}

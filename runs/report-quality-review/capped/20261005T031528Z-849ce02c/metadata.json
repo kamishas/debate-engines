@@ -1,0 +1,32 @@
+{
+  "evaluation_type": "summarizer_only_on_frozen_dialogue",
+  "case": "capped",
+  "source_run": "C:\\Users\\kamin\\Documents\\DE\\runs\\20261005T021432Z-b7e64989",
+  "source_report_status": "failed",
+  "source_file_hashes": {
+    "exchanges.jsonl": "d514bdf30072e4180f3793ef827014d9547f1ea4f27e610253c4b256dd8eba5a",
+    "input.json": "8c7ca391a5727a3c59896b7abd82e5c325dc6b167c9fa74d4274bebbc1c92292",
+    "metadata.json": "5aacdf81d38d3c3328a4cdc1c727f66d0e781bd6833ccc1a37f3fee3d01152f4",
+    "transcript.md": "c48e5c6474dd7c1ba9feac3b110b168cd7cd6c6fc292ce175e054b5b086fe04b"
+  },
+  "model": "claude-haiku-4-5-20251001",
+  "settings": {
+    "model": "claude-haiku-4-5-20251001",
+    "max_rounds": 4,
+    "max_tokens": 8192,
+    "max_calls": 1,
+    "max_input_bytes": 500000,
+    "repair_attempts": 0,
+    "provider_retries": 0
+  },
+  "started_at": "2026-10-05T03:15:28.636312+00:00",
+  "outcome": "capped",
+  "termination_reason": "Round cap reached without valid completion or a justified stall.",
+  "completed_rounds": 4,
+  "report_status": "succeeded",
+  "provider_calls": 1,
+  "input_tokens": 32479,
+  "output_tokens": 6054,
+  "source_files_unchanged": true,
+  "finished_at": "2026-10-05T03:16:29.459005+00:00"
+}

@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+.env
+.env.*
+!.env.example
+# Keep new runs local; include only the evidence cited in the documentation.
+/runs/*
+!/runs/20261005T004956Z-65334dc7/
+!/runs/20261005T012023Z-d64106fe/
+!/runs/20261005T021432Z-b7e64989/
+!/runs/20261005T023613Z-9ac1e50b/
+!/runs/20261005T032659Z-164354ee/
+!/runs/termination-prompt-review/
+!/runs/report-quality-review/
+tmp/
+private/
+*.pdf
+*assessment*
+*.log

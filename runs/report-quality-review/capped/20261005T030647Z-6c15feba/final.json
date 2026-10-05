@@ -1,0 +1,428 @@
+{
+  "original_request": "We need a better way to track who is the right person to contact in each country.",
+  "system_context": "A Government CRM system used in Operations and Country Engagement. The system is the central record of relationships between the organization and its government counterparts: country representatives, ministry contacts, project leads, and mission delegates. It tracks contact details, engagement history, project affiliations, and active missions across ~100 member countries. Users include regional coordinators, project managers, and executive-level staff. Data is sensitive - some contact records carry diplomatic or confidentiality considerations.",
+  "outcome": "capped",
+  "termination_reason": "Round cap reached without valid completion or a justified stall.",
+  "completed_rounds": 4,
+  "partial": true,
+  "latest_confidence": {
+    "proposer": {
+      "score": 68,
+      "justification": "Grounding (4): The interpretation, included and excluded scope, and material claims are grounded in the supplied request and system context. Proposed decisions are distinguished from established facts; no new policies are invented. Dependencies and blockers are clearly identified. Scope clarity and relevance (3): Included, excluded, and conditional scope are well-defined and coherent, addressing the user's core intent. However, the scope is contingent on three unresolved external dependencies (C2 confidentiality metadata, C5 lifecycle data quality, C6 engagement strategy), which means the current scope is conditional rather than final. Assumptions and dependencies (2): Six assumptions are documented and mostly sound. However, A2 (substantially complete contact data) now explicitly depends on verification of lifecycle status and confidentiality metadata (C5 and C2). A6 (default priority rule) is explicitly provisional pending C6 clarification. Two critical assumptions depend directly on unconfirmed external data: confidentiality metadata existence (C2) and lifecycle status quality (C5). Testability (2): Success criteria are observable and measurable, but several are conditional on external verification that has not yet occurred. For example, 'Contacts flagged with active lifecycle status appear' depends on C5 confirmation; 'Confidentiality flags are respected' depends on C2 confirmation. The feature cannot be tested against these criteria without first resolving C2 and C5. Treatment of material concerns (2): C1 (contact ranking logic) is resolved via an explicit default rule with transparent provisional framing and path to strategy-informed adjustment. C3 (context-aware recommendations) is resolved via scope exclusion from MVP. C4 (feedback mechanism) is resolved via binary feedback commitment. However, C2 (confidentiality metadata) and C5 (lifecycle data quality) remain unresolved blockers that prevent finalization of the scope. These are not optional refinements; they are prerequisites for the feature to function safely and reliably. The proposal demonstrates sound reasoning about scope boundaries and has clearly identified these blockers, but cannot move forward without external confirmation from CRM stakeholders (data governance, operations, security). The score is capped below 75 due to two unresolved material blockers (C2 and C5) that affect core scope and risk, and one material dependency (C6) that requires clarification before optimal design. The scope is logically coherent and defensible but operationally incomplete.",
+      "main_uncertainty": "Whether the CRM currently has formalized confidentiality or diplomatic sensitivity metadata and whether contact lifecycle status is accurately recorded and maintained across all ~100 countries. These are two separate but equally critical blockers. Until CRM stakeholders (data governance, operations, security) confirm (1) the existence, quality, and consistency of confidentiality metadata, and (2) the reliability of the contact lifecycle status field across all countries, the feature's scope cannot be finalized. If either is unavailable or unreliable, the feature must be scoped to defer that capability (with explicit user warning), or implementation must be staged to address data governance prerequisites first. Additionally, whether the default priority rule (recency, seniority, creation date) aligns with actual organizational engagement strategy should be clarified with regional coordinators or engagement strategy leadership before launch. Confirmation on these three points is necessary to move from conditional scope to final implementation scope.",
+      "round": 4,
+      "message_id": "r4-proposer"
+    },
+    "critic": {
+      "score": 68,
+      "justification": "Grounding (4): The interpretation and material claims remain grounded in supplied facts. Proposed decisions are clearly distinguished from external dependencies; no policies are invented. Scope clarity and relevance (3): Included, excluded, and conditional scope are well-defined and logically coherent, addressing the user's core intent. The feature is bounded and defensible. However, scope is contingent on three unresolved external dependencies, meaning it remains conditional rather than final. Assumptions and dependencies (2): Six assumptions are documented and mostly sound. A2 and A5 now explicitly depend on unconfirmed external data: lifecycle status accuracy (C5) and confidentiality metadata formalization (C2). A6 is explicitly provisional pending C6 clarification. Two critical blockers depend directly on unconfirmed CRM stakeholder confirmations. Testability (2): Success criteria are observable and measurable but conditional on external verification. For example, 'Confidentiality flags are respected' depends on C2; 'Contacts flagged with active lifecycle status appear' depends on C5. The feature cannot be tested against these criteria without first confirming the underlying data. Treatment of material concerns (2): C1 is resolved via explicit default rule with transparent provisional framing. C3 is resolved via scope exclusion. C4 is resolved via binary feedback. However, C2 (confidentiality metadata) and C5 (lifecycle data quality) remain unresolved blockers. The Proposer has correctly identified, documented, and conditioned the scope on these blockers but has not obtained the external confirmations needed to move from conditional to final scope. Round 4 restates positions without advancing external confirmations. The score reflects sound reasoning and clear structure but is capped below 75 due to two unresolved material blockers that must be confirmed before implementation can proceed. The lack of progress on obtaining these confirmations in Round 4 does not reduce confidence further, as the structure is correct—confirmation remains the path forward.",
+      "main_uncertainty": "Whether the CRM currently has formalized confidentiality or diplomatic sensitivity metadata and whether contact lifecycle status is accurately recorded and maintained across all ~100 countries. These two blockers (C2 and C5) are prerequisites for the feature to function safely and reliably. Until CRM stakeholders (data governance, operations, security, data stewards) confirm (1) the existence, quality, and consistency of confidentiality metadata, and (2) the reliability and completeness of the contact lifecycle status field, the feature's scope cannot be finalized for implementation. If either is unavailable or unreliable, implementation must be staged to address data governance prerequisites first, or the feature must launch with explicit limitations and user warnings. Confirmation on these two points from appropriate CRM stakeholders is necessary before scope can transition from conditional to final and before implementation readiness can be established.",
+      "round": 4,
+      "message_id": "r4-critic"
+    }
+  },
+  "confidence_note": "Self-reported judgments, not calibrated probabilities. Proposer assesses defensibility; Critic assesses review readiness. Subtracting scores is not a validated disagreement measure.",
+  "decision": {
+    "summary": "The deliberation addressed a request to improve contact identification in a Government CRM system serving ~100 member countries. The Proposer developed a contact recommendation feature that identifies a primary recommended contact per country using a priority rule (engagement recency, then role seniority: ministry > project lead > mission delegate, then record creation date), displays rationale, filters obsolete contacts by lifecycle status, respects confidentiality flags, and collects binary user feedback. The Critic accepted the feature design, transparent scope boundaries, and honest identification of three external blockers. The dialogue reached round cap at four exchanges without resolving two critical blockers: whether the CRM has formalized confidentiality or diplomatic sensitivity metadata (C2), and whether contact lifecycle status is accurately recorded across all countries (C5). A third dependency—alignment with organizational engagement strategy (C6)—was framed as a non-blocker subject to pilot testing validation but remains unconfirmed. The feature logic and scope structure are sound; implementation cannot proceed until CRM stakeholders (data governance, operations, security, data stewards) confirm the existence and quality of required metadata and data fields.",
+    "agreed_included_scope": [
+      {
+        "statement": "Add a contact recommendation feature that identifies a primary recommended contact for each country, with a decision rule prioritizing engagement recency and role seniority (ministry > project lead > mission delegate) when multiple eligible contacts exist.",
+        "reason": "Both agents agreed this addresses the core user pain point of uncertain or time-consuming contact identification. The Proposer specified a concrete, deterministic priority rule; the Critic accepted it as reasonable and transparent, with acknowledgment that it is provisional and subject to organizational strategy validation.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Display the recommended contact and a brief rationale (e.g., 'Last engaged 2 months ago' or 'Senior ministry contact with broad engagement history') within the CRM interface, enabling users to understand the basis for the recommendation.",
+        "reason": "Both agents agreed transparency in the recommendation basis is necessary for user trust, validation, and iterative feedback. The Critic accepted this as supporting user judgment and enabling post-launch refinement by regional coordinators.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Exclude contacts flagged as inactive, retired, or departed from recommendations; surface only active contacts, provided lifecycle status data is verified as accurate and maintained across the system.",
+        "reason": "Both agents agreed that obsolete contacts undermine the feature's value and user trust. The Proposer elevated this to an explicit blocker (C5) dependent on data quality verification; the Critic accepted the conditional scope as appropriate.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Provide a simple binary feedback mechanism (helpful/not helpful) to capture user assessment of each recommendation, enabling iterative refinement and learning.",
+        "reason": "Both agents agreed binary feedback is low-friction to collect, sufficient to identify failed recommendations, and can be enhanced to granular feedback in later phases if needed. The Critic accepted this as a reasonable trade-off for MVP.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Document and display the recommendation priority rule transparently in the interface so users and regional coordinators understand the basis for each recommendation, enabling validation and post-launch adjustment.",
+        "reason": "Both agents agreed transparent documentation of the rule's logic is necessary for user trust, organizational validation, and evidence-based feedback. The Critic accepted this as enabling regional coordinators to validate alignment with organizational norms.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Apply the feature consistently across all ~100 member countries with explicit fallback messaging for countries with no eligible active contacts after filtering, acknowledging the constraint without suppressing the issue.",
+        "reason": "Both agents agreed the feature should have consistent behavior across the system and that fallback messaging for edge cases is appropriate and honest. The Critic accepted this as setting realistic user expectations.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Exclude automatic contact outreach or message routing without user confirmation; retain user judgment as the final decision gate.",
+        "reason": "Both agents agreed that user judgment must remain final given diplomatic sensitivity and variety of engagement contexts. The feature advises rather than enforces or automatically routes. This avoids policy or authorization violations and is appropriate for sensitive contacts.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ],
+    "agreed_excluded_scope": [
+      {
+        "statement": "Automatic contact outreach or message routing to contacts without user confirmation.",
+        "reason": "Both agents agreed that automation of contact routing would remove user judgment and create risk of policy or authorization violations. The feature is a recommendation, not an enforcement mechanism.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Changes to the underlying contact data model, role definitions, or approval workflows.",
+        "reason": "Both agents agreed the feature works within existing CRM structures and does not modify core data models or workflows. This is a display and filtering layer, not a structural change.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Integration with external systems or external data sources.",
+        "reason": "Both agents agreed the feature uses data already in the CRM and does not require external data ingestion or system integration. Scope is contained to the CRM itself.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Context-aware recommendation logic (varying recommendations by engagement purpose, mission, or project context) in the initial release.",
+        "reason": "Both agents agreed context-aware recommendations are more useful but more complex to implement and explain. The feature will provide a general 'primary recommended contact for any purpose' in MVP, with context-aware logic deferred to later phases if data quality and user feedback support it.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Policy enforcement or access control beyond respecting existing sensitivity flags in contact records.",
+        "reason": "Both agents agreed the feature respects existing data flags but does not create new policies or access restrictions. Policy and organizational governance are outside feature scope.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ],
+    "conditional_scope": [
+      {
+        "statement": "Confidentiality and diplomatic sensitivity filtering depends on C2 resolution: If the CRM has documented confidentiality or diplomatic sensitivity metadata, classification schemes, and clear filtering rules, the recommendation feature will query and enforce those rules directly, excluding flagged contacts from display. If such a system is not formalized or data quality is poor, the feature will either defer enforcement until metadata is standardized (with a placeholder and explicit warning to users), or launch with enforcement disabled and escalate confidentiality metadata standardization as a prerequisite data governance task.",
+        "reason": "Both agents agreed the feature cannot safely filter restricted contacts without documented metadata defining which contacts carry confidentiality or diplomatic sensitivity. The Proposer correctly identified this as a blocker dependency requiring external verification from CRM stakeholders (data governance, operations, security). The feature design accommodates two implementation paths based on the outcome of that verification. This is not a weakness but honesty about a critical external constraint.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Contact lifecycle status filtering depends on C5 resolution: The feature will exclude inactive, retired, or departed contacts by querying the contact lifecycle status field, provided that field is currently populated and accurate across all ~100 countries. If data quality assessment confirms the field is reliable, the feature proceeds as scoped. If lifecycle status data is incomplete or inconsistent in specific countries or regions, the feature should exclude those countries from the initial rollout with a plan to add them once data is remediated, or issue explicit warnings that lifecycle filtering is unreliable for specific regions.",
+        "reason": "Both agents agreed that lifecycle status is a critical filter for the feature's value. The Proposer elevated this to an explicit blocker (C5) requiring verification from CRM data stewards or operations. The feature design accommodates three implementation paths based on data quality confirmation. Without verification, the feature cannot reliably filter obsolete contacts.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Engagement strategy and role prioritization depends on C6 clarification: The default priority rule (engagement recency first, then role seniority [ministry > project lead > mission delegate], then record creation date) is functional but provisional. If regional coordinators or engagement strategy leadership confirm that documented organizational guidance on role prioritization exists for specific countries or regions, that guidance should be incorporated into the algorithm before launch. If no documented guidance exists, the default rule is acceptable, but regional coordinators should validate it during pilot testing or early rollout, with a clear process for post-launch adjustment if systematic misalignment is detected.",
+        "reason": "Both agents acknowledged that the default rule may not reflect organizational or regional engagement norms. The Proposer framed this as a non-blocker subject to pilot testing validation rather than a prerequisite to launch, which the Critic accepted as reasonable risk management. However, early consultation with regional coordinators on strategy alignment would reduce launch risk.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Project and mission affiliation will be included as auxiliary signals in the recommendation rationale if data quality permits (i.e., if relationships are consistently recorded and linked to contacts). If these relationships are incomplete or inconsistent, the feature will function with engagement recency and role seniority alone, and project affiliation will be added in a later phase once data quality improves.",
+        "reason": "Both agents agreed project and mission affiliation are useful signals but their inclusion depends on data quality. The Proposer appropriately scoped this as conditional on data quality verification, with deferral to later phases if data is incomplete.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ]
+      }
+    ],
+    "disputed_scope": [],
+    "unresolved_scope": [
+      {
+        "statement": "Formalization and enforcement of confidentiality or diplomatic sensitivity metadata filtering in the recommendation feature.",
+        "reason": "The Proposer correctly identified this as a critical blocker (C2) but has not obtained confirmation from CRM data governance, operations, or security stakeholders whether the CRM currently has documented confidentiality metadata, classification schemes, or clear filtering rules. Without such confirmation, the feature cannot safely implement confidentiality-aware filtering. If metadata does not exist or is incomplete, either the feature must launch with confidentiality filtering explicitly disabled and a user warning, or standardizing confidentiality metadata must be a prerequisite data governance task separate from this feature. The dialogue terminated at round cap without resolving this dependency.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Verification of contact lifecycle status (active vs. inactive/retired/departed) data quality and consistency across all ~100 countries.",
+        "reason": "The Proposer correctly identified this as a critical blocker (C5) but has not obtained confirmation from CRM data stewards or operations whether the contact lifecycle status field is currently populated and accurate across all countries. If data quality is poor in specific countries or regions, those countries must be identified and either excluded from the initial rollout or surfaced with warnings. The success criterion 'Contacts flagged with active lifecycle status appear in recommendations' depends on this verification. The dialogue terminated at round cap without obtaining this confirmation.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "statement": "Alignment of the default priority rule (engagement recency, then role seniority, then record creation date) with actual organizational engagement strategy or regional norms.",
+        "reason": "The Proposer has not obtained confirmation from regional coordinators or engagement strategy leadership about whether documented organizational guidance on role prioritization exists. If the organization has established norms that differ materially from the default rule (e.g., 'always approach ministry level first regardless of recency'), the feature will produce systematically poor recommendations until adjusted. The Proposer framed this as a non-blocker subject to pilot testing validation, but the underlying uncertainty remains unconfirmed. The dialogue terminated at round cap without this clarification.",
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "statement": "Users currently spend time searching for or uncertainly identifying the right contact in each country, or make outreach mistakes that reach the wrong person or confidential contact.",
+        "reason": "The original request uses the phrase 'better way to track' and 'right person,' implying dissatisfaction with current contact discovery. The system context notes that some contacts carry diplomatic or confidentiality considerations, implying risk of incorrect routing. This pain point justifies investment in improved routing and filtering.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The system contains substantially complete contact records for the countries and roles in scope; the improvement does not require major data population or cleanup before the feature can provide value. However, contact lifecycle status (active vs. inactive) and confidentiality metadata must be accurately recorded and maintained for the feature to function safely and reliably.",
+        "reason": "The system is described as 'the central record' with existing engagement history and project affiliations. A recommendation feature adds value to existing data rather than creating it. However, the feature's ability to filter obsolete contacts and respect confidentiality restrictions depends on reliable lifecycle status and confidentiality metadata, which must be verified via C5 and C2.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer",
+          "r3-proposer"
+        ],
+        "disposition": "challenged_and_retained"
+      },
+      {
+        "statement": "Users retain final responsibility for selecting whom to contact; the feature advises rather than enforces or automatically routes.",
+        "reason": "Given diplomatic sensitivity and variety of engagement contexts, a human decision gate is appropriate and avoids policy or authorization violations. This is a fundamental design principle accepted by both agents.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "Relevant signals for identifying the right contact include prior engagement history, role/title, contact record creation date, and active status. Project or mission affiliation serves as an auxiliary signal when data quality permits.",
+        "reason": "These are standard CRM indicators of relationship strength and relevance. Engagement history and lifecycle status are explicitly tracked in the system. Project/mission affiliation is included conditionally based on data quality.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic",
+          "r2-proposer"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "The proposal respects existing confidentiality and sensitivity flags in contact records and does not assume new organizational policies or access restrictions beyond those already recorded.",
+        "reason": "Policy and access control are outside the scope of a feature request; the system should work within current constraints. However, confidentiality enforcement depends on metadata formalization, which is outside the feature's direct control and must be confirmed via C2.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "accepted"
+      },
+      {
+        "statement": "In the absence of formalized organizational engagement strategy, the feature will prioritize contacts by most recent engagement date first, then by role seniority (ministry > project lead > mission delegate), then by record creation date. This default rule is reasonable but provisional and may not match all regional or country-specific engagement norms.",
+        "reason": "The original request does not specify organizational strategy or role prioritization. A deterministic default rule is necessary to make the feature functional. The Proposer defined this rule explicitly in Round 2, and the Critic accepted it as sound but provisional. The Critic noted the rule should be validated during pilot testing, with a documented process for post-launch adjustment if systematic misalignment is found. This assumption is now explicit and transparent.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "challenged_and_retained"
+      }
+    ],
+    "success_criteria": [
+      {
+        "statement": "Users can view a recommended primary contact for any country via a dedicated interface or inline recommendation in the contact list, without manual search.",
+        "reason": "This is the core feature value: enabling faster, more confident contact identification without time-consuming manual search. Both agents agreed this is observable and measurable.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The recommendation includes transparent rationale (e.g., 'Last engaged 2 months ago' or 'Senior ministry contact with broad engagement history') based on the signals used to rank it.",
+        "reason": "Both agents agreed transparency in the recommendation basis is necessary for user trust and validation. The Critic explicitly accepted this criterion as supporting user judgment and enabling post-launch refinement.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "Contacts flagged with active lifecycle status (not inactive, retired, or departed) appear in recommendations; inactive contacts are reliably excluded based on lifecycle data quality confirmation (C5).",
+        "reason": "Both agents agreed filtering obsolete contacts is necessary for feature value and user trust. However, this criterion is contingent on C5 resolution: verification from CRM data stewards or operations that lifecycle status is accurate and complete across all countries.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "proposed"
+      },
+      {
+        "statement": "Confidentiality and diplomatic sensitivity flags are respected, contingent on C2 resolution: flagged contacts are excluded from recommendations if metadata is formalized, or clearly marked with a warning if enforcement is deferred.",
+        "reason": "Both agents agreed this is a necessary success criterion for safety and compliance. However, it is contingent on C2 resolution: verification from CRM stakeholders (data governance, operations, security) that confidentiality metadata exists and is reliable.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "proposed"
+      },
+      {
+        "statement": "Users can provide binary feedback (helpful/not helpful) on each recommendation; feedback is logged for analysis and iterative refinement.",
+        "reason": "Both agents agreed binary feedback is a low-friction mechanism for learning and improvement. The Critic accepted this as a reasonable choice for MVP, with potential to enhance to granular feedback in later phases.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The feature covers all ~100 member countries with consistent behavior; countries with no eligible active contacts display an explicit fallback message.",
+        "reason": "Both agents agreed the feature should have consistent behavior across the system and handle edge cases transparently. The fallback messaging is appropriate and honest, acknowledging constraints without suppressing them.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ],
+        "disposition": "agreed"
+      },
+      {
+        "statement": "The recommendation rule (priority ranking of signals) is documented and visible to users so they understand why a contact was recommended, enabling validation by regional coordinators and stakeholders.",
+        "reason": "Both agents agreed transparent documentation of the rule is necessary for user trust, organizational validation, and evidence-based feedback. This criterion supports post-launch refinement and alignment with organizational norms.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ],
+        "disposition": "agreed"
+      }
+    ],
+    "open_human_questions": [
+      {
+        "question": "Does the CRM currently maintain documented confidentiality or diplomatic sensitivity metadata, classification schemes, or explicit filtering rules for restricted contacts? If such a system exists, what are those rules, how are they currently applied, and what is their coverage and consistency across all ~100 countries? If such a system does not exist, should the feature launch with confidentiality filtering explicitly disabled and an explicit user warning, or should standardizing confidentiality metadata be a prerequisite data governance task separate from this feature?",
+        "impact": "This is the most critical blocker for the feature's safety and usefulness. Without formalized confidentiality metadata, the feature cannot reliably protect sensitive contacts and may surface contacts it should exclude, creating diplomatic or security risk. If metadata does not exist or is incomplete, the feature either must launch with limitations and warnings, or implementation must be staged to address data governance prerequisites first. This decision must be made by CRM stakeholders (data governance, operations, security).",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Is the contact lifecycle status field (active, inactive, retired, departed) currently populated and maintained with high accuracy and consistency across all ~100 countries? What is the current data quality, maintenance process, and frequency of updates? Are there known countries, regions, or contact types with poor or missing lifecycle status data? If so, what is the timeline for remediation?",
+        "impact": "The feature depends on reliable lifecycle status to filter out obsolete contacts. If this field is incomplete or inconsistent, the feature may surface inactive or departed contacts, undermining its primary value and user trust. If data quality is confirmed to be reliable, the feature proceeds as scoped. If data quality is poor in specific countries or regions, those countries must be identified for potential exclusion from the initial rollout or explicit warnings to users. This verification must be obtained from CRM data stewards or operations.",
+        "blocks_implementation": true,
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic",
+          "r3-proposer",
+          "r3-critic"
+        ]
+      },
+      {
+        "question": "Does the organization have documented engagement strategy, regional guidance, or established norms for whether to approach ministry-level contacts, project leads, mission delegates, or other role types first within a given country or region? Does this guidance vary by country, engagement purpose, or region?",
+        "impact": "The default priority rule (engagement recency, then role seniority, then record creation date) is functional but provisional. If organizational or regional guidance on role prioritization exists and differs from the default rule, that guidance should be incorporated before launch to ensure the feature aligns with actual organizational norms. If no documented guidance exists, the default rule is acceptable, but it should be validated by regional coordinators during pilot testing, with a clear process for post-launch adjustment if systematic misalignment is detected. Early clarification reduces launch risk.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "question": "For countries where no eligible active contacts exist after filtering for lifecycle status and confidentiality restrictions, is there a defined escalation process, fallback contact (e.g., regional coordinator or standby delegate), or data governance plan to address persistent gaps?",
+        "impact": "The feature's fallback message ('No eligible contact available...please contact your regional coordinator') acknowledges the constraint but does not resolve the underlying issue. Persistent gaps in eligible contacts indicate either data population issues or engagement strategy gaps that require manual attention or upstream remediation. Clarifying the escalation process and any data governance plans will help set user expectations and identify upstream work needed.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-critic",
+          "r2-proposer",
+          "r3-proposer"
+        ]
+      },
+      {
+        "question": "Are project and mission affiliations consistently recorded and linked to contact records in the CRM? What is the current coverage and quality of these relationships, and what data governance process ensures ongoing consistency?",
+        "impact": "The proposal includes project and mission affiliation as an auxiliary signal in the recommendation rationale. If these relationships are incomplete or inconsistent, the feature will function with engagement recency and role seniority alone, and project affiliation will be deferred to a later phase once data quality improves. Data quality assessment is needed to plan the initial feature scope and to set realistic expectations for iterative enhancement.",
+        "blocks_implementation": false,
+        "supporting_messages": [
+          "r1-proposer",
+          "r2-proposer",
+          "r3-proposer"
+        ]
+      }
+    ],
+    "rejected_options": [
+      {
+        "statement": "Automatic contact outreach or message routing to contacts without user confirmation.",
+        "reason": "Both agents rejected this as inappropriate: it would remove user judgment, create risk of policy or authorization violations, and is inconsistent with the feature's advisory role. User judgment must remain the final decision gate.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      },
+      {
+        "statement": "Context-aware recommendation logic (e.g., varying recommendations by engagement purpose, project, or mission context) in the initial release.",
+        "reason": "Both agents agreed context-aware recommendations are more useful but more complex to implement, explain, and maintain. The feature will provide a general 'primary recommended contact for any purpose' in MVP. Context-aware logic is deferred to later phases pending data quality improvement and user feedback.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Granular (categorical or open-ended) feedback mechanism in place of binary feedback for the initial release.",
+        "reason": "The Proposer considered granular feedback (wrong contact, outdated, too senior/junior) but selected binary feedback (helpful/not helpful) for MVP to reduce user friction and complexity. Granular feedback can be added in later phases if analysis of binary signals indicates the need.",
+        "supporting_messages": [
+          "r2-proposer",
+          "r2-critic"
+        ]
+      },
+      {
+        "statement": "Policy enforcement or access control beyond respecting existing sensitivity flags in contact records.",
+        "reason": "Both agents excluded this: policy and access control are outside the feature's scope. The feature respects existing data flags but does not create new policies or access restrictions. Organizational governance is external to feature scope.",
+        "supporting_messages": [
+          "r1-proposer",
+          "r1-critic"
+        ]
+      }
+    ]
+  }
+}
