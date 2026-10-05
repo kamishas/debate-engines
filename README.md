@@ -6,6 +6,7 @@ The supplied examples use a Government CRM for Operations and Country Engagement
 
 ## Start here
 
+- **Presentation:** [Debate Engines — Architecture and Prompt Rationale](docs/presentation/debate-engines-architecture-and-prompt-rationale.pptx) (PowerPoint, 14 slides). Covers the architecture, workflow, reasoning behind all three agent prompts, termination, and evidence from a real run.
 - **Project walkthrough video:** [Quick Project Walkthrough  & Prompts for agent Quick Justification](https://github.com/kamishas/debate-engines/releases/download/demo-walkthrough-2026-10-05/Quick.Project.Walkthrough.Prompts.for.agent.Quick.Justification.mp4) (MP4, 52.6 MB).
 - **Live execution video:** [Quick Live Demo Execution with Results](https://github.com/kamishas/debate-engines/releases/download/demo-walkthrough-2026-10-05/Quick.Live.Demo.Execution.with.Results.mp4) (MP4, 24.9 MB).
 - **Inspect the latest manual example:** [five-round engagement-history trace](runs/20261005T032659Z-164354ee/transcript.md), [final decision](runs/20261005T032659Z-164354ee/final.json), and [metadata](runs/20261005T032659Z-164354ee/metadata.json). See [recent manual runs](#recent-manual-runs) for the other outcomes.
@@ -13,6 +14,20 @@ The supplied examples use a Government CRM for Operations and Country Engagement
 - **Read the prompts:** [Proposer](src/deliberation/prompts/proposer.md), [Critic](src/deliberation/prompts/critic.md), and [Summarizer](src/deliberation/prompts/summarizer.md).
 - **Understand the design:** [architecture](#architecture), [termination](#termination), and [DECISIONS.md](DECISIONS.md).
 - **Review evidence and limitations:** [sample runs](#sample-runs) and [EVALUATION.md](EVALUATION.md).
+
+## Run screenshots
+
+### Agent exchanges
+
+The live trace records model calls, validation events, and accepted Proposer/Critic messages. This screenshot captures a separate run (`20261005T094155Z-be0af320`) in progress. For a complete saved discussion, open the [five-round transcript](runs/20261005T032659Z-164354ee/transcript.md) or its [exchange log](runs/20261005T032659Z-164354ee/exchanges.jsonl).
+
+![Live trace showing Proposer and Critic exchanges and validation events](docs/images/live-traces-between-agents.png)
+
+### Final decision and confidence
+
+The five-round engagement-history run (`20261005T032659Z-164354ee`) completed with a validated report. The screenshot shows the recorded outcome, both agents' confidence scores and explanations, and the start of the Summarizer's decision. The [complete final.json](runs/20261005T032659Z-164354ee/final.json) contains the scope, assumptions, success criteria, and open questions, with supporting message references. Confidence scores are self-reported judgments, not calibrated probabilities.
+
+![Final report showing five completed rounds, agent confidence, and the start of the decision document](docs/images/final-report-and-confidence.png)
 
 ## Setup and run
 
