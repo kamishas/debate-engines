@@ -6,7 +6,7 @@ The supplied examples use a Government CRM for Operations and Country Engagement
 
 ## Start here
 
-- **Project walkthrough video:** [Download the recorded demo (MP4, 52.6 MB)](https://github.com/kamishas/debate-engines/releases/download/demo-walkthrough-2026-10-05/video1703437887.mp4).
+- **Project walkthrough video:** [Quick Project Walkthrough  & Prompts for agent Quick Justification](https://github.com/kamishas/debate-engines/releases/download/demo-walkthrough-2026-10-05/Quick.Project.Walkthrough.Prompts.for.agent.Quick.Justification.mp4) (MP4, 52.6 MB).
 - **Inspect the latest manual example:** [five-round engagement-history trace](runs/20261005T032659Z-164354ee/transcript.md), [final decision](runs/20261005T032659Z-164354ee/final.json), and [metadata](runs/20261005T032659Z-164354ee/metadata.json). See [recent manual runs](#recent-manual-runs) for the other outcomes.
 - **Inspect a complete example:** [engagement-history transcript](sample_runs/engagement-history/transcript.md), [final decision](sample_runs/engagement-history/final.json), and [metadata](sample_runs/engagement-history/metadata.json).
 - **Read the prompts:** [Proposer](src/deliberation/prompts/proposer.md), [Critic](src/deliberation/prompts/critic.md), and [Summarizer](src/deliberation/prompts/summarizer.md).
