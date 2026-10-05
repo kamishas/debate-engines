@@ -6,21 +6,27 @@
                          |
                          v
 2. HOW I FIRST THOUGHT ABOUT IT
-   A vague request leaves gaps that agents can fill with plausible
-   assumptions. I wanted the debate to expose those assumptions
-   before they became agreed scope.
+   A vague request leaves gaps that an agent can fill with plausible
+   assumptions. I wanted the discussion to expose those assumptions
+   before they became part of the agreed scope.
 
-   My hypothesis was to give both agents a burden of justification:
-   the Proposer must explain its choices, and the Critic must explain
-   what could go wrong and why it matters.
+   My working hypothesis was that giving the agents different
+   responsibilities would make those choices easier to examine.
+   The Proposer has to make a concrete decision and explain why it
+   is reasonable. The Critic has to explain what could go wrong and
+   why that consequence matters. Both carry a responsibility: a
+   proposal needs justification, and an objection needs
+   justification too.
 
-   Progress means resolving a material concern through revision,
-   supported defence, or an explicit condition. Agreement alone
-   does not prove improvement.
+   I would judge progress by whether a material concern was resolved
+   through a revision, a supported defence, or a clearly stated
+   condition. Agreement alone would not demonstrate improvement.
 
-   Discussion can clarify trade-offs, but it cannot establish an
-   unknown organizational policy. That boundary shaped conditional
-   scope and termination.
+   I also needed a boundary between what discussion could resolve
+   and what required outside information. Another exchange might
+   clarify a trade-off, but it cannot establish an unknown
+   organizational policy. That distinction shaped the conditional
+   scope and termination rules.
 
    I thought about how people debate: someone puts forward an idea,
    someone questions it, and both work toward a better decision.
