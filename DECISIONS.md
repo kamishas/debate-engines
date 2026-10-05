@@ -124,22 +124,51 @@
        decisions may still be needed before implementation.
                          |
                          v
-9. WHAT I WOULD DO NEXT
-   I would build at least 100 varied test scenarios and define the
-   behavior I expect, keeping separate cases for final evaluation.
-                         |
-   I would compare prompts and parameter settings one change at a time.
-                         |
-   I would check unnecessary concessions, repeated objections, early
-   stops, report accuracy, and the number of calls used.
-                         |
-              Adjust → test again → compare
-                         |
-   If prompting remained insufficient, I would explore fine-tuning
-   a suitable model with reviewed synthetic CRM dialogues.
+9. WHAT I WOULD DO WITH MORE TIME
+   |
+   ├── Build an SME-reviewed golden dataset
+   |   I would work with subject-matter experts to create vague test
+   |   requests based on the system context. Each scenario would
+   |   include expected concerns, acceptable scope decisions,
+   |   unresolved dependencies, and reasonable stopping conditions.
+   |   This would give us a reference for judging reasoning quality,
+   |   without assuming there is only one correct proposal.
+   |
+   ├── Use an LLM judge to improve prompts iteratively
+   |   After each evaluation run, an LLM judge would compare the
+   |   dialogue and final report against the reference criteria.
+   |   It would identify failures with supporting message references
+   |   and propose revised prompts for the three agents.
+   |
+   |             Run → Judge → Revise prompts → Run again
+   |
+   |   I would retain a revision only when it improves measured
+   |   performance without weakening other behaviors. SMEs would
+   |   review the judge's assessments, and separate, untouched
+   |   scenarios would test whether improvements generalize.
+   |
+   ├── Test behavioral boundaries and temperature
+   |   I would strengthen and compare instructions about when the
+   |   Proposer should defend or revise, when the Critic should
+   |   challenge or accept, and what the Summarizer may claim.
+   |   I would vary each agent's temperature separately and repeat
+   |   runs to measure consistency, premature agreement, unnecessary
+   |   objections, and report accuracy.
+   |
+   └── Compare models and explore weight fine-tuning
+       I observed the Proposer accepting criticism too readily in
+       some runs. I would compare pretrained models under the same
+       evaluation conditions to separate model effects from prompt
+       effects. These observations do not establish model age,
+       size, or RLHF as the cause.
 
-   The examples should teach both justified defence and justified
-   revision, rather than agreement or resistance in every situation.
+       If prompt improvements remained insufficient, I would
+       fine-tune an open-weight model using SME-reviewed dialogues
+       derived from the golden dataset. Training examples would
+       demonstrate justified defence, revision, and stopping.
+       Evaluation cases would remain outside the training data.
+       I would compare quality, inference cost, and maintenance
+       against the existing prompt-only approach.
 ```
 
 Research reference: [Anthropic’s study of sycophancy](https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models).
