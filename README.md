@@ -228,13 +228,17 @@ The first three runs used a four-round ceiling and one repair attempt; the last 
 | Clearly visible agent prompts | Three dedicated files in [prompts/](src/deliberation/prompts/). |
 | `DECISIONS.md`, 500–1000 words | The [design narrative](DECISIONS.md) is within the requested range and covers motivation, prompt reasoning, lessons, stopping behavior, and future evaluation. **One documentation gap remains:** explicit comparison of termination alternatives is in this README, not yet in `DECISIONS.md` itself. |
 
-Use the following evidence for the assessment's quality criteria; the weights are review priorities, not claimed scores:
+The [latest final decision](runs/20261005T032659Z-164354ee/final.json) meets the assessment's required output structure: agreed included and excluded scope, assumptions with their dispositions, and open human questions with their impact. It also explains why choices were accepted and which conditions still need to be satisfied. This gives a reviewer a concrete scope document and preserves concerns from the discussion, including access control and unresolved organizational decisions.
+
+The supporting files show the other requirements: the [full trace](runs/20261005T032659Z-164354ee/transcript.md) records five rounds, and the [metadata](runs/20261005T032659Z-164354ee/metadata.json) records completion before the eight-round ceiling under the [Critic-led stopping policy](#termination). The [CLI](src/deliberation/cli.py) accepts different inputs without code changes, and the [three separate prompts](src/deliberation/prompts/) make the agent instructions visible. The separate [Summarizer](src/deliberation/prompts/summarizer.md) produces the decision, while `latest_confidence` retains both main agents' scores and uncertainty, covering both bonus features.
+
+Together, the report, trace, and implementation provide evidence of the required capabilities. The following table explains the quality criteria at a high level; the weights are review priorities, not claimed scores. Generated reports still need review for the [documented consistency limits](#verification-and-limits).
 
 | Criterion | Weight | What to examine |
 | --- | --- | --- |
-| Agent prompt quality | 30% | Distinct role prompts and actual defence, revision, and targeted challenges in traces. |
+| Agent prompt quality | 30% | The [Proposer](src/deliberation/prompts/proposer.md) must explain its choices and justify keeping or changing them. The [Critic](src/deliberation/prompts/critic.md) must challenge specific weaknesses and recognize adequate responses. The [Summarizer](src/deliberation/prompts/summarizer.md) must preserve supported decisions and remaining uncertainty. These distinct responsibilities encourage reasoned discussion and faithful reporting. The [recent trace](runs/20261005T032659Z-164354ee/transcript.md) shows the Proposer defending its scope and the Critic accepting some responses while keeping other concerns open. |
 | Termination design | 25% | [Policy and alternatives](#termination), [implementation](src/deliberation/termination.py), and recorded stopping reasons. |
-| Output quality | 20% | Conditions, disagreements, assumptions, and human questions, checked against their cited exchanges. |
+| Output quality | 20% | The [recent final decision](runs/20261005T032659Z-164354ee/final.json) provides usable scope boundaries, assumptions, and testable criteria. It preserves real tension by explaining the access-control concern, the proposed filtering approach, and the Critic's acceptance. Authorization and workflow decisions remain explicit conditions and human questions, with their implementation consequences. Message references connect these conclusions to the [dialogue](runs/20261005T032659Z-164354ee/transcript.md), allowing the reasoning to be checked. Agreement on conditional scope does not mean every dependency is resolved. |
 | Architectural clarity | 15% | [Component boundaries](#architecture) and sequential control flow in [engine.py](src/deliberation/engine.py). |
 | Design reflection | 10% | [DECISIONS.md](DECISIONS.md): why prompts changed, what failed, trade-offs, and the next experiment. |
 
